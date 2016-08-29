@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormsTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateFormsTable extends Migration
      */
     public function up()
     {
-        Schema::create('forms', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('form_name');
-            $table->integer('npi')->unsigned();
-            $table->foreign('npi')->references('npi')->on('physicians');
+            $table->integer('form_id')->unsigned;
+            $table->string('question', 200);
+            $table->boolean('quantifiable');
+            $table->foreign('form_id')->references('id')->on('forms');
         });
     }
 
