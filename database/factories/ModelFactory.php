@@ -13,18 +13,18 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     $clearance = ['patient', 'doctor'];
     return [
-        'name' => $faker->name,
+        'username' => $faker->username,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'clearance' => $clearance[mt_rand(0,1)],
-        'remember_token' => str_random(10),
+        'remember_token' => str_random(10)
     ];
 });
 
 $factory->define(App\Patient::class, function (Faker\Generator $faker) {
     return [
         'user_id' => App\User::all()->random()->id,
-        'first_name' => $faker->firstName;
+        'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'ssn' => $faker->randomNumber(9),
         'emergency_contact_name' => $faker->name,

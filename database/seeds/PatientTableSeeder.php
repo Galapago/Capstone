@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 
 class PatientTableSeeder extends Seeder
 {
@@ -28,7 +29,8 @@ class PatientTableSeeder extends Seeder
             $patient1->medication = $patient['medication'];
             $patient1->health_insurance = $patient['health_insurance'];
             $patient1->save();
-
+        }
+        
     	factory(App\Patient::class, 480)->create();
     }
 }

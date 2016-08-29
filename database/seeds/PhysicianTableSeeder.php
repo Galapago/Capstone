@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 
 class PhysicianTableSeeder extends Seeder
 {
@@ -12,9 +13,9 @@ class PhysicianTableSeeder extends Seeder
     public function run()
     {	
     	$physicians = [
-            ['npi' => '1234567890', 'clinic' => '9999999999'];
-            ['npi' => '9999999999', 'clinic' => '0000000000'];
-            ['npi' => '5555555555', 'clinic' => '1111111111'];
+            ['npi' => '1234567890', 'clinic' => '9999999999'],
+            ['npi' => '9999999999', 'clinic' => '0000000000'],
+            ['npi' => '5555555555', 'clinic' => '1111111111'],
 
         foreach($physicians as $physician){
             $physician1 = new App\Physician();

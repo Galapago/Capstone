@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
         DB::table('physicians')->delete();
         DB::table('patients')->delete();
         DB::table('users')->delete();
-        $this->call(UsersTableSeeder::class);
-        $this->call(PatientsTableSeeder::class);
-        $this->call(PhysiciansTableSeeder::class);
-        $this->call(FormsTableSeeder::class);
-        $this->call(QuestionsTableSeeder::class);
-        $this->call(SubmissionsTableSeeder::class);
-        $this->call(AnswersTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(PatientTableSeeder::class);
+        $this->call(PhysicianTableSeeder::class);
+        $this->call(FormTableSeeder::class);
+        $this->call(QuestionTableSeeder::class);
+        $this->call(SubmissionTableSeeder::class);
+        $this->call(AnswerTableSeeder::class);
 
         Model::reguard();
     }
