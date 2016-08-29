@@ -14,7 +14,7 @@ class CreatePhysiciansTable extends Migration
     {
         Schema::create('physicians', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('npi')->unsigned();
+            $table->integer('npi')->unsigned()->unique();
             $table->integer('patient_id')->unsigned();
             $table->integer('clinic')->unsigned();
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreatePhysiciansTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('physicians');
     }
 }

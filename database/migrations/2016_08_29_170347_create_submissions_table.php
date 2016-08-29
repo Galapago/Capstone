@@ -14,8 +14,8 @@ class CreateSubmissionsTable extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('form_id')->unsigned;
-            $table->integer('patient_id')->unsigned;
+            $table->integer('form_id')->unsigned();
+            $table->integer('patient_id')->unsigned();
             $table->foreign('form_id')->references('id')->on('forms');
             $table->foreign('patient_id')->references('id')->on('patients');
 
@@ -29,6 +29,6 @@ class CreateSubmissionsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('submissions');
     }
 }

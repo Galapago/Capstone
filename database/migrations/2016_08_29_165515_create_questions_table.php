@@ -14,7 +14,7 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('form_id')->unsigned;
+            $table->integer('form_id')->unsigned();
             $table->string('question', 200);
             $table->boolean('quantifiable');
             $table->foreign('form_id')->references('id')->on('forms');
@@ -28,6 +28,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('questions');
     }
 }

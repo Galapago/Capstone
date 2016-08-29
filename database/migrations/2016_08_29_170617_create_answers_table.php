@@ -14,8 +14,8 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('question_id')->unsigned;
-            $table->integer('patient_id')->unsigned;
+            $table->integer('question_id')->unsigned();
+            $table->integer('patient_id')->unsigned();
             $table->string('answer');
             $table->integer('submission_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('questions');
@@ -30,7 +30,7 @@ class CreateAnswersTable extends Migration
      * @return void
      */
     public function down()
-    {
-        //
+    {   
+        Schema::drop('answers');
     }
 }
