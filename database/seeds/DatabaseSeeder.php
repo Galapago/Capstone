@@ -14,10 +14,12 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        DB::table('physicians')->delete();
         DB::table('patients')->delete();
         DB::table('users')->delete();
         $this->call(UserTableSeeder::class);
         $this->call(PatientTableSeeder::class);
+        $this->call(PhysiciansTableSeeder::class);
 
         Model::reguard();
     }

@@ -19,7 +19,7 @@ class CreatePatientsTable extends Migration
             $table->string('last_name', 20);
             $table->integer('ssn')->unsigned();
             $table->string('emergency_contact_name');
-            $table->integer('emergency_contact_number');
+            $table->integer('emergency_contact_number')->unsigned();
             $table->string('emergency_contact_email', 20);
             $table->string('medication');
             $table->string('health_insurance');
