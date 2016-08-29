@@ -14,9 +14,7 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('username', 30)->unique();
-            $table->string('email')->unique();
-            $table->string('password', 60);
+            $table->integer('user_id')->unsigned();
             $table->string('first_name', 30);
             $table->string('last_name', 30);
             $table->integer('ssn')->unsigned();
@@ -25,8 +23,8 @@ class CreatePatientsTable extends Migration
             $table->string('emergency_contact_email', 30);
             $table->string('medication');
             $table->string('health_insurance');
-            $table->rememberToken();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

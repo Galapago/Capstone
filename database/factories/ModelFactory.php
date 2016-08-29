@@ -10,12 +10,20 @@
 | database. Just tell the factory how a default model should look.
 |
 */
+$factory->define(App\User::class, function (Faker\Generator $faker) {
+    $clearance = ['patient', 'doctor'];
+    return [
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        'password' => bcrypt(str_random(10)),
+        'clearance' => $clearance[mt_rand(0,1)],
+        'remember_token' => str_random(10),
+    ];
+});
 
 $factory->define(App\Patient::class, function (Faker\Generator $faker) {
     return [
-        'username' => $faker->userName,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+        'user_id' => App\User::all()->random()->id,
         'first_name' => $faker->firstName;
         'last_name' => $faker->lastName,
         'ssn' => $faker->randomNumber(9),
@@ -30,13 +38,9 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Physician::class, function (Faker\Generator $faker) {
     return [
-        'username' => $faker->userName,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
         'patient_id' => App\Patient::all()->random()->id,
         'npi' => $faker-> randomNumber(10),
-        'clinic' => randomNumber(6),
-        'remember_token' => str_random(10),
+        'clinic' => randomNumber(10),
     ];
 });
 

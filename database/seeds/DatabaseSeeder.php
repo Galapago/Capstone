@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         DB::table('forms')->delete();
         DB::table('physicians')->delete();
         DB::table('patients')->delete();
+        DB::table('users')->delete();
+        $this->call(UsersTableSeeder::class);
         $this->call(PatientsTableSeeder::class);
         $this->call(PhysiciansTableSeeder::class);
         $this->call(FormsTableSeeder::class);
