@@ -11,20 +11,61 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Patient::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'username' => $faker->userName,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
+        'first_name' => $faker->firstName;
+        'last_name' => $faker->lastName,
+        'ssn' => $faker->randomNumber(9),
+        'emergency_contact_name' => $faker->name,
+        'emergency_contact_number' => $faker->phoneNumber,
+        'emergency_contact_email' => $faker->safeEmail,
+        'medication' => $faker->word,
+        'health_insurance' => $faker->word,
         'remember_token' => str_random(10),
     ];
 });
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Physician::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'username' => $faker->userName,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
+        'patient_id' => App\Patient::all()->random()->id,
+        'npi' => $faker-> randomNumber(10),
+        'clinic' => randomNumber(6),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Form::class, function (Faker\Generator $faker) {
+    return [
+        'form_name' => $faker->word,
+        'npi' => App\Physician::all()->random()->npi,
+    ];
+});
+
+$factory->define(App\Question::class, function (Faker\Generator $faker) {
+    return [
+        'form_id' => App\Form::all()->random()->id,
+        'question' => $faker->sentence,
+        'quantifiable' => $faker->boolean,
+    ];
+});
+
+$factory->define(App\Submission::class, function (Faker\Generator $faker) {
+    return [
+        'form_id' => App\Form::all()->random()->id,
+        'patient_id' => App\Patient::all()->random()->id,
+    ];
+});
+
+$factory->define(App\Answer::class, function (Faker\Generator $faker) {
+    return [
+        'question_id' => App\Question::all()->random()->id,
+        'answer' => $faker->sentence,
+        'submission_id' => App\Submission::all()->random()->id,
     ];
 });

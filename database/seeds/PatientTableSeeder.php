@@ -19,7 +19,7 @@ class PatientTableSeeder extends Seeder
 
         foreach($patients as $patient){
             $patient1 = new App\Patient();
-            $patient1->patientname = $patient['patientname'];
+            $patient1->username = $patient['username'];
             $patient1->email = $patient['email'];
             $patient1->password = Hash::make($patient['password']);
             $patient1->first_name = $patient['first_name'];
