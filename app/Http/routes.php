@@ -10,8 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
+use Illuminate\Http\Request;
+Route::get('/', function (Request $request) {
     return view('welcome');
 });
 Route::get('auth/login', 'Auth\AuthController@getLogin');

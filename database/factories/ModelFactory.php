@@ -22,9 +22,18 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Physician::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => App\User::all()->random()->id,
+        'npi' => $faker->unique()->randomNumber(5),
+        'clinic' => $faker->randomNumber(5),
+    ];
+});
+
 $factory->define(App\Patient::class, function (Faker\Generator $faker) {
     return [
         'user_id' => App\User::all()->random()->id,
+        'physician_id' => App\Physician::all()->random()->id,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'ssn' => $faker->randomNumber(9),
@@ -33,14 +42,6 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
         'emergency_contact_email' => $faker->safeEmail,
         'medication' => $faker->word,
         'health_insurance' => $faker->word,
-    ];
-});
-
-$factory->define(App\Physician::class, function (Faker\Generator $faker) {
-    return [
-        'patient_id' => App\Patient::all()->random()->id,
-        'npi' => $faker->unique()->randomNumber(5),
-        'clinic' => $faker->randomNumber(5),
     ];
 });
 
@@ -56,6 +57,13 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
         'form_id' => App\Form::all()->random()->id,
         'question' => $faker->sentence,
         'quantifiable' => $faker->boolean,
+    ];
+});
+
+$factory->define(App\QuestionOption::class, function (Faker\Generator $faker) {
+    return [
+        'question_id' => App\Question::all()->random()->id,
+        'option_text' => 'Male',
     ];
 });
 

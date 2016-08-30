@@ -15,6 +15,7 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('physician_id')->unsigned();
             $table->string('first_name', 30);
             $table->string('last_name', 30);
             $table->integer('ssn')->unsigned();
@@ -25,6 +26,7 @@ class CreatePatientsTable extends Migration
             $table->string('health_insurance');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('physician_id')->references('id')->on('physicians');
         });
     }
 
