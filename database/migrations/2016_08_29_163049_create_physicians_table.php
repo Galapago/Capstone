@@ -22,6 +22,7 @@ class CreatePhysiciansTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
