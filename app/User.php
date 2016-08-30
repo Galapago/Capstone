@@ -38,11 +38,11 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     public function patients() {
-        return $this->hasOne(Patient::class, 'user_id');
+        return $this->hasOne(Patient::class);
     }
 
     public function physician() {
-        return $this->hasOne(Physician::class, 'user_id');
+        return $this->hasOne(Physician::class);
     }
 
 }
