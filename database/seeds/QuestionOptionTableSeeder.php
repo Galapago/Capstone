@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 
-class QuestionOptionSeeder extends Seeder
+class QuestionOptionTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class QuestionOptionSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Question::class, 30)->create();
+        factory(App\QuestionOption::class, 30)->create();
     }
 }
