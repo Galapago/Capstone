@@ -38,6 +38,7 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Physician::class, function (Faker\Generator $faker) {
     return [
+        'user_id' => App\User::all()->random()->id,
         'patient_id' => App\Patient::all()->random()->id,
         'npi' => $faker->unique()->randomNumber(5),
         'clinic' => $faker->randomNumber(5),
