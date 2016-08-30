@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('form_id')->unsigned();
             $table->string('question', 200);
             $table->boolean('quantifiable');
+            $table->timestamps();
             $table->foreign('form_id')->references('id')->on('forms');
         });
     }

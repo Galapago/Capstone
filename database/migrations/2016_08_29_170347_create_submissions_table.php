@@ -16,6 +16,7 @@ class CreateSubmissionsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('form_id')->unsigned();
             $table->integer('patient_id')->unsigned();
+            $table->timestamps();
             $table->foreign('form_id')->references('id')->on('forms');
             $table->foreign('patient_id')->references('id')->on('patients');
 

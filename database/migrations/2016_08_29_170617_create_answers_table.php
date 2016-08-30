@@ -18,9 +18,9 @@ class CreateAnswersTable extends Migration
             $table->integer('patient_id')->unsigned();
             $table->string('answer');
             $table->integer('submission_id')->unsigned();
+            $table->timestamps();
             $table->foreign('question_id')->references('id')->on('questions');
             $table->foreign('submission_id')->references('id')->on('submissions');
-
         });
     }
 

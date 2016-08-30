@@ -16,7 +16,9 @@ class CreateFormsTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('form_name');
             $table->integer('npi')->unsigned();
+            $table->timestamps();
             $table->foreign('npi')->references('npi')->on('physicians');
+
         });
     }
 

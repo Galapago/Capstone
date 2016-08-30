@@ -12,6 +12,6 @@ class SubmissionTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Subission::class, 477)->create();
+        factory(App\Submission::class, 477)->create();
     }
 }

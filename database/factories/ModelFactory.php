@@ -32,15 +32,14 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
         'emergency_contact_email' => $faker->safeEmail,
         'medication' => $faker->word,
         'health_insurance' => $faker->word,
-        'remember_token' => str_random(10),
     ];
 });
 
 $factory->define(App\Physician::class, function (Faker\Generator $faker) {
     return [
         'patient_id' => App\Patient::all()->random()->id,
-        'npi' => $faker-> randomNumber(10),
-        'clinic' => randomNumber(10),
+        'npi' => $faker->unique()->randomNumber(5),
+        'clinic' => $faker->randomNumber(5),
     ];
 });
 
@@ -69,6 +68,7 @@ $factory->define(App\Submission::class, function (Faker\Generator $faker) {
 $factory->define(App\Answer::class, function (Faker\Generator $faker) {
     return [
         'question_id' => App\Question::all()->random()->id,
+        'patient_id' => App\Patient::all()->random()->id,
         'answer' => $faker->sentence,
         'submission_id' => App\Submission::all()->random()->id,
     ];
