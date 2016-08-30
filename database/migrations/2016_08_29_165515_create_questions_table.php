@@ -16,6 +16,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('form_id')->unsigned();
             $table->string('question', 200);
+            $table->enum('input_type',['radio', 'checkbox', 'textarea']);
             $table->boolean('quantifiable');
             $table->timestamps();
             $table->foreign('form_id')->references('id')->on('forms');

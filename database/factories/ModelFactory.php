@@ -60,6 +60,13 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\QuestionOption::class, function (Faker\Generator $faker) {
+    return [
+        'question_id' => App\Question::all()->random()->id,
+        'option_text' => 'Male',
+    ];
+});
+
 $factory->define(App\Submission::class, function (Faker\Generator $faker) {
     return [
         'form_id' => App\Form::all()->random()->id,
