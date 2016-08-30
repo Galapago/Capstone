@@ -20,6 +20,7 @@ class PhysicianTableSeeder extends Seeder
         foreach($physicians as $physician){
             $physician1 = new App\Physician();
             $physician1->npi = $physician['npi'];
+            $physician1->patient_id = App\Patient::all()->random()->id;
             $physician1->clinic = $physician['clinic'];
             $physician1->save();
         }

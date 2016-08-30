@@ -20,6 +20,7 @@ class PatientTableSeeder extends Seeder
 
         foreach($patients as $patient){
             $patient1 = new App\Patient();
+            $patient1->user_id = App\User::all()->random()->id;
             $patient1->first_name = $patient['first_name'];
             $patient1->last_name = $patient['last_name'];
             $patient1->ssn = $patient['ssn'];
