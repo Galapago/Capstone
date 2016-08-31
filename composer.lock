@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55e0189572197de0b563540cd8aae6d3",
-    "content-hash": "5bd58fd976f1ee3e9611bc37c006ec46",
+    "hash": "77940496621d6e80c7998cb47f22431e",
+    "content-hash": "ee49f8bae33e4043d4bca405cfeec912",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -216,6 +216,46 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "h4cc/wkhtmltopdf-amd64",
+            "version": "0.12.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/h4cc/wkhtmltopdf-amd64.git",
+                "reference": "b80ce6720349e98cebac7e8a19426455805fa7e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/h4cc/wkhtmltopdf-amd64/zipball/b80ce6720349e98cebac7e8a19426455805fa7e1",
+                "reference": "b80ce6720349e98cebac7e8a19426455805fa7e1",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/wkhtmltopdf-amd64"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL Version 3"
+            ],
+            "authors": [
+                {
+                    "name": "Julius Beckmann",
+                    "email": "github@h4cc.de"
+                }
+            ],
+            "description": "Convert html to pdf using webkit (qtwebkit). Static linked linux binary for amd64 systems.",
+            "homepage": "http://wkhtmltopdf.org/",
+            "keywords": [
+                "binary",
+                "convert",
+                "pdf",
+                "snapshot",
+                "thumbnail",
+                "wkhtmltopdf"
+            ],
+            "time": "2016-02-02 19:38:55"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -573,6 +613,104 @@
                 "storage"
             ],
             "time": "2016-08-10 08:55:11"
+        },
+        {
+            "name": "lucasromanojf/laravel5-pdf",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucasromanojf/laravel5-pdf.git",
+                "reference": "5e3c2d6c28f2bce94dba8cde00f714e966a2382b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucasromanojf/laravel5-pdf/zipball/5e3c2d6c28f2bce94dba8cde00f714e966a2382b",
+                "reference": "5e3c2d6c28f2bce94dba8cde00f714e966a2382b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5",
+                "mikehaertl/phpwkhtmltopdf": "1.1.x",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ignited\\Pdf": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Whiteside",
+                    "email": "alexwhiteside@ignitedlabs.com.au"
+                },
+                {
+                    "name": "Lucas Romano",
+                    "email": "lucasromanojf@gmail.com",
+                    "role": "Port to Laravel 5"
+                }
+            ],
+            "description": "Provides the HTML2PDF functionality using the wkhtmltopdf library (Laravel 5)",
+            "keywords": [
+                "laravel",
+                "laravel5",
+                "pdf",
+                "wkhtmltopdf"
+            ],
+            "time": "2015-02-12 17:44:39"
+        },
+        {
+            "name": "mikehaertl/phpwkhtmltopdf",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikehaertl/phpwkhtmltopdf.git",
+                "reference": "231018380d938152247a3a62452262eb6260ff82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikehaertl/phpwkhtmltopdf/zipball/231018380d938152247a3a62452262eb6260ff82",
+                "reference": "231018380d938152247a3a62452262eb6260ff82",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "suggest": {
+                "h4cc/wkhtmltopdf-amd64": "wkhtmltopdf static linked linux binary for amd64 systems.",
+                "h4cc/wkhtmltopdf-i386": "wkhtmltopdf static linked linux binary for i386 systems."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "WkHtmlToPdf.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Haertl",
+                    "email": "haertl.mike@gmail.com"
+                }
+            ],
+            "description": "A slim PHP wrapper around wkhtmltopdf with an easy to use and clean OOP interface",
+            "homepage": "http://mikehaertl.github.com/phpwkhtmltopdf/",
+            "keywords": [
+                "pdf"
+            ],
+            "time": "2013-09-27 09:17:11"
         },
         {
             "name": "monolog/monolog",
