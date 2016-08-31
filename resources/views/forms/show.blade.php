@@ -7,10 +7,10 @@ method so that it correlates properly. -->
 @section('content')
 <div class="container">
 	<section class="container-fluid">
-		<h1 class="section-title">From the Office of Dr. {{ $form->physician->user_id->username }}</h1>
+		<h1 class="section-title">From the Office of Dr. {{ $form->physician->first_name }} {{ $form->physician->last_name }}</h1>
 		<h2 class="section-title">{{ $form->form_name }}</h2>
 		<br>
-		<form method="POST" action="{{ action('PatientsController@store') }}">
+		<form method="POST" action="{{ action('SubmissionsController@store') }}">
 		{!! csrf_field() !!}
 			@foreach($form->questions as $question)
 				@if($question->input_type == 'radio')

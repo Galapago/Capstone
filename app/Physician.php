@@ -15,6 +15,6 @@ class Physician extends Model
     }
 
     public function form() {
-    	return $this->hasMany(Form::class);
+    	return $this->hasMany(Form::class,'npi', 'npi');
     }
 }

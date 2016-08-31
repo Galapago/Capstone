@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Form;
+use App\Submission;
+use App\User;
+use App\Question;
+use App\QuestionOption;
+use App\Patient;
+use App\Answer;
+use App\Physician;
 
-class PhysicianController extends Controller
+class FormsController extends Controller
 {
-    public function validate(){
-        return 'yup';
-        return view('physician_validation');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -52,7 +56,17 @@ class PhysicianController extends Controller
      */
     public function show($id)
     {
-        //
+        $form = Form::find($id);
+        
+
+        if (!$form) {
+            Log::info("Form with $id not found.");
+            abort(404);
+        }
+
+        $data = compact('form');
+        // dd($form->physician->user);
+        return view('forms.show', $data);
     }
 
     /**
