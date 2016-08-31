@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Form extends Model
 {
     public function physician(){
-      return $this->belongsTo(Physician::class, 'npi');
+      return $this->belongsTo(Physician::class, 'npi', 'npi');
     }
 
-    public function question(){
-    	return $this->hasMany(Questions::class);
+    public function questions(){
+    	return $this->hasMany(Question::class);
     }
 
     public function submission(){
