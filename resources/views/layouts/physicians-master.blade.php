@@ -11,7 +11,7 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	    	<a class="navbar-brand" href="#">
+	    	<a class="navbar-brand" href="#about">
 	        	<img alt="Galapago" src="css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
