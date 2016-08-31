@@ -34,6 +34,7 @@ class CustomAuth extends Controller
         return redirect('/test');
     }
     public function physicianValidate(Request $request){
+        var_dump('working');
         $npi=$request->get('NPI');
         $password=$request->input('password');
         //Retrieves the password associated with that user

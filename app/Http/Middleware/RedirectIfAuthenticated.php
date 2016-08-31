@@ -35,9 +35,9 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('http://www.google.com');
+            return $next($request);
         }
-
-        return $next($request);
+        return redirect('/test');
+        //return $next($request);
     }
 }

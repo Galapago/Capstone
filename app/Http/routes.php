@@ -38,7 +38,7 @@ Route::post('/test/validate','CustomAuth@physicianValidate');
 Route::get('/physician/validate', function(Request $request)
 {
 	if($request->session()->has('doctor_validated')){
-		return redirect('http://www.google.com');
+		return 'DOCTOR HOME PAGE WILL GO HERE';
 	}
 	return view('physician_validation');
 });
