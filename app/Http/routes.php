@@ -13,10 +13,16 @@
 use Illuminate\Http\Request;
 /*Route::get('/', function (Request $request) {
     return view('welcome');
+<<<<<<< HEAD
+});
+
+//Login Routes
+=======
 });*/
 Route::get('/','CustomAuth@authenticate');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
+>>>>>>> 216544b127d1659a7e0b40f1f6f0e05b31243f90
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
@@ -26,12 +32,24 @@ Route::post('/test','CustomAuth@authenticate');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+//Patients Controller - Basic CRUD
 Route::resource('patients', 'PatientsController');
 
+//Physicians Controller - Basic CRUD
 Route::resource('physicians', 'PhysiciansController');
 
 
+//Users Controller - Basic CRUD
 Route::resource('users', 'UsersController');
+
+
+//Forms Controller - Basic CRUD
+Route::resource('forms', 'FormsController');
+
+//Submissions Controller - Basic CRUD
+Route::resource('submissions', 'SubmissionsController');
+
+
 
 Route::get('/pdf', function() {
     $pdf = PDF::make();
