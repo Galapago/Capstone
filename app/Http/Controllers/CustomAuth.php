@@ -11,21 +11,40 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomAuth extends Controller
 {
+    public function __construct(){
+        $this->middleware('guest', ['except' => ['index','authenticate','logout']]);
+        $this->middleware('provider', ['except' => ['index','logout']]);
+    }
     public function authenticate(Request $request){
+        $user=$request->user();
         $email=$request->email;
         $password=$request->password;
+        if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor'])){
+            $request->session()->put('proceed',true);
+            var_dump(Auth::user()->clearance);
+
+            //var_dump($request->session()->get('proceed'));
+            return 'Doctor Prtal';
+        }
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
-            return 'Working';
+            //return redirect()->intended('/');
+            return 'Patient Prtal';
         }
         return "Can't pass";
+    }
+    public function logout(Request $request){
+        Auth::logout();
+        return redirect('/test');
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //Auth::logout();
+        //$request->session()->flush();
         return view('auth.test_login');
     }
 
