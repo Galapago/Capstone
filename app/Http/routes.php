@@ -25,3 +25,5 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::resource('patients', 'PatientsController');
 
 Route::resource('physicians', 'PhysiciansController');
+
+Route::resource('users', 'UsersController');
