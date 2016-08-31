@@ -11,13 +11,16 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">
-	        <img alt="Galapago" src="css/img/turtle-logo.png">
-	      </a>
+	    	<a class="navbar-brand" href="#">
+	        	<img alt="Galapago" src="css/img/turtle-logo.png">
+	    	</a>
+	    	<ul class="nav navbar-nav">
+	    		<li><a href="#about">About Galapago</a></li>
+	    	</ul>
 	    </div>
 	    <div class="navbar-header navbar-right">
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="#">Help</a></li>
+	    		<li><a href="#help">Help</a></li>
 	    	</ul>
 	    	<button action="" type="button" class="btn btn-default navbar-btn">Sign Out</button>
 	    </div>
