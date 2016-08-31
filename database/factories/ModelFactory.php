@@ -25,6 +25,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Physician::class, function (Faker\Generator $faker) {
     return [
         'user_id' => App\User::all()->random()->id,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'npi' => $faker->unique()->randomNumber(5),
         'clinic' => $faker->randomNumber(5),
     ];
