@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PhysicianController extends Controller
+class PhysiciansController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class PhysicianController extends Controller
      */
     public function index()
     {
-        //
+        return view ('physicians/index');
     }
 
     /**
