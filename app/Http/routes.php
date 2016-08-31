@@ -25,3 +25,9 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::resource('patients', 'PatientsController');
 
 Route::resource('physicians', 'PhysiciansController');
+Route::get('/pdf', function() {
+    $pdf = PDF::make();
+    $pdf->setOptions(['tmp' => __DIR__ . '/../../storage']);
+    $pdf->addPage('http://getbootstrap.com/');
+    $pdf->send('example.pdf');
+});
