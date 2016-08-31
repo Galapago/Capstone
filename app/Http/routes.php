@@ -11,13 +11,17 @@
 |
 */
 use Illuminate\Http\Request;
-Route::get('/', function (Request $request) {
+/*Route::get('/', function (Request $request) {
     return view('welcome');
-});
+});*/
+Route::get('/','CustomAuth@authenticate');
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
+Route::get('/test','CustomAuth@index');
+Route::post('/test','CustomAuth@authenticate');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
