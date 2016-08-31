@@ -12,7 +12,7 @@
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#">
-	        <img alt="Galapago" src="...">
+	        <img alt="Galapago" src="css/img/turtle-logo.png">
 	      </a>
 	    </div>
 	    <div class="navbar-header navbar-right">
