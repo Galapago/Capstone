@@ -11,22 +11,12 @@ class PhysicianTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {	
-    	// $physicians = [
-     //        ['npi' => '1234567890', 'clinic' => '9999999999'],
-     //        ['npi' => '9999999999', 'clinic' => '0000000000'],
-     //        ['npi' => '5555555555', 'clinic' => '1111111111'],
-     //    ];
-        
-     //    foreach($physicians as $physician){
-     //        $physician1 = new App\Physician();
-     //        $physician1->npi = $physician['npi'];
-     //        $physician1->patient_id = App\Patient::all()->random()->id;
-     //        $physician1->clinic = $physician['clinic'];
-     //        $physician1->save();
-     //    }
-
-        factory(App\Physician::class, 20)->create();
-
+    {	        
+     $physician1 = new App\Physician();
+     $physician1->user_id='1';
+     $physician1->npi = '00001';
+     $physician1->clinic = '00001';
+     $physician1->save();
+     factory(App\Physician::class, 20)->create();
     }
 }

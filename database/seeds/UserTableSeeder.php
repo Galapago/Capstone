@@ -13,6 +13,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $users = [
+            ['username' => 'test', 'email' => 'test@codeup.com', 'password' => 'password', 'clearance' => 'doctor'],
             ['username' => 'brandon', 'email' => 'brandon@codeup.com', 'password' => 'brandon', 'clearance' => 'patient'],
 			['username' => 'john', 'email' => 'john@codeup.com', 'password' => 'john', 'clearance' => 'patient'],
 			['username' => 'tyler', 'email' => 'tyler@codeup.com', 'password' => 'tyler', 'clearance' => 'doctor'],        

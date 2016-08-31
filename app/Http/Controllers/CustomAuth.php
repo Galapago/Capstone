@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class PhysicianController extends Controller
+
+class CustomAuth extends Controller
 {
+    public function authenticate(Request $request){
+        $email=$request->email;
+        $password=$request->password;
+        if(Auth::attempt(['email'=>$email,'password'=>$password])){
+            return 'Working';
+        }
+        return "Can't pass";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,7 @@ class PhysicianController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.test_login');
     }
 
     /**
