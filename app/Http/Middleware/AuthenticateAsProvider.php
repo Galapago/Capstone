@@ -16,24 +16,13 @@ class AuthenticateAsProvider
      */
     public function handle($request, Closure $next)
     {   
-        if(!Auth::check()){
+        if(!Auth::check() || Auth::user()->clearance!='doctor'){
             return view('/test');
         }
-        $user=$request->user();
-        //Check if user is logged in
-        /*if(!Auth::check()){
-            //Reidrect to login screen if not logged in
-            return redirect('/test');
-        }*/
         //Check to see if user has the proper level of clearance
-        if($clearance!="doctor"){
-            return 'Must be a doctor';
+        if(!$request->session()->has('doctor_validated')){
+            return redirect('/physician/validate');
         }        
-        //Check to see if already logged in 
-        if($request->session()->has('approved')){
-            //Reroute to the provider login page
-            return 'Go to provider login';
-        }
         return $next($request);
     }
     //Check to see if a given user is listed as a provider

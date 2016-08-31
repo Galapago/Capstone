@@ -7,34 +7,58 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 
 class CustomAuth extends Controller
 {
     public function __construct(){
         $this->middleware('guest', ['except' => ['index','authenticate','logout']]);
-        $this->middleware('provider', ['except' => ['index','logout']]);
     }
     public function authenticate(Request $request){
         $user=$request->user();
         $email=$request->email;
         $password=$request->password;
         if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor'])){
-            $request->session()->put('proceed',true);
-            var_dump(Auth::user()->clearance);
-
-            //var_dump($request->session()->get('proceed'));
-            return 'Doctor Prtal';
+            return redirect('/physician/validate');
         }
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
-            //return redirect()->intended('/');
-            return 'Patient Prtal';
+            return redirect('/home');
         }
-        return "Can't pass";
     }
     public function logout(Request $request){
         Auth::logout();
+        $request->session()->flush();
         return redirect('/test');
+    }
+    public function physicianValidate(Request $request){
+        $npi=$request->get('NPI');
+        $password=$request->input('password');
+        //Retrieves the password associated with that user
+        $result=DB::table('physicians')->leftJoin('users','user_id','=','users.id')->where('npi',$npi)->select('password')->get();
+        //Check if they've already passed this validation
+        if($request->session()->has('doctor_validated',true)){
+            return 'Already logged in';
+        }
+        //If query returns no results
+        if(empty($result)){
+            return back();
+        }
+        //Retrieves password as a string
+        $DB_password=$result[0]->password;
+        if(Hash::check($password,$DB_password)){
+            $request->session()->put('doctor_validated',true);
+            return 'working';
+        }
+        return redirect()->intended('/physican/validate');
+    }
+    public function checkIfValidated(Request $request){
+        if($request->session()->has('doctor_validated',true)){
+            return 'Already logged in';
+        }
+        return view('/physician/validate');
     }
     /**
      * Display a listing of the resource.
@@ -43,8 +67,12 @@ class CustomAuth extends Controller
      */
     public function index(Request $request)
     {
-        //Auth::logout();
-        //$request->session()->flush();
+        if(Auth::check()){
+            if(Auth::user()->clearance=='doctor'){
+                redirect('/physician/validate');
+            }
+            redirect('/home');
+        }
         return view('auth.test_login');
     }
 

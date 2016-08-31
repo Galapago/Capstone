@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 
 class PhysicianController extends Controller
 {
+    public function validate(){
+        return 'yup';
+        return view('physician_validation');
+    }
     /**
      * Display a listing of the resource.
      *
