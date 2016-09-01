@@ -12,7 +12,7 @@
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	    	<a class="navbar-brand" href="#about">
-	        	<img alt="Galapago" src="css/img/turtle-logo.png">
+	        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
 	    		<li><a href="#about">About Galapago</a></li>
