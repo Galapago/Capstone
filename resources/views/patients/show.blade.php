@@ -1,9 +1,5 @@
 @extends('layouts.patients-master')
 @section('content')
-<<<<<<< HEAD
-
-
-=======
 <form>
 	<div class="form-group col-md-8 col-md-offset-2">
 		<h2 class="text-center">Personal Information</h2>
@@ -49,10 +45,18 @@
 		</div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<button class="btn btn-block btn-primary" type="submit" action="">Edit Personal Info</button>
+			<input class="btn btn-block btn-primary" type="submit" value="Edit Personal Info" action=""><a href="{{ action('PatientsController@edit', $patient->id) }}"></a></input>
 		</div>
 		<div class="col-md-4"></div>
 	</div>
 </form>
->>>>>>> 9767efd6254347b2320b25863dedb486d732f035
+
+<div class="form-group col-md-8 col-md-offset-2">
+	<h2 class="text-center">My Forms</h2>
+	<div class="row">
+		  <div class="col-md-4 col-md-offset-2">FORM NAME</div>
+		  <div class="col-md-4 col-md-offset-2">EDIT</div>
+		</div>
+</div>
+
 @stop
