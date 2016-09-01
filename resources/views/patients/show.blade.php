@@ -9,11 +9,11 @@
 		</div>
 		<div class="row">
 		  <div class="col-md-4 col-md-offset-2">Username</div>
-		  <div class="col-md-4 col-md-offset-2">{{ $user->username }}</div>
+		  <div class="col-md-4 col-md-offset-2">{{ $patient->user->username }}</div>
 		</div>
 		<div class="row">
 		  <div class="col-md-4 col-md-offset-2">Email</div>
-		  <div class="col-md-4 col-md-offset-2">{{ $user->email }}</div>
+		  <div class="col-md-4 col-md-offset-2">{{ $patient->user->email }}</div>
 		</div>
 		<div class="row">
 		  <div class="col-md-4 col-md-offset-2">Password</div>

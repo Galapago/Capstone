@@ -62,14 +62,14 @@
 			</div>
 			@include('partials.error', ['field' => 'medication'])
 			<div class="form-group">
-				<label for="insurance">Insurance</label>
+				<label for="health_insurance">Insurance</label>
 				<input 
 					type="text" 
 					class="form-control"
-					name="insurance" 
-					value="{{ old('insurance')?: $patient->insurance }}">	
+					name="health_insurance" 
+					value="{{ old('health_insurance')?: $patient->health_insurance }}">	
 			</div>
-			@include('partials.error', ['field' => 'insurance'])
+			@include('partials.error', ['field' => 'health_insurance'])
 
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>

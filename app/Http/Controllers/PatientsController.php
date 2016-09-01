@@ -113,7 +113,7 @@ class PatientsController extends Controller
         $patient->emergency_contact_number = $request->input('emergency_contact_number');
         $patient->emergency_contact_email = $request->input('emergency_contact_email');
         $patient->medication = $request->input('medication');
-        $patient->insurance = $request->input('insurance');
+        $patient->health_insurance = $request->input('health_insurance');
         $patient->save();
         $request->session()->flash('message', 'Your account has been updated!');
         return redirect()->action('PatientsController@show', $patient->id);
