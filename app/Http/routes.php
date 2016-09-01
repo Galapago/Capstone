@@ -51,6 +51,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 //Patients Controller - Basic CRUD
 Route::resource('patients', 'PatientsController');
 
+
 //Physicians Controller - Basic CRUD
 Route::resource('physicians', 'PhysiciansController');
 
