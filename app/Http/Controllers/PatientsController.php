@@ -129,4 +129,32 @@ class PatientsController extends Controller
     {
         //
     }
+
+    public function editPassword($id) {
+
+        $patient = Patient::find($id);
+
+        if (!$patient) {
+            Log::info("Patient with $id not found for edit.");
+            abort(404);
+        }
+
+        return view('patients.password');
+    }
+
+    public function updatePassword(Request $request, $id) {
+
+        $patient = Patient::find($id);
+
+        if (!$patient) {
+            Log::info("Patient with $id not found for edit.");
+            abort(404);
+        }
+
+        $patient->user->password = Hash::make($request->input('password'));
+        $patient->save();
+        $request->session()->flash('message', 'Your password has been updated!');
+        return redirect()->action('PatientsController@show', $patient->id);
+
+    }
 }

@@ -50,7 +50,8 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 //Patients Controller - Basic CRUD
 Route::resource('patients', 'PatientsController');
-
+Route::put('patients/password/{id}', 'PatientsController@updatePassword');
+Route::get('patients/password/{id}', 'PatientsController@editPassword');
 
 //Physicians Controller - Basic CRUD
 Route::resource('physicians', 'PhysiciansController');

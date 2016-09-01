@@ -17,7 +17,7 @@
 		</div>
 		<div class="row">
 		  <div class="col-md-4 col-md-offset-2">Password</div>
-		  <div class="col-md-4 col-md-offset-2"><a class="btn btn-primary btn-xs" href="{{ action('PatientsController@edit', $patient->id) }}">Change Password</a></div>
+		  <div class="col-md-4 col-md-offset-2"><a class="btn btn-primary btn-xs" href="{{ action('PatientsController@editPassword', $patient->id) }}">Change Password</a></div>
 		</div>
 		<div class="row">
 		  <div class="col-md-4 col-md-offset-2">Social Security Number</div>
