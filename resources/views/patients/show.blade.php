@@ -45,7 +45,7 @@
 		</div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<input class="btn btn-block btn-primary" type="submit" value="Edit Personal Info" action=""><a href="{{ action('PatientsController@edit', $patient->id) }}"></a></input>
+			<a class="btn btn-block btn-primary" href="{{ action('PatientsController@edit', $patient->id) }}">Edit Personal</a>
 		</div>
 		<div class="col-md-4"></div>
 	</div>
@@ -54,7 +54,7 @@
 <div class="form-group col-md-8 col-md-offset-2">
 	<h2 class="text-center">My Forms</h2>
 	<div class="row">
-		  <div class="col-md-4 col-md-offset-2">FORM NAME</div>
+		  <div class="col-md-4 col-md-offset-2"></div>
 		  <div class="col-md-4 col-md-offset-2">EDIT</div>
 		</div>
 </div>
