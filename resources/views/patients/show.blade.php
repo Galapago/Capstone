@@ -1,5 +1,9 @@
 @extends('layouts.patients-master')
 @section('content')
+<<<<<<< HEAD
+
+
+=======
 <form>
 	<div class="form-group col-md-8 col-md-offset-2">
 		<h2 class="text-center">Personal Information</h2>
@@ -50,4 +54,5 @@
 		<div class="col-md-4"></div>
 	</div>
 </form>
+>>>>>>> 9767efd6254347b2320b25863dedb486d732f035
 @stop
