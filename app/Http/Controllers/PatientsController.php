@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
+use App\Patient;
+use App\Physician;
+use App\User;
+use App\Form;
+use App\Question;
+use App\QuestionOption;
+use App\Answer;
+use App\Submission;
 
 class PatientsController extends Controller
 {
@@ -68,7 +77,16 @@ class PatientsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patient = Patient::find($id);
+
+        if (!$patient) {
+            Log::info("Patient with $id not found.");
+            abort(404);
+        }
+
+        $data = compact('patient');
+
+        return view('patients.edit', $data);
     }
 
     /**
@@ -80,7 +98,23 @@ class PatientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $patient = Patient::find($id);
+        //dd($post);
+        if (!$patient) {
+            Log::info("Patient with $id not found for edit.");
+            abort(404);
+        }
+
+        $patient->user->username = $request->input('username');
+        $patient->user->email = $request->input('email');
+        $patient->emergency_contact_name = $request->input('emergency_contact_name');
+        $patient->emergency_contact_number = $request->input('emergency_contact_number');
+        $patient->emergency_contact_email = $request->input('emergency_contact_email');
+        $patient->medication = $request->input('medication');
+        $patient->insurance = $request->input('insurance');
+        $patient->save();
+        $request->session()->flash('message', 'Your account has been updated!');
+        return redirect()->action('PatientsController@show', $patient->id);
     }
 
     /**
