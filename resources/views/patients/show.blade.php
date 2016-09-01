@@ -16,8 +16,13 @@
 		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->user->email }}</div>
 		</div>
 		<div class="row">
+
+		  <div class="col-md-4 col-md-offset-2">Password</div>
+		  <div class="col-md-4 col-md-offset-2"><a class="btn btn-primary btn-xs" href="{{ action('PatientsController@editPassword', $patient->id) }}">Change Password</a></div>
+
 		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Password</div>
 		  <div class="col-md-4 col-md-offset-2 col-xs-4"><a class="btn btn-primary btn-xs" href="{{ action('PatientsController@edit', $patient->id) }}">Change Password</a></div>
+
 		</div>
 		<div class="row">
 		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Social Security Number</div>
