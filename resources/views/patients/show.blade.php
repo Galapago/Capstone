@@ -50,6 +50,7 @@
 		<div class="col-md-4"></div>
 	</div>
 </form>
+
 <div class="form-group col-md-8 col-md-offset-2">
 	<h2 class="text-center">My Forms</h2>
 	<div class="row">
@@ -57,4 +58,5 @@
 		  <div class="col-md-4 col-md-offset-2">EDIT</div>
 		</div>
 </div>
+
 @stop
