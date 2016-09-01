@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Patient;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Log;
-use App\Patient;
-use App\Physician;
-use App\User;
+use Illuminate\Support\Facades\DB;
 use App\Form;
+use App\Submission;
+use App\User;
 use App\Question;
 use App\QuestionOption;
 use App\Answer;
-use App\Submission;
+use App\Physician;
+use Illuminate\Support\Facades\Log;
+
 
 class PatientsController extends Controller
 {
@@ -58,13 +59,14 @@ class PatientsController extends Controller
     public function show($id)
     {
         $patient = Patient::find($id);
-
+        $user = User::find($id);
+        
         if (!$patient) {
             Log::info("Patient with $id not found.");
             abort(404);
         }
 
-        $data = compact('patient');
+        $data = compact('patient', 'user');
 
         return view('patients.show', $data);
     }
