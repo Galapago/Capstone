@@ -74,7 +74,7 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 		<br>
-		<a href="{{ action('PatientsController@show')}}">Go Back to Patient Account</a>
+		<a href="{{ action('PatientsController@show', $patient->id) }}">Go Back to Patient Account</a>
 	</section>
 </div>
 @stop
