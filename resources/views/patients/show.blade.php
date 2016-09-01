@@ -55,5 +55,4 @@
 	<h2 class="text-center">My Forms</h2>
 	@include('partials.patient_account_forms')
 </div>
-
 @stop
