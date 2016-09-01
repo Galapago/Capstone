@@ -1,11 +1,11 @@
 <div class="form-group">
 	<label for="{{ $question->question }}">{{ $question->question }} </label><br>
-	@foreach($options as $option)
+	@foreach($question->questionOptions as $option)
 	<div class="radio-inline">					
 		<input 
 			type="radio" 
 			class="radio-inline"
-			name="{{ $option->option_text }}" 
+			name="{{ $question->question }}" 
 			value="{{ $option->option_text }}"> {{ $option->option_text }} 
 	</div>
 	@endforeach	

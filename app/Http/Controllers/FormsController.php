@@ -58,8 +58,9 @@ class FormsController extends Controller
     {   
         
         $form = Form::find($id);
-        $question = Question::find($id);
-        $options = DB::table('question_options')->get();
+        //$question = Question::find($id)->;
+        //$options = DB::table('question_options')->get();
+        //->where('question_id')->in(Form::find($id))
         
         
 
