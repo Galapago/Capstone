@@ -10,7 +10,7 @@ class Question extends Model
     	return $this->belongsTo(Form::class);
     }
 
-    public function questionOption(){
+    public function questionOptions(){
     	return $this->hasMany(QuestionOption::class);
     }
 
