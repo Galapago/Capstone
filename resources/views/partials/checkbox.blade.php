@@ -5,8 +5,7 @@
 		<label><input 
 			type="checkbox" 
 			class="checkbox"
-			name="{{ $question->question }}" 
-			checked> Yes! </label>
+			name="{{ $question->question }}">{{ $option->option_text }}</label>
 	</div>
 	@endforeach
 </div>
