@@ -66,12 +66,16 @@
 				<input 
 					type="text" 
 					class="form-control"
+
 					name="health_insurance" 
+
+					name="insurance" 
+
 					value="{{ old('health_insurance')?: $patient->health_insurance }}">	
 			</div>
 			@include('partials.error', ['field' => 'health_insurance'])
 
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary">Save</button>
 		</form>
 		<br>
 		<a href="{{ action('PatientsController@show', $patient->id) }}">Go Back to Patient Account</a>
