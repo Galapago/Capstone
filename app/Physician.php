@@ -10,11 +10,11 @@ class Physician extends Model
       return $this->belongsTo(User::class);
     }
 
-    public function patient() {
+    public function patients() {
     	return $this->hasMany(Patient::class);
     }
 
-    public function form() {
+    public function forms() {
     	return $this->hasMany(Form::class,'npi', 'npi');
     }
 }

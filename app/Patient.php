@@ -14,7 +14,7 @@ class Patient extends Model
     	return $this->belongsTo(Physician::class);
     }
 
-    public function submission() {
+    public function submissions() {
     	return $this->hasMany(Submission::class);
     }
 }
