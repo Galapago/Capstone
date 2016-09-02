@@ -15,6 +15,7 @@ use App\QuestionOption;
 use App\Answer;
 use App\Physician;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 
 class PatientsController extends Controller
@@ -59,7 +60,7 @@ class PatientsController extends Controller
     public function show($id)
     {
         $patient = Patient::find($id);
-        $user = User::find($id);
+        $user = User::find($patient->user_id);
         
         if (!$patient) {
             Log::info("Patient with $id not found.");
@@ -67,7 +68,7 @@ class PatientsController extends Controller
         }
 
         $data = compact('patient', 'user');
-
+        //dd($data);
         return view('patients.show', $data);
     }
 
@@ -80,14 +81,15 @@ class PatientsController extends Controller
     public function edit($id)
     {
         $patient = Patient::find($id);
+        $user = User::find($patient->user_id);
 
         if (!$patient) {
             Log::info("Patient with $id not found.");
             abort(404);
         }
-
-        $data = compact('patient');
-
+        
+        $data = compact('patient', 'user');
+        //dd($data);
         return view('patients.edit', $data);
     }
 
@@ -100,7 +102,8 @@ class PatientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $patient = Patient::find($id);
+        $patient = Patient::with('user')->find($id);
+        //$user = User::find($patient->user_id);
         //dd($post);
         if (!$patient) {
             Log::info("Patient with $id not found for edit.");
@@ -109,6 +112,7 @@ class PatientsController extends Controller
 
         $patient->user->username = $request->input('username');
         $patient->user->email = $request->input('email');
+        $patient->user->save();
         $patient->emergency_contact_name = $request->input('emergency_contact_name');
         $patient->emergency_contact_number = $request->input('emergency_contact_number');
         $patient->emergency_contact_email = $request->input('emergency_contact_email');
@@ -139,7 +143,9 @@ class PatientsController extends Controller
             abort(404);
         }
 
-        return view('patients.password');
+        $data = compact('patient');
+
+        return view('patients.password', $data);
     }
 
     public function updatePassword(Request $request, $id) {
@@ -152,7 +158,7 @@ class PatientsController extends Controller
         }
 
         $patient->user->password = Hash::make($request->input('password'));
-        $patient->save();
+        $patient->user->save();
         $request->session()->flash('message', 'Your password has been updated!');
         return redirect()->action('PatientsController@show', $patient->id);
 
