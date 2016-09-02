@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Patient;
+use Illuminate\Support\Facades\DB;
+use App\Form;
+use App\Submission;
+use App\User;
+use App\Question;
+use App\QuestionOption;
+use App\Answer;
+use App\Physician;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class SubmissionsController extends Controller
 {
@@ -48,7 +59,18 @@ class SubmissionsController extends Controller
      */
     public function show($id)
     {
-        return view('forms.show');
+        $submission = Submission::find($id);
+        $patient = Patient::find($submission->patient->id);
+        $form = Form::find($submission->form->id);
+
+        if (!$submission) {
+            Log::info("Submission with $id not found.");
+            abort(404);
+        }
+
+        $data = compact('submission', 'patient');
+
+        return view('submissions.show', $data);
     }
 
     /**
