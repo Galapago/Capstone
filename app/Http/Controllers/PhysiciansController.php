@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\DB;
 use App\Form;
 use App\Submission;
@@ -17,6 +18,8 @@ use App\Physician;
 use App\Patient;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 class PhysiciansController extends Controller
 {
@@ -50,7 +53,6 @@ class PhysiciansController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -104,5 +106,71 @@ class PhysiciansController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function statistics(Request $request){
+        //Grab the id from the Request
+        $formIds=[];
+        $questionOptionsArray=[];
+        $questionText=[];
+        $questionsAJAX=[];
+        $forms=$this->getForms();
+        $questions=$this->getQuestions($forms);
+        foreach($questions as $question_object){
+            foreach($question_object as $question){
+            //Add number of responses to the QuestionOption object and formatting it so it can be added to the array
+            $questionOptions=\App\QuestionOption::where('question_id',$question->id)->get();
+            $questionOptionsArray=[];
+            foreach ($questionOptions as $key => $value) {
+                //$questionOptionsArray[]['text']=$value;
+                $value->responses=\App\Answer::where('question_id',$question->id)->where('answer',$value->option_text)->count();
+                $questionOptionsArray[]=$value;
+            }
+            $questionsAJAX[$question->id]=
+            ['question_id'=>$question->id,'form_id'=>$question->form_id,'text'=>$question->question,'input_type'=>$question->input_type,'quantifiable'=>(bool)$question->quantifiable,'question_options'=>$questionOptionsArray];
+            }
+        }
+        return response()->json(['data'=>$questionsAJAX]);
+    }
+    public function displayStats(Request $reqeust){
+        //Grab the id from the Request
+        $formIds=[];
+        $questionText=[];
+        $questionOptions=[];
+        $forms=$this->getForms();
+        $questions=$this->getQuestions($forms);
+        foreach ($forms as $form) {
+            $questions=\App\Question::where('form_id',$form->id)->get();
+            foreach ($questions as $question) {
+                //echo '<p>' . $question->question . '</p>';
+                $questionText[]=$question->question;
+                $answerChoices=\App\QuestionOption::where('question_id',$question->id)->get();
+                //echo '<ul>';
+                foreach ($answerChoices as $answerChoice) {
+                    $questionOptions[]=$answerChoice->option_text;
+
+                }
+                //echo '</ul>';
+            }
+            }
+            return view('physicians.stats')->with('questions',$questions);
+
+    }
+    public function getForms(){
+        $id=Auth::user()->id;
+        $physician=\App\Physician::find($id);
+        $npi=$physician->npi;
+        $forms=\App\Form::where('npi',$npi)->get();
+        return $forms;
+    }
+    public function getQuestions($forms){
+        $questions=[];
+        foreach ($forms as $form) {
+            $question=\App\Question::where('form_id',$form->id)->get();
+            $questions[]=$question;
+        }
+        return $questions;
+    }
+    public function numberOfResponses($question){
+        return \App\Answer::where('question_id',$question->id)->where('answer',$question->questionOption->option_text)->count();
     }
 }

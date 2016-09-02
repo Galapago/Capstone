@@ -12,6 +12,11 @@ class SubmissionTableSeeder extends Seeder
      */
     public function run()
     {
+    	$submission=new App\Submission();
+    	$submission->form_id=1;
+    	$submission->patient_id=1;
+    	$submission->save();
+
         factory(App\Submission::class, 477)->create();
     }
 }

@@ -17,6 +17,9 @@ class CustomAuth extends Controller
     public function __construct(){
         $this->middleware('guest', ['except' => ['index','authenticate','logout']]);
     }
+    /*
+    Preforms the initial round of authentication
+    */
     public function authenticate(Request $request){
         $user=$request->user();
         $email=$request->email;
@@ -33,8 +36,10 @@ class CustomAuth extends Controller
         $request->session()->flush();
         return redirect('/test');
     }
+    /**
+    Validates a physician once they complete the first level authentication
+    **/
     public function physicianValidate(Request $request){
-        var_dump('working');
         $npi=$request->get('NPI');
         $password=$request->input('password');
         //Retrieves the password associated with that user
