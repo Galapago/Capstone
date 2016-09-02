@@ -163,4 +163,13 @@ class PatientsController extends Controller
         return redirect()->action('PatientsController@show', $patient->id);
 
     }
+    public function mail()
+    {
+        $user = User::find(1)->toArray();
+        Mail::send('emails.test', $user, function($message) use ($user) {
+            $message->to($user->email);
+            $message->subject('Mailgun Testing');
+        });
+        dd('Mail Send Successfully');
+    }
 }
