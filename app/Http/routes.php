@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 //Login Routes
 =======
 });*/
-Route::get('/','CustomAuth@authenticate');
+Route::get('/','HomeController@index');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
@@ -68,8 +68,6 @@ Route::resource('forms', 'FormsController');
 
 //Submissions Controller - Basic CRUD
 Route::resource('submissions', 'SubmissionsController');
-
-
 
 Route::get('/pdf', function() {
     $pdf = PDF::make();
