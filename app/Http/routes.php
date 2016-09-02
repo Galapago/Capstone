@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 //Login Routes
 =======
 });*/
-Route::get('/','CustomAuth@authenticate');
+Route::get('/','HomeController@index');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
