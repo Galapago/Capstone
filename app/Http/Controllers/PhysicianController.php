@@ -3,19 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Form;
-use App\Submission;
-use App\User;
-use App\Question;
-use App\QuestionOption;
-use App\Patient;
-use App\Answer;
-use App\Physician;
 
-class FormsController extends Controller
+class PhysicianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -55,23 +47,8 @@ class FormsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
-        
-        $form = Form::find($id);
-        //$question = Question::find($id)->;
-        //$options = DB::table('question_options')->get();
-        //->where('question_id')->in(Form::find($id))
-        
-        
-
-        if (!$form) {
-            Log::info("Form with $id not found.");
-            abort(404);
-        }
-
-        $data = compact('form', 'question','options');
-        
-        return view('forms.show', $data);
+    {
+        //
     }
 
     /**
