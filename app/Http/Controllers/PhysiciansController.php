@@ -62,14 +62,14 @@ class PhysiciansController extends Controller
     public function show($id)
     {
         $physician = Physician::find($id);
-        $user = User::find($physician->user_id);
+        //$user = User::find($physician->user_id);
         
         if (!$physician) {
             Log::info("Physician with $id not found.");
             abort(404);
         }
 
-        $data = compact('physician', 'user');
+        $data = compact('physician');
         //dd($data);
         return view('physicians.show', $data);
     }

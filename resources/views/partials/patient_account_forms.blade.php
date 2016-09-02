@@ -5,7 +5,7 @@
 </div>
 @empty
 <div class"row">
-	<p class="text-center"><strong>You have no submitted forms</strong></p>
+	<p class="text-center"><strong>You have no submitted forms.</strong></p>
 </div>
 @endforelse
 

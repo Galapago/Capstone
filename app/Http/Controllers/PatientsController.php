@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Patient;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Patient;
 use Illuminate\Support\Facades\DB;
 use App\Form;
 use App\Submission;
