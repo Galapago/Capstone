@@ -68,8 +68,6 @@ Route::resource('forms', 'FormsController');
 //Submissions Controller - Basic CRUD
 Route::resource('submissions', 'SubmissionsController');
 
-
-
 Route::get('/pdf', function() {
     $pdf = PDF::make();
     $pdf->setOptions(['tmp' => __DIR__ . '/../../storage']);
