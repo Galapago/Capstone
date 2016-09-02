@@ -6,7 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\DB;
+use App\Form;
+use App\Submission;
+use App\User;
+use App\Question;
+use App\QuestionOption;
+use App\Answer;
+use App\Physician;
+use App\Patient;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+
 
 class PhysiciansController extends Controller
 {
@@ -48,7 +61,17 @@ class PhysiciansController extends Controller
      */
     public function show($id)
     {
-        //
+        $physician = Physician::find($id);
+        $user = User::find($physician->user_id);
+        
+        if (!$physician) {
+            Log::info("Physician with $id not found.");
+            abort(404);
+        }
+
+        $data = compact('physician', 'user');
+        //dd($data);
+        return view('physicians.show', $data);
     }
 
     /**
