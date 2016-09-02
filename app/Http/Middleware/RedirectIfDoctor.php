@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-class AuthenticateAsProvider
+class RedirectIfDoctor
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,11 @@ class AuthenticateAsProvider
      */
     public function handle($request, Closure $next)
     {   
-        if(!Auth::check() || Auth::user()->clearance!='doctor'){
+        if(!Auth::check() || Auth::user()->clearance=='doctor'){
             return view('/test');
         }
         //Check to see if user has the proper level of clearance
-        if(!$request->session()->has('doctor_validated')){
+        if($request->session()->has('doctor_validated')){
             return redirect('/physician/validate');
         }        
         return $next($request);

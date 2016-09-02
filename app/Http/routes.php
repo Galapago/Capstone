@@ -47,9 +47,11 @@ Route::get('/home','PatientsController@create');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-
+Route::post('/physician/stats/AJAX','PhysiciansController@statistics');
+Route::get('/physician/stats/AJAX','PhysiciansController@statistics');
 //Patients Controller - Basic CRUD
 Route::resource('patients', 'PatientsController');
+Route::get('/physician/stats','PhysiciansController@displayStats');
 
 //Physicians Controller - Basic CRUD
 Route::resource('physicians', 'PhysiciansController');
