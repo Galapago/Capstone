@@ -16,6 +16,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('form_id')->unsigned();
             $table->string('question', 200);
+            $table->enum('section', ['personal', 'insurance', 'history', 'review_of_symptoms', 'doctor_specific']),
             $table->enum('input_type',['radio', 'checkbox', 'textarea']);
             $table->boolean('quantifiable');
             $table->timestamps();
