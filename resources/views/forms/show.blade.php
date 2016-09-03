@@ -12,6 +12,7 @@ method so that it correlates properly. -->
 		<br>
 		<form method="POST" action="{{ action('SubmissionsController@store') }}">
 		{!! csrf_field() !!}
+
 			@foreach($form->questions as $question)
 				@if($question->input_type == 'radio')
 					@include('partials.radio')
@@ -21,6 +22,8 @@ method so that it correlates properly. -->
 					@include('partials.textarea')
 				@endif
 			@endforeach
+
+
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</section>

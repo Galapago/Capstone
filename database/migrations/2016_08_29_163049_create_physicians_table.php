@@ -14,7 +14,7 @@ class CreatePhysiciansTable extends Migration
     {
         Schema::create('physicians', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->unique;
             $table->string('first_name', 30);
             $table->string('last_name', 30);
             $table->integer('npi')->unsigned()->unique();

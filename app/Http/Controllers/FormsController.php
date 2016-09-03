@@ -58,9 +58,9 @@ class FormsController extends Controller
     {   
         
         $form = Form::find($id);
-        //$question = Question::find($id)->;
-        //$options = DB::table('question_options')->get();
-        //->where('question_id')->in(Form::find($id))
+        $questions = Question::find($form->id);
+        
+        
         
         
 
@@ -69,7 +69,7 @@ class FormsController extends Controller
             abort(404);
         }
 
-        $data = compact('form', 'question','options');
+        $data = compact('form', 'questions');
         
         return view('forms.show', $data);
     }
