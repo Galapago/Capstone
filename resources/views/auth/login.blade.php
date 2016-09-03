@@ -4,7 +4,7 @@
 <div class="container view">
 	<section>
 		<h1 class="section-title">Welcome To GalapaGo</h1>
-		<form method="post" action="{{ action('Auth\AuthController@postLogin') }}">
+		<form method="post" action="{{ action('CustomAuth@authenticate') }}">
 		{{ csrf_field() }}
 			<div class="form-group">
 				<label for="email">Email</label>

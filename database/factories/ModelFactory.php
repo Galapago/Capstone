@@ -68,19 +68,27 @@ $factory->define(App\QuestionOption::class, function (Faker\Generator $faker) {
         'option_text' => 'Male',
     ];
 });
-
 $factory->define(App\Submission::class, function (Faker\Generator $faker) {
     return [
         'form_id' => App\Form::all()->random()->id,
         'patient_id' => App\Patient::all()->random()->id,
     ];
 });
-
 $factory->define(App\Answer::class, function (Faker\Generator $faker) {
-    return [
-        'question_id' => App\Question::all()->random()->id,
+    $question=App\Question::where('id',mt_rand(1,39))->first();
+    if($question->input_type=='textarea'){
+        $answer=[
+        'question_id'=>$question->id,        
         'patient_id' => App\Patient::all()->random()->id,
-        'answer' => $faker->sentence,
         'submission_id' => App\Submission::all()->random()->id,
-    ];
+        'answer' => 'Dr. ' . App\Physician::all()->random()->last_name];
+    }else{
+        $answer=[
+            'question_id' => $question->id,
+            'patient_id' => App\Patient::all()->random()->id,
+            'answer' => App\QuestionOption::where('question_id',$question->id)->get()->random()->option_text,
+            'submission_id' => App\Submission::all()->random()->id,
+        ];
+    }
+    return $answer;
 });

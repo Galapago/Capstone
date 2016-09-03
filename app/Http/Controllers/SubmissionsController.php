@@ -14,6 +14,9 @@ class SubmissionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('provider');
+    }
     public function index()
     {
         //
@@ -48,6 +51,7 @@ class SubmissionsController extends Controller
      */
     public function show($id)
     {
+        $form=\App\Form::where('id',$id)->first();
         return view('forms.show');
     }
 
