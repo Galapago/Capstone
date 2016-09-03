@@ -62,13 +62,14 @@ class SubmissionsController extends Controller
         $submission = Submission::find($id);
         $patient = Patient::find($submission->patient->id);
         $form = Form::find($submission->form->id);
+        $questions = Question::find($form->questions);
 
         if (!$submission) {
             Log::info("Submission with $id not found.");
             abort(404);
         }
 
-        $data = compact('submission', 'patient');
+        $data = compact('submission', 'patient', 'form', 'questions');
 
         return view('submissions.show', $data);
     }

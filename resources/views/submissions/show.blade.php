@@ -16,10 +16,12 @@
 				</tr>
 			<thead>
 			<tbody>
+				@foreach($form->questions as $question)
 				<tr>
-					<td>This is a question?</td>
-					<td>That certainly seems to be the case.</td>
+					<td>{{ $question->question }}</td>
+					<td>{{ $question->answer->answer }}</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</section>
