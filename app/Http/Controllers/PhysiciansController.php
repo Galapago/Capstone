@@ -71,7 +71,7 @@ class PhysiciansController extends Controller
             abort(404);
         }
 
-        $data = compact('physician', 'user');
+        $data = compact('physician');
         //dd($data);
         return view('physicians.show', $data);
     }

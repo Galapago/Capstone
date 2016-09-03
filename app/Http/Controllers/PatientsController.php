@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Patient;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Patient;
 use Illuminate\Support\Facades\DB;
 use App\Form;
 use App\Submission;
@@ -162,5 +162,14 @@ class PatientsController extends Controller
         $request->session()->flash('message', 'Your password has been updated!');
         return redirect()->action('PatientsController@show', $patient->id);
 
+    }
+    public function mail()
+    {
+        $user = User::find(1)->toArray();
+        Mail::send('emails.test', $user, function($message) use ($user) {
+            $message->to($user->email);
+            $message->subject('Mailgun Testing');
+        });
+        dd('Mail Send Successfully');
     }
 }
