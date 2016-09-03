@@ -280,7 +280,7 @@ class QuestionTableSeeder extends Seeder
     	$question34->form_id='1';
     	$question34->question='How frequently?';
         $question34->section='history';
-    	$question34->quantifiable='4';
+    	$question34->quantifiable='0';
     	$question34->input_type='radio';
     	$question34->save();
 
@@ -334,13 +334,21 @@ class QuestionTableSeeder extends Seeder
     	$question40->input_type='checkbox';
     	$question40->save();
 
-        $question41=New APp\Question();
+        $question41=New App\Question();
         $question41->form_id='1';
         $question41->question='Chest Pain?';
         $question41->section='doctor_specific';
         $question41->quantifiable='1';
         $question41->input_type='checkbox';
         $question41->save();
+
+        $question42=New App\Question();
+        $question42->form_id='1';
+        $question42->question='Insurance Provider?';
+        $question42->section='insurance';
+        $question42->quantifiable='0';
+        $question42->input_type='textarea';
+        $question42->save();
 
 
         //factory(App\Question::class, 30)->create();
