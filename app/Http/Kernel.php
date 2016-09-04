@@ -31,5 +31,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'provider' => \App\Http\Middleware\RedirectIfPatient::class,
         'user' => \App\Http\Middleware\RediretIfDoctor::class,
+        'clearValidation' => \App\Http\Middleware\RemoveDoctorAuth::class,
     ];
 }

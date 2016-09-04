@@ -1,47 +1,9 @@
 @extends('layouts.physicians-master')
 @section('content')
-<div class="content">
+<div class="content container">
 <div id="chart_div">
 </div>
 </div>
-<!--
-@if(isset($questions))
-	@foreach($questions as $question)
-		<table class="table table-striped">
-		<thead class="thead-default">
-			<tr>
-				<th scope="row">
-			{{$question->question}}
-				</th>
-				<th>Count</th>
-			</tr>
-		</thead>
-			<tbody>
-			@if(empty($question->questionOption[0]))
-			<tr>
-			<th>No data to display</th>
-			<td>
-			</td>
-			</tr>
-			@endif
-			@foreach($question->questionOption as $answerText)
-			<tr>
-			<th scope="row">{{$answerText->option_text}}</th>
-				<td>
-				@if(empty(App\Answer::where('question_id',$question->id)->where('answer',$answerText->option_text)->count()))
-				{{'No info to display'}}
-				@else
-				{{App\Answer::where('question_id',$question->id)->where('answer',$answerText->option_text)->count()}}
-				@endif
-				</td>
-			</tr>
-			@endforeach
-			</tbody>
-		</table>
-	@endforeach
-}
-@endif
--->
 <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
@@ -49,23 +11,20 @@ var chartCol=[];
 var chartRow=[];
 var string;
 var title;
+var width;
+var height;
 google.charts.load('current', {'packages':['corechart']});
 $.get('/physician/stats/AJAX',function($data){
-	//console.log($data['data'][20]);
 	$.each($data['data'],function(index,value){
-		$('.content').append('<div id=chart' + index +'></div>');
+		$('.content').append('<div  class="col-md-12" id=chart' + index +'></div>');
+		width=$('col-md-12').width();
+		height=$(window).height();
 		title=value['text'];
 		string='';
-		chartCol.push("{id: '" + value['text'] + "', label:'" + value['text'] +"',type:'string'}");
-		chartCol.push("{id: 'responses', label: 'Responses', type: 'number'}"),
 		$.each($data['data'][index]['question_options'],function(index,value){
-			console.log(value);
-			//string="{c:[{v:'" + value['option_text'] +"'},{v:" +parseInt(value['responses']) + "}]}";
 			chartRow.push([value['option_text'],parseInt(value['responses'])]);
-			//cols:[{id:'',label:'',type:''}]
-			//rows:[{[c:{v:'title'},{v:number}]}]
 		});
-		google.charts.setOnLoadCallback(drawChart(chartRow,index,title));
+		google.charts.setOnLoadCallback(drawChart(chartRow,index,title,width,height));
 		chartCol=[];
 		chartRow=[];
 		string='';
@@ -87,15 +46,22 @@ $.get('/physician/stats/AJAX',function($data){
 });
 
 //google.charts.setOnLoadCallback(drawChart);
-function drawChart(rows,index,title) {
+function drawChart(rows,index,title,width,height) {
         // Create the data table.
 			var data = new google.visualization.DataTable();
 			data.addColumn('string','Repsonse')
 			data.addColumn('number','Number of Options');
-			data.addRows(rows);
+			$.each(rows,function(index,value){
+				var convertToArray=[""+ value[0],parseInt(value[1])];
+				data.addRows([convertToArray]);
+			});
+			//data.addRows(rows);
 			var options = {'title':title,
-                       'width':400,
-                       'height':300};
+                       'width':width,
+                       'height':height,
+                   		'titleTextStyle':{
+                   			'fontSize':25
+                   		}};
 			var chart = new google.visualization.PieChart(document.getElementById('chart' + index));
         chart.draw(data, options);
       }

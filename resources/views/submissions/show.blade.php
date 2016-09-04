@@ -16,12 +16,12 @@
 				</tr>
 			<thead>
 			<tbody>
-				@foreach($form->questions as $question)
-				<tr>
-					<td>{{ $question->question }}</td>
-					<td>{{ $question->answer->answer }}</td>
-				</tr>
-				@endforeach
+			@foreach($answers as $key=>$answer)
+			<tr>
+				<td>{{$questions[$key]->question}}</td>
+				<td>{{$answer}}</td>
+			</tr>
+			@endforeach
 			</tbody>
 		</table>
 	</section>

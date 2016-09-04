@@ -3,7 +3,6 @@
 <!-- This is the hard coded form. Right now this is in patients.index, however at any time we decide which
 method we actually want to put this in, we can change the name of the blade to the name of that
 method so that it correlates properly. -->
-
 @section('content')
 <div class="container">
 	<section class="container-fluid">
