@@ -23,7 +23,6 @@ method so that it correlates properly. -->
 				@endif
 			@endforeach
 
-
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</section>

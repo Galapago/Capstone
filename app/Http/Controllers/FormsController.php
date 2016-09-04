@@ -58,18 +58,13 @@ class FormsController extends Controller
     {   
         
         $form = Form::find($id);
-        $questions = Question::find($form->id);
-        
-        
-        
-        
 
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
         }
 
-        $data = compact('form', 'questions');
+        $data = compact('form');
         
         return view('forms.show', $data);
     }
