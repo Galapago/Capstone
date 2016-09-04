@@ -4,7 +4,6 @@
 method we actually want to put this in, we can change the name of the blade to the name of that
 method so that it correlates properly. -->
 @section('content')
-{!!var_dump('$form')!!}
 <div class="container">
 	<section class="container-fluid">
 		<h1 class="section-title">From the Office of Dr. {{ $form->physician->first_name }} {{ $form->physician->last_name }}</h1>

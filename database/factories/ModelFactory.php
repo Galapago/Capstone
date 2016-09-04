@@ -56,7 +56,7 @@ $factory->define(App\Form::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Question::class, function (Faker\Generator $faker) {
     return [
-        'form_id' => App\Form::all()->random()->id,
+        'form_id' => 2,
         'question' => $faker->sentence,
         'quantifiable' => $faker->boolean,
     ];
@@ -65,7 +65,7 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
 $factory->define(App\QuestionOption::class, function (Faker\Generator $faker) {
     return [
         'question_id' => App\Question::all()->random()->id,
-        'option_text' => 'Male',
+        'option_text' => $faker->sentence,
     ];
 });
 $factory->define(App\Submission::class, function (Faker\Generator $faker) {
@@ -81,7 +81,7 @@ $factory->define(App\Answer::class, function (Faker\Generator $faker) {
         'question_id'=>$question->id,        
         'patient_id' => App\Patient::all()->random()->id,
         'submission_id' => App\Submission::all()->random()->id,
-        'answer' => 'Dr. ' . App\Physician::all()->random()->last_name];
+        'answer' => $faker->firstName . $faker->lastName];
     }else{
         $answer=[
             'question_id' => $question->id,

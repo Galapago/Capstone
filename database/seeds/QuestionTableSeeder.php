@@ -251,6 +251,6 @@ class QuestionTableSeeder extends Seeder
     	$question35->input_type='checkbox';
     	$question35->save();
 
-        //factory(App\Question::class, 30)->create();
+        factory(App\Question::class, 30)->create();
     }
 }

@@ -648,6 +648,6 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='No';
     	$option1->save();
 
-        //factory(App\QuestionOption::class, 30)->create();
+        factory(App\QuestionOption::class, 30)->create();
     }
 }

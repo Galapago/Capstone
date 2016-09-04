@@ -18,18 +18,9 @@ use Illuminate\Http\Request;
 //Login Routes
 =======
 });*/
-<<<<<<< HEAD
 Route::get('/','CustomAuth@authenticate');
 Route::get('auth/login', 'CustomAuth@index');
 Route::post('auth/login', 'CustomAuth@authenticate');
-=======
-Route::get('/','HomeController@index');
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
->>>>>>> 509d9304cb952df624a0313e9c66df4ec31bf550
-
-//Route::get('auth/login', 'Auth\AuthController@getLogin');
-//Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'CustomAuth@logout');
 Route::post('auth/logout', 'CustomAuth@logout');
 Route::get('/physician/validate',function(){
