@@ -13,15 +13,29 @@ method so that it correlates properly. -->
 		<form method="POST" action="{{ action('SubmissionsController@store') }}">
 		{!! csrf_field() !!}
 
-			@foreach($form->questions as $question)
+		@foreach ($questions_ordered as $types)
+			{{var_dump($types)}}
+		@endforeach
+
+
+		<!-- @foreach($questions_ordered as $type)
+			@if ($type == 'personal')
 				@if($question->input_type == 'radio')
-					@include('partials.radio')
+						@include('partials.radio')
 				@elseif($question->input_type == 'checkbox')
 					@include('partials.checkbox')
 				@elseif($question->input_type == 'textarea')
 					@include('partials.textarea')
 				@endif
-			@endforeach
+			@endif
+		@endforeach -->
+
+
+
+		
+			
+
+
 
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>

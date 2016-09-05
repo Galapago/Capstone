@@ -339,7 +339,7 @@ class QuestionTableSeeder extends Seeder
         $question41->question='Chest Pain?';
         $question41->section='doctor_specific';
         $question41->quantifiable='1';
-        $question41->input_type='checkbox';
+        $question41->input_type='radio';
         $question41->save();
 
         $question42=New App\Question();

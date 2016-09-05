@@ -58,13 +58,29 @@ class FormsController extends Controller
     {   
         
         $form = Form::find($id);
+        $questions = $form->questions;
+
+        $section_types = ['personal', 'insurance', 'history', 'review_of_symptoms', 'doctor_specific']; //listing the section types from the questions table
+
+        $questions_ordered = [];
+
+        foreach ($questions as $question) {    // looping through ea question
+            foreach ($section_types as $type) { // looping through ea section
+                if ($question->section == $type) {  // if sections are the same (personal == personal for ex)
+                    $questions_ordered[$type] = $question; 
+
+                }
+            }
+        }
+
+
 
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
         }
 
-        $data = compact('form');
+        $data = compact('form', 'question','questions_ordered');
         
         return view('forms.show', $data);
     }
