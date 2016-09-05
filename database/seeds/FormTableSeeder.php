@@ -16,6 +16,6 @@ class FormTableSeeder extends Seeder
     	$form1->form_name='test_form';
     	$form1->npi='00001';
     	$form1->save();
-        factory(App\Form::class, 5)->create();
+        factory(App\Form::class, 1)->create();
     }
 }

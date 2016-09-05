@@ -59,6 +59,6 @@ class AnswerTableSeeder extends Seeder
     	$answer1->submission_id='1';
     	$answer1->answer='Shortness of Breath';
     	$answer1->save();
-        //factory(App\Answer::class, 100)->create();
+        factory(App\Answer::class, 600)->create();
     }
 }

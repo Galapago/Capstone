@@ -294,6 +294,7 @@ class QuestionTableSeeder extends Seeder
     	$question35->input_type='radio';
     	$question35->save();
 
+
     	$question36=New App\Question();
     	$question36->form_id='1';
     	$question36->question='Are you often drowsy during the daitime?';
