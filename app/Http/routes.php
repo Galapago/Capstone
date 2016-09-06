@@ -11,37 +11,18 @@
 |
 */
 use Illuminate\Http\Request;
-Route::get('/', function (Request $request) {
-    return view('welcome');
+Route::get('/', function(){
+	return view('index');
 });
-
 //Login Routes
-
-
-
 Route::get('/','HomeController@index');
+Route::get('/physicians/login','CustomAuth@physiciansLogin');
+Route::post('/physicians/login','CustomAuth@authenticatePhysicians');
+Route::get('/patient/login','CustomAuth@patientsLogin');
+Route::post('/patient/login','CustomAuth@authenticatePatients');
 
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-//Testing auth routes
-Route::get('/test','CustomAuth@index');
-Route::post('/test','CustomAuth@authenticate');
-Route::get('/test/logout','CustomAuth@logout');
-//Route::get('/test/validate',function(){
-
-// Route::get('/','CustomAuth@authenticate');
-Route::get('/auth/login', 'Auth\AuthController@getLogin');
-Route::post('/auth/login', 'Auth\AuthController@postLogin');
-// Route::get('auth/login', 'CustomAuth@index');
-// Route::post('auth/login', 'CustomAuth@authenticate');
-Route::get('auth/logout', 'Auth\Authcontroller@getLogout');
-//Route::post('auth/logout', 'CustomAuth@logout');
-Route::get('/physician/validate',function(){
-
-	return view('physician_validation');
-	})->middleware('provider');
-Route::post('/physician/validate','CustomAuth@physicianValidate');
+Route::get('auth/logout', 'CustomAuth@logout');
+Route::post('auth/logout', 'CustomAuth@logout');
 Route::get('/home/{id}','PatientsController@show');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
@@ -50,7 +31,7 @@ Route::post('/physician/stats/AJAX','PhysiciansController@statistics');
 Route::get('/physician/stats/AJAX','PhysiciansController@statistics');
 //Patients Controller - Basic CRUD
 Route::resource('patients', 'PatientsController');
-Route::get('/physician/stats','PhysiciansController@displayStats');
+Route::get('/physicians/stats','PhysiciansController@displayStats');
 Route::put('patients/password/{id}', 'PatientsController@updatePassword');
 Route::get('patients/password/{id}', 'PatientsController@editPassword');
 //Physicians Controller - Basic CRUD
@@ -60,7 +41,7 @@ Route::resource('physicians', 'PhysiciansController');
 //Users Controller - Basic CRUD
 Route::resource('users', 'UsersController');
 Route::resource('CustomAuth', 'CustomAuth');
-
+Route::get('/physicians/create/form','FormsController@create');
 
 //Forms Controller - Basic CRUD
 Route::resource('forms', 'FormsController');
@@ -74,4 +55,5 @@ Route::get('/pdf', function() {
     $pdf->addPage('http://getbootstrap.com/');
     $pdf->send('example.pdf');
 });
+
 

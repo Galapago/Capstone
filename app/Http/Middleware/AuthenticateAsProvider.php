@@ -17,7 +17,7 @@ class AuthenticateAsProvider
     public function handle($request, Closure $next)
     {   
         if(!Auth::check() || Auth::user()->clearance!='doctor'){
-            return view('/test');
+            return view('/');
         }
         //Check to see if user has the proper level of clearance
         if(!$request->session()->has('doctor_validated')){

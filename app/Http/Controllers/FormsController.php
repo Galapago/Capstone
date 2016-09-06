@@ -34,7 +34,7 @@ class FormsController extends Controller
      */
     public function create()
     {
-        //
+        return view('physicians.create-form');
     }
 
     /**
@@ -58,13 +58,18 @@ class FormsController extends Controller
     {   
         $form = Form::findOrFail($id);
         $questions = $form->questions()->orderBy('section')->get();
-
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
         }
+
         
         $data = compact('form', 'questions', 'id');
+
+
+        //$data = compact('form', 'question','options','questions_ordered');
+        $data = compact('form', 'questions', 'id');
+
         return view('forms.show', $data);
     }
 
