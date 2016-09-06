@@ -28,8 +28,7 @@ class CustomAuth extends Controller
             return redirect('/physician/validate');
         }
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
-            $auth_id=Auth::user()->id;
-            $id=\App\Patient::where('user_id',$auth_id)->first()->id;
+            $id=Auth::user()->id;
             return redirect('/home/' . $id);
         }
     }
