@@ -17,6 +17,11 @@ class SubmissionTableSeeder extends Seeder
     	$submission->patient_id=1;
     	$submission->save();
 
-        factory(App\Submission::class, 477)->create();
+        foreach (range(1, 477) as $i) {
+            \App\Submission::firstOrCreate([
+                'form_id' => App\Form::all()->random()->id,
+                'patient_id' => App\Patient::all()->random()->id,
+            ]);
+        }
     }
 }

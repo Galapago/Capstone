@@ -17,4 +17,8 @@ class Question extends Model
     public function answer(){
     	return $this->hasMany(Answer::class);
     }
+
+    public function answerFrom($patient) {
+    	return $this->answer()->where('patient_id', $patient->id)->get();
+    }
 }

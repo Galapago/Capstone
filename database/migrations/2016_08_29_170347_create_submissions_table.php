@@ -19,7 +19,7 @@ class CreateSubmissionsTable extends Migration
             $table->timestamps();
             $table->foreign('form_id')->references('id')->on('forms');
             $table->foreign('patient_id')->references('id')->on('patients');
-
+            $table->unique(['form_id', 'patient_id']);
         });
     }
 

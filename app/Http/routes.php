@@ -30,11 +30,13 @@ Route::post('/test','CustomAuth@authenticate');
 Route::get('/test/logout','CustomAuth@logout');
 //Route::get('/test/validate',function(){
 
-Route::get('/','CustomAuth@authenticate');
-Route::get('auth/login', 'CustomAuth@index');
-Route::post('auth/login', 'CustomAuth@authenticate');
-Route::get('auth/logout', 'CustomAuth@logout');
-Route::post('auth/logout', 'CustomAuth@logout');
+// Route::get('/','CustomAuth@authenticate');
+Route::get('/auth/login', 'Auth\AuthController@getLogin');
+Route::post('/auth/login', 'Auth\AuthController@postLogin');
+// Route::get('auth/login', 'CustomAuth@index');
+// Route::post('auth/login', 'CustomAuth@authenticate');
+Route::get('auth/logout', 'Auth\Authcontroller@getLogout');
+//Route::post('auth/logout', 'CustomAuth@logout');
 Route::get('/physician/validate',function(){
 
 	return view('physician_validation');

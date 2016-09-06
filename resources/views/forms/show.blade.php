@@ -11,6 +11,7 @@ method so that it correlates properly. -->
 		<br>
 		<form method="POST" action="{{ action('SubmissionsController@store') }}">
 		{!! csrf_field() !!}
+			<input type="hidden" name="form_id" value="{{ $id }}">
 
 			@foreach($questions as $question)
 				@if ($question->section == 'personal')
@@ -55,6 +56,7 @@ method so that it correlates properly. -->
 					@endif
 				@endif
 			@endforeach
+			<br>
 
 
 

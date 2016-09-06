@@ -21,17 +21,21 @@ class CustomAuth extends Controller
     Preforms the initial round of authentication
     */
     public function authenticate(Request $request){
-        $user=$request->user();
+        $user=$request->user;
         $email=$request->email;
         $password=$request->password;
+        //dd(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor']));
         if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor'])){
             return redirect('/physician/validate');
         }
+        //dd(Auth::attempt(['email'=>$email,'password'=>$password]), $email, $password);
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
             $auth_id=Auth::user()->id;
             $id=\App\Patient::where('user_id',$auth_id)->first()->id;
             return redirect('/home/' . $id);
         }
+
+        return redirect()->back();
     }
     public function logout(Request $request){
         Auth::logout();

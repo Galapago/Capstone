@@ -56,7 +56,7 @@ class FormsController extends Controller
      */
     public function show($id)
     {   
-        $form = Form::find($id);
+        $form = Form::findOrFail($id);
         $questions = $form->questions()->orderBy('section')->get();
 
         if (!$form) {
@@ -64,7 +64,7 @@ class FormsController extends Controller
             abort(404);
         }
         
-        $data = compact('form', 'questions');
+        $data = compact('form', 'questions', 'id');
         return view('forms.show', $data);
     }
 
