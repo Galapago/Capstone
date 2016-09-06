@@ -14,45 +14,15 @@ method so that it correlates properly. -->
 
 		@foreach($questions as $question)
 			@if ($question->section == 'personal')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
+				@include('partials.section')
 			@elseif ($question->section == 'insurance')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
+				@include('partials.section')
 			@elseif ($question->section == 'history')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
+				@include('partials.section')
 			@elseif ($question->section == 'review_of_symptoms')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
+				@include('partials.section')
 			@elseif ($question->section == 'doctor_specific')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
+				@include('partials.section')
 			@endif
 		@endforeach
 
