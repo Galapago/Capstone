@@ -64,9 +64,6 @@ class FormsController extends Controller
         }
 
         $data = compact('form', 'question','options','questions_ordered');
-=======
->>>>>>> 2df8f1c7fb9240bd8b89dd6d290625618bc40573
-        
         $data = compact('form', 'questions');
         return view('forms.show', $data);
     }
