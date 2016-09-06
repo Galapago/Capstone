@@ -34,7 +34,7 @@ class FormsController extends Controller
      */
     public function create()
     {
-        //
+        return view('physicians.create-form');
     }
 
     /**
@@ -58,6 +58,22 @@ class FormsController extends Controller
     {   
         
         $form = Form::find($id);
+        $questions=$form->questions;
+        $questions_ordered=[];
+        $section_types=[];
+        $question_types_array=$questions->groupBy('input_type');
+        foreach ($question_types_array as $key => $group) {
+            //var_dump('here');
+            $section_types[]=$key;
+        }
+        foreach ($questions as $key => $question) {
+            foreach ($section_types as $key => $type) {
+               if($question->input_type==$type){
+                $questions_ordered[$type][]=$question;
+               }
+            }
+    
+        }
         //$question = Question::find($id)->;
         //$options = DB::table('question_options')->get();
         //->where('question_id')->in(Form::find($id))
@@ -69,7 +85,7 @@ class FormsController extends Controller
             abort(404);
         }
 
-        $data = compact('form', 'question','options');
+        $data = compact('form', 'question','options','questions_ordered');
         
         return view('forms.show', $data);
     }

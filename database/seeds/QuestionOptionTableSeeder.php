@@ -140,6 +140,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Other';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='8';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='9';
     	$option1->option_text='Bleeding Tendency';
     	$option1->save();
@@ -184,6 +188,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Tuberculosis';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='9';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='11';
     	$option1->option_text='Shortness of Breath';
     	$option1->save();
@@ -200,6 +208,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Short of Breath on Exertion';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='11';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='12';
     	$option1->option_text='Cold Intolerance';
     	$option1->save();
@@ -210,6 +222,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1=New App\QuestionOption();
     	$option1->question_id='12';
     	$option1->option_text='Increased Thirst';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='12';
+    	$option1->option_text='None of the above';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='13';
@@ -240,6 +256,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Nausea';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='13';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='14';
     	$option1->option_text='Blood in Urine';
     	$option1->save();
@@ -250,6 +270,9 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1=New App\QuestionOption();
     	$option1->question_id='14';
     	$option1->option_text='Frequent urination';
+    	$option1->save();
+    	$option1->question_id='14';
+    	$option1->option_text='None of the above';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='15';
@@ -266,6 +289,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1=New App\QuestionOption();
     	$option1->question_id='15';
     	$option1->option_text='Wound';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='15';
+    	$option1->option_text='None of the above';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='16';
@@ -292,6 +319,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Varicose Veins';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='16';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='17';
     	$option1->option_text='Pregnant';
     	$option1->save();
@@ -300,8 +331,24 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Menopause';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='17';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='17';
+    	$option1->option_text='N/A';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='18';
     	$option1->option_text='Difficulty With Erection';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='18';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='18';
+    	$option1->option_text='N/A';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='19';
@@ -310,6 +357,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1=New App\QuestionOption();
     	$option1->question_id='19';
     	$option1->option_text='Easy Bruising';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='19';
+    	$option1->option_text='None of the above';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='20';
@@ -322,6 +373,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1=New App\QuestionOption();
     	$option1->question_id='20';
     	$option1->option_text='High Stress';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='20';
+    	$option1->option_text='None of the above';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='21';
@@ -348,6 +403,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Weight Loss';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='21';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='22';
     	$option1->option_text='Blurring of Vision';
     	$option1->save();
@@ -362,6 +421,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1=New App\QuestionOption();
     	$option1->question_id='22';
     	$option1->option_text='Vision Floaters';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='22';
+    	$option1->option_text='None of the above';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='23';
@@ -388,6 +451,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='Tingling';
     	$option1->save();
     	$option1=New App\QuestionOption();
+    	$option1->question_id='23';
+    	$option1->option_text='None of the above';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
     	$option1->question_id='24';
     	$option1->option_text='Arm Pain';
     	$option1->save();
@@ -410,6 +477,10 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1=New App\QuestionOption();
     	$option1->question_id='24';
     	$option1->option_text='Muscle Pain';
+    	$option1->save();
+    	$option1=New App\QuestionOption();
+    	$option1->question_id='24';
+    	$option1->option_text='None of the above';
     	$option1->save();
     	$option1=New App\QuestionOption();
     	$option1->question_id='25';
@@ -648,6 +719,6 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->option_text='No';
     	$option1->save();
 
-        factory(App\QuestionOption::class, 30)->create();
+        //factory(App\QuestionOption::class, 30)->create();
     }
 }

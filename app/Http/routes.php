@@ -45,7 +45,7 @@ Route::resource('physicians', 'PhysiciansController');
 //Users Controller - Basic CRUD
 Route::resource('users', 'UsersController');
 Route::resource('CustomAuth', 'CustomAuth');
-
+Route::get('/physicians/create/form','FormsController@create');
 
 //Forms Controller - Basic CRUD
 Route::resource('forms', 'FormsController');
