@@ -1,9 +1,9 @@
 <div>
-	<label for="{{ $question->question }}">{{ $question->question }}</label>
+	<label for="{{ $question->id }}">{{ $question->question }}</label>
 		<input 
 			type="textarea" 
 			class="form-control"
-			name="{{ $question->question }}"> 
+			name="{{ $question->id }}"> 
 </div>
 @include('partials.error', ['field' => '{{ $question->question }}'])
 			

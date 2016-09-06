@@ -16,20 +16,18 @@
 				</tr>
 			<thead>
 			<tbody>
-				@foreach($submission->	form->questions as $question)
-					<tr>
-						<td>{{ $question->question }}</td>
-						@foreach($question->answer as $answer)
-							<td>{{ $answer->answer }}</td>
+
+			@foreach ($submission->form->questions as $question)
+				<tr>
+					<td>{{ $question->question }}</td>
+					<td>
+						@foreach($question->answerFrom($submission->patient) as $answer)
+							{{$answer->answer}}
 						@endforeach
-					</tr>
-				@endforeach
-			@foreach($answers as $key=>$answer)
-			<tr>
-				<td>{{$questions[$key]->question}}</td>
-				<td>{{$answer}}</td>
-			</tr>
+					</td>
+				</tr>
 			@endforeach
+
 			</tbody>
 		</table>
 	</section>

@@ -56,3 +56,4 @@ Route::get('/pdf', function() {
     $pdf->send('example.pdf');
 });
 
+
