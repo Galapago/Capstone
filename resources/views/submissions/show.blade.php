@@ -16,6 +16,14 @@
 				</tr>
 			<thead>
 			<tbody>
+				@foreach($submission->	form->questions as $question)
+					<tr>
+						<td>{{ $question->question }}</td>
+						@foreach($question->answer as $answer)
+							<td>{{ $answer->answer }}</td>
+						@endforeach
+					</tr>
+				@endforeach
 			@foreach($answers as $key=>$answer)
 			<tr>
 				<td>{{$questions[$key]->question}}</td>
