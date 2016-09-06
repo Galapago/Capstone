@@ -34,7 +34,7 @@ class FormsController extends Controller
      */
     public function create()
     {
-        //
+        return view('physicians.create-form');
     }
 
     /**
@@ -57,7 +57,9 @@ class FormsController extends Controller
     public function show($id)
     {   
         $form = Form::find($id);
+
         $questions = $form->questions()->orderBy('section')->paginate(10);
+
 
         if (!$form) {
             Log::info("Form with $id not found.");

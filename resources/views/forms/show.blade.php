@@ -10,6 +10,7 @@ method so that it correlates properly. -->
 		<h2 class="section-title">{{ $form->form_name }}</h2>
 		<br>
 		<form method="POST" action="{{ action('SubmissionsController@store') }}">
+
 			{!! csrf_field() !!}
 
 			@foreach($questions as $question)
@@ -26,12 +27,10 @@ method so that it correlates properly. -->
 				@endif
 			@endforeach
 
+
 			<button type="submit" class="btn btn-primary">Save & Continue</button>
 
 			{!! $questions->render() !!}
-			
-
-
 
 			
 		</form>
