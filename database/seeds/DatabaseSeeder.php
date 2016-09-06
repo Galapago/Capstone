@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(FormTableSeeder::class);
         $this->call(QuestionTableSeeder::class);
         $this->call(QuestionOptionTableSeeder::class);
-        $this->call(SubmissionTableSeeder::class);
-        $this->call(AnswerTableSeeder::class);
+        // $this->call(SubmissionTableSeeder::class);
+        // $this->call(AnswerTableSeeder::class);
 
         Model::reguard();
     }

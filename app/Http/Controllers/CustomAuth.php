@@ -14,23 +14,70 @@ use Illuminate\Support\Facades\Hash;
 
 class CustomAuth extends Controller
 {
+        protected $loginPath='/physicians/login';
     public function __construct(){
-        $this->middleware('guest', ['except' => ['index','authenticate','logout']]);
+        $this->middleware('guest', ['except' => ['index','authenticate','physiciansLogin','patientsLogin','authenticatePatients','authenticatePhysicians','logout']]);
+    }
+    public function physiciansLogin(){
+        return view('physicians.login');
+    }
+    public function patientsLogin(){
+        return view('patients.login');
     }
     /*
     Preforms the initial round of authentication
     */
+<<<<<<< HEAD
     public function authenticate(Request $request){
-        $user=$request->user();
+        $user=$request->user;
         $email=$request->email;
+=======
+    public function authenticatePhysicians(Request $request){
+        $user=$request->user();
+        $email=$request->input('email');
+        $npi=$request->input('npi');
+>>>>>>> dbc93d34c8520ad33d7039da2b282ca71b2790a2
         $password=$request->password;
+        //dd(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor']));
         if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor'])){
+<<<<<<< HEAD
             return redirect('/physician/validate');
         }
+        //dd(Auth::attempt(['email'=>$email,'password'=>$password]), $email, $password);
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
+=======
+            $user_id=\App\User::where('email',$email)->first()->id;
+            $correctNPI=\App\Physician::where('npi',$npi)->first()->npi;
+            if(!$npi==$correctNPI){
+                Auth::logout();
+                return redirect('/physicians/login');
+            }
+            $request->session()->put('doctor_validate',true);
+>>>>>>> dbc93d34c8520ad33d7039da2b282ca71b2790a2
+            $auth_id=Auth::user()->id;
+            $id=\App\Physician::where('user_id',$auth_id)->first()->id;
+            return redirect('/physicians/' . $id);
+        }
+        return redirect()->back();
+    }
+    public function authenticatePatients(Request $request){
+        $email=$request->input('email');
+        $password=$request->input('password');
+        if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'patient'])){
             $id=Auth::user()->id;
             return redirect('/home/' . $id);
         }
+<<<<<<< HEAD
+
+        return redirect()->back();
+=======
+        if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor'])){
+            Auth::logout();
+            return redirect()->intended('/patient/login');
+        }
+        return redirect()->back('/patient/login');
+
+>>>>>>> dbc93d34c8520ad33d7039da2b282ca71b2790a2
     }
     public function logout(Request $request){
         Auth::logout();

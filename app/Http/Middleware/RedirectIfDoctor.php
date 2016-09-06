@@ -17,11 +17,11 @@ class RedirectIfDoctor
     public function handle($request, Closure $next)
     {   
         if(!Auth::check() || Auth::user()->clearance=='doctor'){
-            return view('/test');
+            return view('/auth/login');
         }
         //Check to see if user has the proper level of clearance
         if($request->session()->has('doctor_validated')){
-            return redirect('/physician/validate');
+            return redirect('/physicians/login');
         }        
         return $next($request);
     }

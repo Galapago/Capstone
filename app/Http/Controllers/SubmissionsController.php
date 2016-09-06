@@ -27,7 +27,7 @@ class SubmissionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct(){
-        $this->middleware('provider');
+        //$this->middleware('provider');
     }
     public function index()
     {
@@ -52,12 +52,25 @@ class SubmissionsController extends Controller
      */
     public function store(Request $request)
     {
-        //$user_id=Auth::user()->id;
+        
         $submission = new Submission;
-        //$submission->form_id = $id;
-        //$submission->patient_id = \App\Patient::where('user_id',$user_id)->first()->id;
-        $submission->patient_id = Submission::find($submission->patient->id);
-        dd($submission->patient_id);
+        dd(Auth::user()->id);
+        $user_id = Auth::user()->id;
+        $submission->form_id = $request->input('form_id');
+        $submission->patient_id = \App\Patient::where('user_id',$user_id)->first()->id;
+        //$submission->patient_id = Submission::find($submission->patient->id);
+        $submission->save();
+
+        $answers = $request->all();
+        unset($answers['_token']);
+        unset($answers['form_id']);
+        foreach ($answers as $questionId => $answerText) {
+            $answer = new Answer;
+            $answer->question_id = $questionId;
+            $answer->answer = $answerText;
+            $answer->patient_id = $submission->patient_id;
+            $answer->save();
+        }
 
         $request->session()->flash('message', 'Your form has been submitted!');
         return redirect( action('PatientsController@show'));
@@ -84,33 +97,26 @@ class SubmissionsController extends Controller
         // dd($questions);
 
 
-        $submission = Submission::where('id',$id)->first();
-        $patient=\App\Patient::where('id',$submission->id)->first();
+        $submission = Submission::findOrFail($id);
+       // $patient=\App\Patient::where('id',$submission->id)->first();
         //$patient = Patient::find($submission->patient->id)->get();
-        $form=\App\Form::where('id',$submission->form_id)->first();
+        //$form=\App\Form::where('id',$submission->form_id)->first();
         //$form = Form::find($submission->form->id)->get();
-        $questions = Question::where('form_id',$form->id)->get();
-        foreach($questions as $question){
-            $answer=Answer::where('submission_id',$submission->id)->where('question_id',$question->id)->first();
-            if(empty($answer)){
-                $answers[]='Not answered';
-            }else{
-                $answers[]=$answer->answer;
-            }
-        }
-        if(empty($answers)){
-            $answers=['Questionaire not submitted'];
-        }
-        if (!$submission) {
-         Log::info("Submission with $id not found.");
-            abort(404);
-        }
-
+        //$questions = Question::where('form_id',$form->id)->get();
+        //dd($questions);
+        // foreach($questions as $question){
+        //     $answer=Answer::where('submission_id',$submission->id)->where('question_id',$question->id)->first();
+        //     if(empty($answer)){
+        //         $answers[]='Not answered';
+        //     }else{
+        //         $answers[]=$answer->answer;
+        //     }
+        // }
+        // if(empty($answers)){
+        //     $answers=['Questionaire not submitted'];
+        // }
 
         $data = compact('submission', 'patient', 'form', 'answers', 'questions');
-
-
-        $data = compact('submission', 'patient', 'form', 'questions','answers');
 
         return view('submissions.show', $data);
     }

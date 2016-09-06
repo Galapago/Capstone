@@ -30,7 +30,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'provider' => \App\Http\Middleware\RedirectIfPatient::class,
-        'user' => \App\Http\Middleware\RediretIfDoctor::class,
+        'user' => \App\Http\Middleware\RedirectIfDoctor::class,
         'clearValidation' => \App\Http\Middleware\RemoveDoctorAuth::class,
     ];
 }

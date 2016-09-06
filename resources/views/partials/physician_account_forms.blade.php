@@ -2,7 +2,7 @@
 	@forelse($patient->submissions as $submission)
 	<tr>
 		<td> Form No. {{ $submission->form_id }} from {{ $patient->first_name . ' ' . $patient->last_name }}</td>
-	  	<td><a class="btn btn-primary" href="{{ action('SubmissionsController@show', $submission->form_id) }}">View Form No. {{ $submission->form_id }}</a></td>
+	  	<td><a class="btn btn-primary" href="{{ action('SubmissionsController@show', $submission->id) }}">View Form No. {{ $submission->form_id }}</a></td>
 	</tr>
 	@empty
 	<tr>

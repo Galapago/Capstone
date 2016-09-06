@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Hash;
 
 
 class PatientsController extends Controller
-{
+{   
+    public function __construct(){
+        $this->middleware('user');
+    }
     /**
      * Display a listing of the resource.
      *

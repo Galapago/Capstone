@@ -145,11 +145,17 @@ method so that it correlates properly. -->
 
 
 </style>
-
+<div class="container">
+	<section class="container-fluid">
+		<h1 class="section-title">From the Office of Dr. {{ $form->physician->first_name }} {{ $form->physician->last_name }}</h1>
+		<h2 class="section-title">{{ $form->form_name }}</h2>
         
-    <!-- multistep form -->
+    <!-- multistep form -->	
 	<form id="msform" method="POST" action="{{ action('SubmissionsController@store') }}">
-		<!-- progressbar -->
+	{!! csrf_field() !!}
+		<input type="hidden" name="form_id" value="{{ $id }}">
+
+ 		<!-- progressbar -->
 		<ul id="progressbar">
 			<li class="active">Personal</li>
 			<li>Insurance</li>
@@ -180,7 +186,7 @@ method so that it correlates properly. -->
 			@include ('partials.doctor_specific')
 		</fieldset>
 	</form>
-
+</div>
 
 			
 
