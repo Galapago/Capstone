@@ -12,49 +12,49 @@ method so that it correlates properly. -->
 		<form method="POST" action="{{ action('SubmissionsController@store') }}">
 		{!! csrf_field() !!}
 
-		@foreach($questions as $question)
-			@if ($question->section == 'personal')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
+			@foreach($questions as $question)
+				@if ($question->section == 'personal')
+					@if($question->input_type == 'radio')
+							@include('partials.radio')
+					@elseif($question->input_type == 'checkbox')
+						@include('partials.checkbox')
+					@elseif($question->input_type == 'textarea')
+						@include('partials.textarea')
+					@endif
+				@elseif ($question->section == 'insurance')
+					@if($question->input_type == 'radio')
+							@include('partials.radio')
+					@elseif($question->input_type == 'checkbox')
+						@include('partials.checkbox')
+					@elseif($question->input_type == 'textarea')
+						@include('partials.textarea')
+					@endif
+				@elseif ($question->section == 'history')
+					@if($question->input_type == 'radio')
+							@include('partials.radio')
+					@elseif($question->input_type == 'checkbox')
+						@include('partials.checkbox')
+					@elseif($question->input_type == 'textarea')
+						@include('partials.textarea')
+					@endif
+				@elseif ($question->section == 'review_of_symptoms')
+					@if($question->input_type == 'radio')
+							@include('partials.radio')
+					@elseif($question->input_type == 'checkbox')
+						@include('partials.checkbox')
+					@elseif($question->input_type == 'textarea')
+						@include('partials.textarea')
+					@endif
+				@elseif ($question->section == 'doctor_specific')
+					@if($question->input_type == 'radio')
+							@include('partials.radio')
+					@elseif($question->input_type == 'checkbox')
+						@include('partials.checkbox')
+					@elseif($question->input_type == 'textarea')
+						@include('partials.textarea')
+					@endif
 				@endif
-			@elseif ($question->section == 'insurance')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
-			@elseif ($question->section == 'history')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
-			@elseif ($question->section == 'review_of_symptoms')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
-			@elseif ($question->section == 'doctor_specific')
-				@if($question->input_type == 'radio')
-						@include('partials.radio')
-				@elseif($question->input_type == 'checkbox')
-					@include('partials.checkbox')
-				@elseif($question->input_type == 'textarea')
-					@include('partials.textarea')
-				@endif
-			@endif
-		@endforeach
+			@endforeach
 
 
 

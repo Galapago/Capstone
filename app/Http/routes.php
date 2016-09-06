@@ -11,13 +11,13 @@
 |
 */
 use Illuminate\Http\Request;
-/*Route::get('/', function (Request $request) {
+Route::get('/', function (Request $request) {
     return view('welcome');
 });
 
 //Login Routes
-=======
-});*/
+
+
 
 Route::get('/','HomeController@index');
 
@@ -28,7 +28,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('/test','CustomAuth@index');
 Route::post('/test','CustomAuth@authenticate');
 Route::get('/test/logout','CustomAuth@logout');
-Route::get('/test/validate',function(){
+//Route::get('/test/validate',function(){
 
 Route::get('/','CustomAuth@authenticate');
 Route::get('auth/login', 'CustomAuth@index');
@@ -38,7 +38,7 @@ Route::post('auth/logout', 'CustomAuth@logout');
 Route::get('/physician/validate',function(){
 
 	return view('physician_validation');
-})->middleware('provider');
+	})->middleware('provider');
 Route::post('/physician/validate','CustomAuth@physicianValidate');
 Route::get('/home/{id}','PatientsController@show');
 // Registration routes...
