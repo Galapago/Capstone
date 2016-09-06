@@ -28,13 +28,17 @@ class CustomAuth extends Controller
             return redirect('/physician/validate');
         }
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
-            return redirect('/home');
+            $auth_id=Auth::user()->id;
+            $id=\App\Patient::where('user_id',$auth_id)->first()->id;
+            return redirect('/home/' . $id);
         }
     }
     public function logout(Request $request){
         Auth::logout();
-        $request->session()->flush();
-        return redirect('/test');
+        if($request->session()->has('doctor_validate')){
+            $request->session()->pull('doctor_validate');
+        }
+        return redirect('/');
     }
     /**
     Validates a physician once they complete the first level authentication
@@ -46,7 +50,9 @@ class CustomAuth extends Controller
         $result=DB::table('physicians')->leftJoin('users','user_id','=','users.id')->where('npi',$npi)->select('password')->get();
         //Check if they've already passed this validation
         if($request->session()->has('doctor_validated',true)){
-            return 'Already logged in';
+            $user_id=Auth::user()->id;
+            $id=\App\Physician::where('user_id',$user_id)->first()->id;
+            return redirect('/physicians/' . $id);
         }
         //If query returns no results
         if(empty($result)){
@@ -56,7 +62,9 @@ class CustomAuth extends Controller
         $DB_password=$result[0]->password;
         if(Hash::check($password,$DB_password)){
             $request->session()->put('doctor_validated',true);
-            return 'working';
+            $auth_id=Auth::user()->id;
+            $id=\App\Physician::where('user_id',$id)->first()->id;
+            return redirect('physician/' . $id);
         }
         return redirect()->intended('/physican/validate');
     }
@@ -77,9 +85,12 @@ class CustomAuth extends Controller
             if(Auth::user()->clearance=='doctor'){
                 redirect('/physician/validate');
             }
-            redirect('/home');
+
+            $auth_id=Auth::user()->id;
+            $id=\App\Patient::where('user_id',$auth_id)->first()->id;
+            return redirect('/home/' . $id);
         }
-        return view('auth.test_login');
+        return view('auth/login');
     }
 
     /**

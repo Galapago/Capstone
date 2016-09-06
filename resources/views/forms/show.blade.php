@@ -3,7 +3,6 @@
 <!-- This is the hard coded form. Right now this is in patients.index, however at any time we decide which
 method we actually want to put this in, we can change the name of the blade to the name of that
 method so that it correlates properly. -->
-
 @section('content')
 <div class="container">
 	<section class="container-fluid">
@@ -12,15 +11,58 @@ method so that it correlates properly. -->
 		<br>
 		<form method="POST" action="{{ action('SubmissionsController@store') }}">
 		{!! csrf_field() !!}
-			@foreach($form->questions as $question)
+
+		@foreach($questions as $question)
+			@if ($question->section == 'personal')
 				@if($question->input_type == 'radio')
-					@include('partials.radio')
+						@include('partials.radio')
 				@elseif($question->input_type == 'checkbox')
 					@include('partials.checkbox')
 				@elseif($question->input_type == 'textarea')
 					@include('partials.textarea')
 				@endif
-			@endforeach
+			@elseif ($question->section == 'insurance')
+				@if($question->input_type == 'radio')
+						@include('partials.radio')
+				@elseif($question->input_type == 'checkbox')
+					@include('partials.checkbox')
+				@elseif($question->input_type == 'textarea')
+					@include('partials.textarea')
+				@endif
+			@elseif ($question->section == 'history')
+				@if($question->input_type == 'radio')
+						@include('partials.radio')
+				@elseif($question->input_type == 'checkbox')
+					@include('partials.checkbox')
+				@elseif($question->input_type == 'textarea')
+					@include('partials.textarea')
+				@endif
+			@elseif ($question->section == 'review_of_symptoms')
+				@if($question->input_type == 'radio')
+						@include('partials.radio')
+				@elseif($question->input_type == 'checkbox')
+					@include('partials.checkbox')
+				@elseif($question->input_type == 'textarea')
+					@include('partials.textarea')
+				@endif
+			@elseif ($question->section == 'doctor_specific')
+				@if($question->input_type == 'radio')
+						@include('partials.radio')
+				@elseif($question->input_type == 'checkbox')
+					@include('partials.checkbox')
+				@elseif($question->input_type == 'textarea')
+					@include('partials.textarea')
+				@endif
+			@endif
+		@endforeach
+
+
+
+		
+			
+
+
+
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</section>

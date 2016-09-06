@@ -56,21 +56,15 @@ class FormsController extends Controller
      */
     public function show($id)
     {   
-        
         $form = Form::find($id);
-        //$question = Question::find($id)->;
-        //$options = DB::table('question_options')->get();
-        //->where('question_id')->in(Form::find($id))
-        
-        
+        $questions = $form->questions()->orderBy('section')->get();
 
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
         }
-
-        $data = compact('form', 'question','options');
         
+        $data = compact('form', 'questions');
         return view('forms.show', $data);
     }
 

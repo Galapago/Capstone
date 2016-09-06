@@ -26,6 +26,9 @@ class SubmissionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('provider');
+    }
     public function index()
     {
         //
@@ -80,12 +83,34 @@ class SubmissionsController extends Controller
         // $questions = Question::find($answer->question->questions);
         // dd($questions);
 
+
+        $submission = Submission::where('id',$id)->first();
+        $patient=\App\Patient::where('id',$submission->id)->first();
+        //$patient = Patient::find($submission->patient->id)->get();
+        $form=\App\Form::where('id',$submission->form_id)->first();
+        //$form = Form::find($submission->form->id)->get();
+        $questions = Question::where('form_id',$form->id)->get();
+        foreach($questions as $question){
+            $answer=Answer::where('submission_id',$submission->id)->where('question_id',$question->id)->first();
+            if(empty($answer)){
+                $answers[]='Not answered';
+            }else{
+                $answers[]=$answer->answer;
+            }
+        }
+        if(empty($answers)){
+            $answers=['Questionaire not submitted'];
+        }
         if (!$submission) {
-            Log::info("Submission with $id not found.");
+         Log::info("Submission with $id not found.");
             abort(404);
         }
 
+
         $data = compact('submission', 'patient', 'form', 'answers', 'questions');
+
+
+        $data = compact('submission', 'patient', 'form', 'questions','answers');
 
         return view('submissions.show', $data);
     }

@@ -24,6 +24,12 @@
 						@endforeach
 					</tr>
 				@endforeach
+			@foreach($answers as $key=>$answer)
+			<tr>
+				<td>{{$questions[$key]->question}}</td>
+				<td>{{$answer}}</td>
+			</tr>
+			@endforeach
 			</tbody>
 		</table>
 	</section>

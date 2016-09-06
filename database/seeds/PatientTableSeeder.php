@@ -33,6 +33,6 @@ class PatientTableSeeder extends Seeder
             $patient1->save();
         }
         
-    	factory(App\Patient::class, 480)->create();
+    	factory(App\Patient::class, 100)->create();
     }
 }

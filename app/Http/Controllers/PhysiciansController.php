@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PhysiciansController extends Controller
 {
+    public function __construct(){
+        $this->middleware('provider');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -63,7 +66,6 @@ class PhysiciansController extends Controller
     {
         $physician = Physician::find($id);
         //$user = User::find($physician->user_id);
-        
         if (!$physician) {
             Log::info("Physician with $id not found.");
             abort(404);
@@ -118,10 +120,18 @@ class PhysiciansController extends Controller
         foreach($questions as $question_object){
             foreach($question_object as $question){
             //Add number of responses to the QuestionOption object and formatting it so it can be added to the array
-            $questionOptions=\App\QuestionOption::where('question_id',$question->id)->get();
             $questionOptionsArray=[];
+            if($question->input_type=='textarea'){
+                $orderedResults=\App\Answer::where('question_id',$question->id)->get()->groupBy('answer');
+                foreach ($orderedResults as $key=>$result) {
+                    $questionOptionsArray[]=['option_text'=>$key,'responses'=>(int)$result->count()];
+                    //var_dump($result->count());
+                }
+            }
+            $questionOptions=\App\QuestionOption::where('question_id',$question->id)->get();
+            //var_dump($questionOptions->all());
             foreach ($questionOptions as $key => $value) {
-                //$questionOptionsArray[]['text']=$value;
+                //var_dump(\App\Question::where('id',$value->question_id)->first()->input_type);
                 $value->responses=\App\Answer::where('question_id',$question->id)->where('answer',$value->option_text)->count();
                 $questionOptionsArray[]=$value;
             }

@@ -13,12 +13,12 @@
 use Illuminate\Http\Request;
 /*Route::get('/', function (Request $request) {
     return view('welcome');
-<<<<<<< HEAD
 });
 
 //Login Routes
 =======
 });*/
+
 Route::get('/','HomeController@index');
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -28,20 +28,19 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('/test','CustomAuth@index');
 Route::post('/test','CustomAuth@authenticate');
 Route::get('/test/logout','CustomAuth@logout');
-/*Route::get('/test/validate',function(){
-	return view('physician_validation');
-});*/
-Route::post('/test/validate','CustomAuth@physicianValidate');
+Route::get('/test/validate',function(){
 
-Route::get('/physician/validate', function(Request $request)
-{
-	if($request->session()->has('doctor_validated')){
-		return 'DOCTOR HOME PAGE WILL GO HERE';
-	}
+Route::get('/','CustomAuth@authenticate');
+Route::get('auth/login', 'CustomAuth@index');
+Route::post('auth/login', 'CustomAuth@authenticate');
+Route::get('auth/logout', 'CustomAuth@logout');
+Route::post('auth/logout', 'CustomAuth@logout');
+Route::get('/physician/validate',function(){
+
 	return view('physician_validation');
-});
-Route::post('/physician/validate','CustomAuth@physicanValidate');
-Route::get('/home','PatientsController@create');
+})->middleware('provider');
+Route::post('/physician/validate','CustomAuth@physicianValidate');
+Route::get('/home/{id}','PatientsController@show');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
