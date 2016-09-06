@@ -64,7 +64,7 @@ class FormsController extends Controller
         }
 
         
-        $data = compact('form', 'questions', 'id');
+       // $data = compact('form', 'questions', 'id');
 
 
         //$data = compact('form', 'question','options','questions_ordered');
