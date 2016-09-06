@@ -97,7 +97,7 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-user-md text-primary sr-icons"></i>
                         <h3>Doctors</h3>
-                        <p class="text-muted">Freeing doctors to do what they do best - help their patients</p>
+                        <p class="text-muted">Freeing doctors to do what they do best - help their patients achieve their goals</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
