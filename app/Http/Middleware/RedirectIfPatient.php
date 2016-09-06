@@ -24,7 +24,7 @@ class RedirectIfPatient
         //Prevents rerouting loop;
         if(!$request->session()->has('doctor_validated')){
             if(stripos(Route::getFacadeRoot()->current()->uri(),'physician/validate')!=false){
-                return redirect('/physician/validate');
+                return redirect('/physicians/login');
             }
         }        
         return $next($request);

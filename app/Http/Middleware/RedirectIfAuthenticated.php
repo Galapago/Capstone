@@ -37,6 +37,6 @@ class RedirectIfAuthenticated
         if ($this->auth->check()) {
             return $next($request);
         }
-        return redirect('/auth/login');
+        return redirect()->guest('/');
     }
 }
