@@ -58,7 +58,7 @@ class FormsController extends Controller
     {   
         $form = Form::find($id);
 
-        $questions = $form->questions()->orderBy('section')->paginate(10);
+        $questions = $form->questions()->orderBy('section')->get();
 
 
         if (!$form) {
