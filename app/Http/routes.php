@@ -20,8 +20,6 @@ use Illuminate\Http\Request;
 =======
 });*/
 Route::get('/','HomeController@index');
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

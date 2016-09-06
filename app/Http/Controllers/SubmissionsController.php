@@ -17,6 +17,7 @@ use App\Answer;
 use App\Physician;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class SubmissionsController extends Controller
 {
@@ -48,7 +49,15 @@ class SubmissionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$user_id=Auth::user()->id;
+        $submission = new Submission;
+        //$submission->form_id = $id;
+        //$submission->patient_id = \App\Patient::where('user_id',$user_id)->first()->id;
+        $submission->patient_id = Submission::find($submission->patient->id);
+        dd($submission->patient_id);
+
+        $request->session()->flash('message', 'Your form has been submitted!');
+        return redirect( action('PatientsController@show'));
     }
 
     /**
@@ -60,16 +69,23 @@ class SubmissionsController extends Controller
     public function show($id)
     {
         $submission = Submission::find($id);
+        
+        $form = Form::find($submission->form->id);    
+
         $patient = Patient::find($submission->patient->id);
-        $form = Form::find($submission->form->id);
-        $questions = Question::find($form->questions);
+        //dd($patient);
+        //$answers = Answer::find($submission->answers)->get();
+
+        //dd($answers);
+        // $questions = Question::find($answer->question->questions);
+        // dd($questions);
 
         if (!$submission) {
             Log::info("Submission with $id not found.");
             abort(404);
         }
 
-        $data = compact('submission', 'patient', 'form', 'questions');
+        $data = compact('submission', 'patient', 'form', 'answers', 'questions');
 
         return view('submissions.show', $data);
     }
