@@ -1,4 +1,4 @@
-<div class="form-group">
+<div>
 	<label for="{{ $question->question }}">{{ $question->question }}</label><br>
 	@foreach($question->questionOptions as $option)
 	<div class="checkbox">

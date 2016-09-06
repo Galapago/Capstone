@@ -718,6 +718,14 @@ class QuestionOptionTableSeeder extends Seeder
     	$option1->question_id='39';
     	$option1->option_text='No';
     	$option1->save();
+        $option1=New App\QuestionOption();
+        $option1->question_id='40';
+        $option1->option_text='Yes';
+        $option1->save();
+        $option1=New App\QuestionOption();
+        $option1->question_id='40';
+        $option1->option_text='No';
+        $option1->save();
 
         //factory(App\QuestionOption::class, 30)->create();
     }

@@ -56,37 +56,18 @@ class FormsController extends Controller
      */
     public function show($id)
     {   
-        
         $form = Form::find($id);
-        $questions=$form->questions;
-        $questions_ordered=[];
-        $section_types=[];
-        $question_types_array=$questions->groupBy('input_type');
-        foreach ($question_types_array as $key => $group) {
-            //var_dump('here');
-            $section_types[]=$key;
-        }
-        foreach ($questions as $key => $question) {
-            foreach ($section_types as $key => $type) {
-               if($question->input_type==$type){
-                $questions_ordered[$type][]=$question;
-               }
-            }
-    
-        }
-        //$question = Question::find($id)->;
-        //$options = DB::table('question_options')->get();
-        //->where('question_id')->in(Form::find($id))
-        
-        
-
+        $questions = $form->questions()->orderBy('section')->get();
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
         }
 
         $data = compact('form', 'question','options','questions_ordered');
+=======
+>>>>>>> 2df8f1c7fb9240bd8b89dd6d290625618bc40573
         
+        $data = compact('form', 'questions');
         return view('forms.show', $data);
     }
 

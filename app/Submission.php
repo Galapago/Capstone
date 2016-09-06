@@ -14,7 +14,19 @@ class Submission extends Model
     	return $this->belongsTo(Patient::class);
     }
 
-    public function answer(){
+    public function answers(){
     	return $this->hasMany(Answer::class);
     }
+
+    public static function rules() {
+
+		// $rules = array(
+	 //        'title' => 'required|max:100',
+	 //        'url'   => "required|url",
+	 //        'content' => 'required'
+	 //    );
+
+	 //    return $rules;
+
+	}
 }
