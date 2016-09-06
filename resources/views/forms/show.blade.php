@@ -10,30 +10,30 @@ method so that it correlates properly. -->
 		<h2 class="section-title">{{ $form->form_name }}</h2>
 		<br>
 		<form method="POST" action="{{ action('SubmissionsController@store') }}">
-		{!! csrf_field() !!}
+			{!! csrf_field() !!}
 
-		@foreach($questions as $question)
-			@if ($question->section == 'personal')
-				@include('partials.section')
-			@elseif ($question->section == 'insurance')
-				@include('partials.section')
-			@elseif ($question->section == 'history')
-				@include('partials.section')
-			@elseif ($question->section == 'review_of_symptoms')
-				@include('partials.section')
-			@elseif ($question->section == 'doctor_specific')
-				@include('partials.section')
-			@endif
-		@endforeach
+			@foreach($questions as $question)
+				@if ($question->section == 'personal')
+					@include('partials.section')
+				@elseif ($question->section == 'insurance')
+					@include('partials.section')
+				@elseif ($question->section == 'history')
+					@include('partials.section')
+				@elseif ($question->section == 'review_of_symptoms')
+					@include('partials.section')
+				@elseif ($question->section == 'doctor_specific')
+					@include('partials.section')
+				@endif
+			@endforeach
 
+			<button type="submit" class="btn btn-primary">Save & Continue</button>
 
-
-		
+			{!! $questions->render() !!}
 			
 
 
 
-			<button type="submit" class="btn btn-primary">Submit</button>
+			
 		</form>
 	</section>
 </div>

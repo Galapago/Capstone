@@ -57,13 +57,13 @@ class FormsController extends Controller
     public function show($id)
     {   
         $form = Form::find($id);
-        $questions = $form->questions()->orderBy('section')->get();
+        $questions = $form->questions()->orderBy('section')->paginate(10);
 
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
         }
-        
+
         $data = compact('form', 'questions');
         return view('forms.show', $data);
     }
