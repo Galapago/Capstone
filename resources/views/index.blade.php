@@ -201,7 +201,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
+                        <img class="text-primary sr-icons .img-responsive" src="/css/img/johnhernandez1.jpg">
                         <h3>John Hernandez</h3>
                         <p class="text-muted">More direct contact between doctors and patients means better outcomes</p>
                     </div>
