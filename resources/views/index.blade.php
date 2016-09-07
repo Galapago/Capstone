@@ -40,6 +40,9 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Galapago" src="/css/img/turtle-logo.png">
+                </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
@@ -62,7 +65,16 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                     <li>
-                        
+                        <a type="button" class="dropdown-toggle page-scroll" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Login <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#patient">Patient</a></li>
+                            <li><a href="#physician">Physician</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#">New User?</a>
                     </li>
                 </ul>
             </div>
