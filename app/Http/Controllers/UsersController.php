@@ -26,7 +26,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -37,7 +37,13 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->email = $request->input('email');
+        $user->username = $request->input('username');
+        $user->password = $request->input('password');
+        $user->save();
+        $request->session()->flash('message', 'Your user account has been created! Please fill out patient information.');
+        return redirect( action('PatientsController@create'));
     }
 
     /**
