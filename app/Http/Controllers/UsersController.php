@@ -6,6 +6,18 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Patient;
+use Illuminate\Support\Facades\DB;
+use App\Form;
+use App\Submission;
+use App\User;
+use App\Question;
+use App\QuestionOption;
+use App\Answer;
+use App\Physician;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {

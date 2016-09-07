@@ -62,7 +62,7 @@ Route::get('/physicians/create/form','FormsController@create');
 Route::resource('forms', 'FormsController');
 
 //Users Controller - Basic CRUD
-Route::resource('users', 'UsersContoller');
+Route::resource('users', 'UsersController');
 
 //Submissions Controller - Basic CRUD
 Route::resource('submissions', 'SubmissionsController');
