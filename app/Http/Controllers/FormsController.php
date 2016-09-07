@@ -32,11 +32,41 @@ class FormsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         return view('physicians.create-form');
     }
-
+    public function test(Request $request){
+            $questionsCount=\App\Question::all()->count();
+            $questionId=\App\Question::where('id',$questionsCount)->first()->id;
+            $user=$request->user();
+            $npi=\App\Physician::where('user_id',$user->id)->first()->npi;
+            $form= new \App\Form();
+            $form->npi=$npi;
+            $form->form_name=$request->get('form_name');
+            $form->save();
+            $questions = $request->get('questions');
+            foreach ($questions as $questionNumber => $questionInfo) {
+                $newQuestion=new \App\Question();
+                $newQuestion->form_id=$form->id;
+                $newQuestion->question=$questionInfo['question_text'][0];
+                $newQuestion->input_type=$questionInfo['question_type'][0];
+                $newQuestion->quantifiable='0';
+                $newQuestion->save();
+                if($questionInfo['question_type']!='textarea'){
+                    foreach($questionInfo['question_options'] as $questionOption){
+                        if($questionOption!=''){
+                            $question_option= new \App\QuestionOption();
+                            $question_option->question_id=$questionId;
+                            $question_option->option_text=$questionOption;
+                            $question_option->save();
+                        }
+                    }
+                }
+                $questionId++;
+            }
+            return 'Form Created';
+    }
     /**
      * Store a newly created resource in storage.
      *
