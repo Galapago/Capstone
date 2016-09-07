@@ -56,7 +56,7 @@
                         <a class="page-scroll" href="#whygalapago">Why Galapago?</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">How Galapago Works</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#ourteam">Our Team</a>
@@ -134,61 +134,85 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services We Offer</h2>
+                    <h2 class="section-heading">How Galapago Works</h2>
+                    <hr class="primary">
+                    <h2><small>Simple, Easy & Effective</small></h2>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img class="text-primary sr-icons" src="/css/img/one.png">
+                    <div class="service-box">
+                        <img class="text-primary sr-icons" src="/css/img/newuser.png">
+                        <h3>Easy Signup</h3>
+                        <p class="text-muted">Singup on Galapago is simple and painless</p>
+                    </div>    
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img class="text-primary sr-icons" src="/css/img/two.png">
+                    <div class="service-box">
+                        <img class="text-primary sr-icons" src="/css/img/form.png">
+                        <h3>Submit Doctor's Form</h3>
+                        <p class="text-muted">Complete and submit your doctor's personal form in matter of minutes</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img class="text-primary sr-icons" src="/css/img/three.png">
+                    <div class="service-box">
+                        <img class="text-primary sr-icons" src="/css/img/magnifyglass.png">
+                        <h3>Physician Review</h3>
+                        <p class="text-muted">Once received, your physician is able to create a personalized care roadmap</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img class="text-primary sr-icons" src="/css/img/four.png">
+                    <div class="service-box">
+                        <img class="text-primary sr-icons" src="/css/img/diagnostic.png">
+                        <h3>Diagnostic Toolbox</h3>
+                        <p class="text-muted">Out portal allows doctors an overview of their patients based on quantifiable data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   <section id="ourteam">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Meet Team Galapago</h2>
                     <hr class="primary">
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row no-gutter popup-gallery">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="bootstrap_index/img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="bootstrap_index/img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
+                        <h3>Brandon Dinesman</h3>
+                        <p class="text-muted">Freeing doctors to do what they do best - help their patients achieve life-changing goals</p>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="bootstrap_index/img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="bootstrap_index/img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
+                        <h3>John Hernandez</h3>
+                        <p class="text-muted">More direct contact between doctors and patients means better outcomes</p>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="bootstrap_index/img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="bootstrap_index/img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
+                        <h3>Tyler Warren</h3>
+                        <p class="text-muted">Our tech increases clinical efficiency, patient satisfaction and outcomes</p>
+                    </div>
                 </div>
-                
-                
-                
             </div>
         </div>
     </section>
@@ -208,15 +232,18 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Let's Get In Touch!</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                 </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
+                <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
                     <p>123-456-6789</p>
                 </div>
-                <div class="col-lg-4 text-center">
+                <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
                     <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <i class="fa fa-twitter fa-3x sr-contact"></i>
+                    <p>@galapago</p>
                 </div>
             </div>
         </div>
