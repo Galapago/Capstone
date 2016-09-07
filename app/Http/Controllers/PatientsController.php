@@ -40,7 +40,7 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        //
+        return view('patients.create');
     }
 
     /**
@@ -51,7 +51,26 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patient = new Patient;
+        $patient->first_name = $request->input('first-name');
+        $patient->last_name = $request->input('last-name');
+        $patient->date_of_birth = $request->input('date-of-birth');
+        $patient->ssn = $request->input('social-security');
+        $patient->street_address = $request->input('street-address');
+        $patient->apt_ste = $request->input('apt/ste');
+        $patient->city = $request->input('city');
+        $patient->state = $request->input('state');
+        $patient->zip_code = $request->input('zip-code');
+        $patient->height = $request->input('height');
+        $patient->weight = $request->input('weight');
+        $patient->emergency_contact_name = $request->input('emergency-contact-name');
+        $patient->emergency_contact_number = $request->input('emergency-contact-number');
+        $patient->emergency_contact_email = $request->input('emergency-contact-email');
+        $patient->medication = $request->input('medication');
+        $patient->health_insurance = $request->input('health-insurance');
+        $patient->save();
+        $request->session()->flash('message', 'Your account has been created!');
+        return redirect( action('PatientsController@show'));
     }
 
     /**
