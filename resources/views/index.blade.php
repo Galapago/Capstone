@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#whygalapago">Why Galapago</a>
+                        <a class="page-scroll" href="#whygalapago">Why Galapago?</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
@@ -98,7 +98,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Why Galapago</h2>
+                    <h2 class="section-heading">Why Galapago?</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -108,29 +108,37 @@
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-user-md text-primary sr-icons"></i>
-                        <h3>Doctors</h3>
-                        <p class="text-muted">Freeing doctors to do what they do best - help their patients achieve their goals</p>
+                        <h3>Helping Doctors</h3>
+                        <p class="text-muted">Freeing doctors to do what they do best - help their patients achieve life-changing goals</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-users text-primary sr-icons"></i>
                         <h3>Putting Patients First</h3>
-                        <p class="text-muted">More direct contact with your doctor means better outcomes</p>
+                        <p class="text-muted">More direct contact between doctors and patients means better outcomes</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-hospital-o text-primary sr-icons"></i>
                         <h3>Increased Efficiency</h3>
-                        <p class="text-muted">Out tech increases clinical efficiency, patient satisfaction and outcomes</p>
+                        <p class="text-muted">Our tech increases clinical efficiency, patient satisfaction and outcomes</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="no-padding" id="portfolio">
+    <section class="no-padding" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Services We Offer</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
@@ -178,63 +186,21 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="bootstrap_index/img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="bootstrap_index/img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="bootstrap_index/img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="bootstrap_index/img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="bootstrap_index/img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="bootstrap_index/img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                
+                
+                
             </div>
         </div>
     </section>
 
-    <aside class="bg-dark">
+    <!-- <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>Free Download at Start Bootstrap!</h2>
                 <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
             </div>
         </div>
-    </aside>
+    </aside> -->
 
     <section id="contact">
         <div class="container">
