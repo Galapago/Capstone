@@ -2,7 +2,7 @@
 
 @section('content')
 <div class"container">
-	<section class"container-fluid">
+	<section>
 		<h2 class="section-title">Create a New User</h2>
 		<form method="POST" action="{{ action('UsersController@store') }}">
 		{!! csrf_field() !!}
