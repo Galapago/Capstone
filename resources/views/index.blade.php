@@ -69,8 +69,8 @@
                             Login <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#patient">Patient</a></li>
-                            <li><a href="#physician">Physician</a></li>
+                            <li><a href="/patient/login">Patient</a></li>
+                            <li><a href="/physicians/login">Physician</a></li>
                         </ul>
                     </li>
                     <li>
