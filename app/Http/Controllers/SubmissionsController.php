@@ -84,23 +84,25 @@ class SubmissionsController extends Controller
      */
     public function show($id)
     {
-        var_dump($id);
         // $submission = Submission::find($id);
         $submission = Submission::findOrFail($id);
-        var_dump($submission);
 
-        $form = Form::find($submission->form->id);    
-        var_dump($form);
+        // foreach($questions as $question){
+        //     $answer=Answer::where('question_id',$question->id)->where('patient_id',$patient->id)->get();
+        //     if(count($answer)>1){
+        //         foreach ($answer as $individualAnswer) {
+        //             $answers[]=$individualAnswer;
+        //         }
+        //     }else{
+        //         $answers[]=$answer;
+        //     }
+        // }
 
-        $patient = Patient::find($submission->patient->id);
-        var_dump($patient);
 
-        //dd($patient);
-        //$answers = Answer::find($submission->answers)->get();
+        
 
-        //dd($answers);
-        // $questions = Question::find($answer->question->questions);
-        // dd($questions);
+        //$questions = Question::find($answers->question->questions);
+        // var_dump($questions);
 
 
         
@@ -122,9 +124,15 @@ class SubmissionsController extends Controller
         //     $answers=['Questionaire not submitted'];
         // }
 
-        $data = compact('submission', 'patient', 'form', 'answers', 'questions');
+        //$data = compact('submission', 'patient', 'form', 'answers', 'questions');
 
-        return view('submissions.show', $data);
+        return view('submissions.show', [
+            'submission' => $submission,
+            'patient' => $submission->patient,
+            'form' => $submission->form,
+            'answers' => $submission->answers,
+            'questions' => $submission->form->questions,
+        ]);
     }
 
     /**

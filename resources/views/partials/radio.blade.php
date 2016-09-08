@@ -4,8 +4,10 @@
 	<div class="radio-inline">					
 		<input 
 			type="radio" 
-			class="radio-inline"
-			name="{{ $question->id }}" 
+			class="disabled radio-inline"
+			name="{{ $question->id }}"
+			<?php $answers = $question->getPatientAnswers($answers) ?>
+			{{ $option->check($answers) ? 'checked' : '' }}
 			value="{{ $option->option_text }}"> {{ $option->option_text }} 
 	</div>
 	@endforeach	
