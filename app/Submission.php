@@ -15,8 +15,10 @@ class Submission extends Model
     }
 
     public function answers(){
-    	return $this->hasMany(Answer::class);
+    	return $this->hasMany(Answer::class)->where('patient_id', $this->patient->id);
     }
+
+    //public function nswersFor($patientId)
 
     public static function rules() {
 

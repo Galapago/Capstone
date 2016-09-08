@@ -10,7 +10,7 @@
 		@endif
 	@endif
 @endforeach	
-<input type="button" name="next" class="next action-button" value="Next" />
+
 
 
 
