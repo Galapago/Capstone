@@ -14,6 +14,11 @@ var title;
 var width;
 var height;
 google.charts.load('current', {'packages':['corechart']});
+$.get('https://npiregistry.cms.hhs.gov/api',{
+	city:'sanantonio'
+}).done(function(data){
+	console.log(data);
+});
 $.get('/physician/stats/AJAX',function($data){
 	$.each($data['data'],function(index,value){
 		$('.content').append('<div  class="col-md-12" id=chart' + index +'></div>');

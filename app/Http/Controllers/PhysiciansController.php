@@ -27,6 +27,16 @@ class PhysiciansController extends Controller
         $this->middleware('provider');
         $this->middleware('guest');
     }
+    public function HL7($submission){
+        $submission=\App\Submission::where('id',$submission)->first();
+        $patient=\App\Patient::where('id',$submission->id)->first();
+        var_dump($patient);
+        $string='';
+        $PID1="|PATID$patient->id|";
+        $PID2="|$patient->last_name^$patient->first_name^^|";
+        $PID="PID|$PID1$PID2|";
+        return $PID;
+    }
     /**
      * Display a listing of the resource.
      *

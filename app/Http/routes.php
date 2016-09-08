@@ -33,9 +33,7 @@ Route::get('/physician/validate',function(){
 	})->middleware('provider');
 
 Route::post('/physician/validate','CustomAuth@physicianValidate');
-
-
-
+Route::get('/physicians/HL7/{submission}/','PhysiciansController@HL7');
 
 Route::get('/home/{id}','PatientsController@show');
 // Registration routes...
