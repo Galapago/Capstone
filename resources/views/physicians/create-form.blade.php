@@ -150,6 +150,19 @@
 </form>
 <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 <script>
+$.ajax({
+  method: "GET",
+  crossDomain : true,
+  data:{city:'sanantonio'},
+  url: "https://npiregistry.cms.hhs.gov/api",
+})
+  .done(function( data ) {
+    console.log( data);
+  });
+/*
+$.get("https://npiregistry.cms.hhs.gov/api/",function(data){
+	console.log(data);
+})*/
 var questionNumber=1;
 $('.add-question').click(function(){
 	addQuestion();
