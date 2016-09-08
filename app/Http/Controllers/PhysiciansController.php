@@ -131,7 +131,6 @@ class PhysiciansController extends Controller
             $questionOptions=\App\QuestionOption::where('question_id',$question->id)->get();
             //var_dump($questionOptions->all());
             foreach ($questionOptions as $key => $value) {
-                //var_dump(\App\Question::where('id',$value->question_id)->first()->input_type);
                 $value->responses=\App\Answer::where('question_id',$question->id)->where('answer',$value->option_text)->count();
                 $questionOptionsArray[]=$value;
             }
