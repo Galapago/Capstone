@@ -33,14 +33,7 @@ class CustomAuth extends Controller
         $user=$request->user();
         $email=$request->input('email');
         $npi=$request->input('npi');
-
         $password=$request->password;
-        //dd(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor']));
-        if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'doctor'])){
-
-            return redirect('/physician/validate');
-        }
-        //dd(Auth::attempt(['email'=>$email,'password'=>$password]), $email, $password);
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
 
             $user_id=\App\User::where('email',$email)->first()->id;
