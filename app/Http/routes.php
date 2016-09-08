@@ -67,6 +67,7 @@ Route::resource('users', 'UsersController');
 
 //Submissions Controller - Basic CRUD
 Route::resource('submissions', 'SubmissionsController');
+Route::get('/submissions/{id}','SubmissionsController@show')->middleware('provider');
 
 Route::get('/pdf', function() {
     $pdf = PDF::make();
