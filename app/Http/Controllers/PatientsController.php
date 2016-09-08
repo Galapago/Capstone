@@ -15,12 +15,14 @@ use App\QuestionOption;
 use App\Answer;
 use App\Physician;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
 class PatientsController extends Controller
 {   
     public function __construct(){
+        $this->middleware('guest');
         $this->middleware('user');
     }
     /**
@@ -83,7 +85,10 @@ class PatientsController extends Controller
     {
         $patient = Patient::find($id);
         $user = User::find($patient->user_id);
-        
+        if(!Auth::check()){
+            return redirect('/');
+        }
+        var_dump(Auth::user());
         if (!$patient) {
             Log::info("Patient with $id not found.");
             abort(404);
