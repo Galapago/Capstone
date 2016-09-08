@@ -28,10 +28,6 @@ class CustomAuth extends Controller
     Preforms the initial round of authentication
     */
 
-    public function authenticate(Request $request){
-        $user=$request->user;
-        $email=$request->email;
-    }
 
     public function authenticatePhysicians(Request $request){
         $user=$request->user();
