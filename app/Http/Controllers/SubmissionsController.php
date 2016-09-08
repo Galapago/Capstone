@@ -84,11 +84,17 @@ class SubmissionsController extends Controller
      */
     public function show($id)
     {
-        $submission = Submission::find($id);
-        
+        var_dump($id);
+        // $submission = Submission::find($id);
+        $submission = Submission::findOrFail($id);
+        var_dump($submission);
+
         $form = Form::find($submission->form->id);    
+        var_dump($form);
 
         $patient = Patient::find($submission->patient->id);
+        var_dump($patient);
+
         //dd($patient);
         //$answers = Answer::find($submission->answers)->get();
 
@@ -97,7 +103,7 @@ class SubmissionsController extends Controller
         // dd($questions);
 
 
-        $submission = Submission::findOrFail($id);
+        
        // $patient=\App\Patient::where('id',$submission->id)->first();
         //$patient = Patient::find($submission->patient->id)->get();
         //$form=\App\Form::where('id',$submission->form_id)->first();
