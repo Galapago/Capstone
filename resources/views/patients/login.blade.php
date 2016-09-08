@@ -34,7 +34,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Login</a>
+								<a href="#" class="active" id="login-form-link">Patient Login</a>
 							</div>
 							<div class="col-xs-6">
 								<a href="#" id="register-form-link">Register</a>
@@ -45,13 +45,16 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+								<form id="login-form" action="{{ action('CustomAuth@authenticatePatients') }}" method="post" role="form" style="display: block;">
+								{{ csrf_field() }}
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
 									</div>
+									@include('partials.error', ['field' => 'email'])
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 									</div>
+									@include('partials.error', ['field' => 'password'])
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
 										<label for="remember"> Remember Me</label>
@@ -63,7 +66,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
+									<!-- <div class="form-group">
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
@@ -71,9 +74,10 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 								</form>
 								<form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+								{{ csrf_field() }}
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
@@ -82,9 +86,6 @@
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-									</div>
-									<div class="form-group">
-										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
 									<div class="form-group">
 										<div class="row">
