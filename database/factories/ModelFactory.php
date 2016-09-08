@@ -33,17 +33,32 @@ $factory->define(App\Physician::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Patient::class, function (Faker\Generator $faker) {
+    $race=['American Indian or Alaska Native','Caucasian (non-Hispanic)','Latino/Hispanic','African American','Native Hawaiin','Middle Eastern','Asian American','Two or More Races'];
+    $sex=['M','F'];
+    $marital_status=['M','S','D','W'];
     return [
         'user_id' => App\User::all()->random()->id,
         'physician_id' => App\Physician::all()->random()->id,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
+        'street_address' => $faker->streetAddress,
+        'apt_ste' => $faker->secondaryAddress,
+        'city' => $faker->city,
+        'state' => $faker->stateAbbr,
+        'zip_code' => $faker->postcode,
+        'dob' => $faker->date('Y-m-d', $max = 'now'),
+        'height' => $faker->randomNumber(2),
+        'weight' => $faker->randomNumber(3),
+        'phone' => $faker->phoneNumber,
         'ssn' => $faker->randomNumber(9),
         'emergency_contact_name' => $faker->name,
         'emergency_contact_number' => $faker->phoneNumber,
         'emergency_contact_email' => $faker->safeEmail,
         'medication' => $faker->word,
         'health_insurance' => $faker->word,
+        'sex'=>$sex[mt_rand(0,1)],
+        'race'=>$race[mt_rand(0,7)],
+        'marital_status'=>$marital_status[mt_rand(0,3)],
     ];
 });
 

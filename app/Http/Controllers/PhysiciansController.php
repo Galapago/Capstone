@@ -29,13 +29,54 @@ class PhysiciansController extends Controller
     }
     public function HL7($submission){
         $submission=\App\Submission::where('id',$submission)->first();
-        $patient=\App\Patient::where('id',$submission->id)->first();
-        var_dump($patient);
-        $string='';
-        $PID1="|PATID$patient->id|";
-        $PID2="|$patient->last_name^$patient->first_name^^|";
-        $PID="PID|$PID1$PID2|";
-        return $PID;
+        $physician=\App\Physician::where('user_id',Auth::user()->id)->first();
+        $patient=\App\Patient::where('id',$submission->patient_id)->first();
+        $submission_date=substr($submission->created_at,0,4) . substr($submission->created_at,5,2) . substr($submission->created_at,8,2) . substr($submission->created_at,11,2) . substr($submission->created_at,14,2);
+        $MSH="MSH|^~\&|GALAPAGO|||$physician->clinic|$submission_date||ADT^04|MSG$submission_date|P|1|";
+        $EVN="EVN|A04|$submission_date|";
+        $PIDcontent="|MRN" . "$patient->id|";
+        $PIDcontent.="|$patient->last_name^$patient->first_name^^|";
+        $PIDcontent.="||";
+          $birthdate=substr($patient->dob,0,4) . substr($patient->dob,5,2). substr($patient->dob,8,2);
+        $PIDcontent.="|$birthdate|";
+        $PIDcontent.="|$patient->sex|";
+        $PIDcontent.="||";
+        $PIDcontent.="|$patient->race|";
+        if($patient->apartment_ste==null){
+            $patient->apartment_ste='';
+        }
+        $PIDcontent.="$patient->street_address^$patient->apartment_ste^$patient->city^$patient->state^$patient->zip_code-";
+        $PIDcontent.="|USA|";
+        $PIDcontent.="|$patient->phone|";
+        $PIDcontent.="||";
+        $PIDcontent.="|$patient->marital_status|";
+        $PIDcontent.="|$patient->ssn|";
+        $PID="PID||$PIDcontent|";
+        $NKIcontent="1|$patient->emergency_contact_name|||||$patient->emergency_contact_number";
+        $NKI="|$NKIcontent|";
+        //NTE|GF|QUESTIONTEXT^ANSWER|FORM
+        $NTE="NTE|GF|";
+        $questions=\App\Question::where('form_id',$submission->form_id)->get();
+        foreach ($questions as $key=> $question) {
+            $NTEContent="$question->question";
+            $answers=\App\Answer::where('question_id',$question->id)->where('patient_id',$patient->id)->get();
+            if(count($answers)>1){
+                foreach ($answers as $key => $answer) {
+                    $NTEContent.="^$answer->answer";
+                }
+            }elseif(!empty($answers[0])){
+                    $NTEContent.="^" . $answers[0]->answer . '^';
+            }else{
+                $NTEContent.="^^";
+            }
+            if($key!=0){
+                $NTE.='&';
+            }
+            $NTE.="$NTEContent";
+        }
+        $data=compact('MSH','EVN','PID','NKI','NTE');
+        $HL7="$MSH$EVN$PID$NKI$NTE";
+        return view('physicians.HL7')->with($data);
     }
     /**
      * Display a listing of the resource.
