@@ -89,7 +89,7 @@ class FormsController extends Controller
     {   
 
         $form = Form::findOrFail($id);
-        $questions = $form->questions()->orderBy('section')->get();
+        $questions = $form->questions()->orderBy('section')->orderBy('id')->get();
 
 
         if (!$form) {

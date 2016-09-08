@@ -4,6 +4,11 @@
 method we actually want to put this in, we can change the name of the blade to the name of that
 method so that it correlates properly. -->
 @section('content')
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <link href="/css/form_and_submission.style.css" rel="stylesheet">
 
@@ -70,10 +75,13 @@ method so that it correlates properly. -->
 <!-- jQuery easing plugin -->
 <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
 
+<!-- External JS sheet -->
 <script src="/js/form_and_submission.js"></script>
 
+
+<!-- Disabling all the fieldset options -->
 <script>
-	$(".disabled").attr("disabled", true);
+	$(".form-disabled").attr("disabled", true);
 </script>
 
 

@@ -5,12 +5,18 @@ method we actually want to put this in, we can change the name of the blade to t
 method so that it correlates properly. -->
 @section('content')
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 <link href="/css/form_and_submission.style.css" rel="stylesheet">
 
 <div class="container">
-	<section class="container-fluid">
-		<h1 class="section-title">From the Office of Dr. {{ $form->physician->first_name }} {{ $form->physician->last_name }}</h1>
-		<h2 class="section-title">{{ $form->form_name }}</h2>
+	<section class="header container-fluid text-center">
+		<h2 class="section-title">From the Office of Dr. {{ $form->physician->first_name }} {{ $form->physician->last_name }} - <small class="header">{{ $form->form_name }}</small></h2>
+	</section
         
     <!-- multistep form -->	
 	<form id="msform" method="POST" action="{{ action('SubmissionsController@store') }}">
@@ -69,6 +75,7 @@ method so that it correlates properly. -->
 <!-- jQuery easing plugin -->
 <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
 
+<!-- External js sheet -->
 <script src="/js/form_and_submission.js"></script>
 
 
