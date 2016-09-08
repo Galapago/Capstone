@@ -32,7 +32,7 @@
 		        	<li><a href="#">Help</a></li>
 		        </li>
 		    </ul>
-	    	<button action="{{action('CustomAuth@logout')}}" type="button" class="btn btn-default navbar-btn">Sign Out</button>
+	    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn btn-default navbar-btn">Sign Out</button></a>
 	    </div>
 	  </div>
 	</nav>
