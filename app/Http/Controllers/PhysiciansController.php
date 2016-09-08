@@ -25,6 +25,7 @@ class PhysiciansController extends Controller
 {
     public function __construct(){
         $this->middleware('provider');
+        $this->middleware('guest');
     }
     /**
      * Display a listing of the resource.

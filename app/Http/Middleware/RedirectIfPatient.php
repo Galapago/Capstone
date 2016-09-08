@@ -18,7 +18,7 @@ class RedirectIfPatient
     public function handle($request, Closure $next)
     {   
         if(!Auth::check() || Auth::user()->clearance!='doctor'){
-            return view('/auth/login');
+            return  redirect('/');
         }
         //Check to see if user has the proper level of clearance
         //Prevents rerouting loop;

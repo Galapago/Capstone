@@ -27,7 +27,7 @@ class SubmissionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct(){
-        //$this->middleware('provider');
+        $this->middleware('guest');
     }
     public function index()
     {
