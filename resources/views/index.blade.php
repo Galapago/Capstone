@@ -173,7 +173,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons" src="/css/img/diagnostic.png">
                         <h3>Diagnostic Toolbox</h3>
-                        <p class="text-muted">Out portal allows doctors an overview of their patients based on quantifiable data</p>
+                        <p class="text-muted">Our portal allows doctors an overview of their patients based on quantifiable data</p>
                     </div>
                 </div>
             </div>
@@ -239,7 +239,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:your-email@your-domain.com">contact@galapago.dev</a></p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-twitter fa-3x sr-contact"></i>
