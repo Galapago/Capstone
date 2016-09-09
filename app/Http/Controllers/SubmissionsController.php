@@ -84,20 +84,28 @@ class SubmissionsController extends Controller
      */
     public function show($id)
     {
-        $submission = Submission::find($id);
-        
-        $form = Form::find($submission->form->id);    
-
-        $patient = Patient::find($submission->patient->id);
-        //dd($patient);
-        //$answers = Answer::find($submission->answers)->get();
-
-        //dd($answers);
-        // $questions = Question::find($answer->question->questions);
-        // dd($questions);
-
-
+        // $submission = Submission::find($id);
         $submission = Submission::findOrFail($id);
+
+        // foreach($questions as $question){
+        //     $answer=Answer::where('question_id',$question->id)->where('patient_id',$patient->id)->get();
+        //     if(count($answer)>1){
+        //         foreach ($answer as $individualAnswer) {
+        //             $answers[]=$individualAnswer;
+        //         }
+        //     }else{
+        //         $answers[]=$answer;
+        //     }
+        // }
+
+
+        
+
+        //$questions = Question::find($answers->question->questions);
+        // var_dump($questions);
+
+
+        
        // $patient=\App\Patient::where('id',$submission->id)->first();
         //$patient = Patient::find($submission->patient->id)->get();
         //$form=\App\Form::where('id',$submission->form_id)->first();
@@ -116,9 +124,15 @@ class SubmissionsController extends Controller
         //     $answers=['Questionaire not submitted'];
         // }
 
-        $data = compact('submission', 'patient', 'form', 'answers', 'questions');
+        //$data = compact('submission', 'patient', 'form', 'answers', 'questions');
 
-        return view('submissions.show', $data);
+        return view('submissions.show', [
+            'submission' => $submission,
+            'patient' => $submission->patient,
+            'form' => $submission->form,
+            'answers' => $submission->answers,
+            'questions' => $submission->form->questions,
+        ]);
     }
 
     /**
