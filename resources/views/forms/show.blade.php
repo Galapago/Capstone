@@ -60,7 +60,7 @@ method so that it correlates properly. -->
 		<fieldset>
 			@include ('partials.doctor_specific')
 			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<input type="submit" name="submit" class="submit action-button" value="Submit" />
+			<button class="btn" type="submit" name="submit">Submit</button>
 		</fieldset>
 	</form>
 </div>
