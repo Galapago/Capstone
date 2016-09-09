@@ -37,30 +37,30 @@ method so that it correlates properly. -->
 	
 		<fieldset>
 			@include ('partials.personal')
-			<input type="button" name="next" class="next action-button" value="Next" />
+			<input type="button" name="next" class="next action-button" value="Next">
 		</fieldset>
 
 		<fieldset>
 			@include ('partials.insurance')
-			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<input type="button" name="next" class="next action-button" value="Next" />
+			<input type="button" name="previous" class="previous action-button" value="Previous">
+			<input type="button" name="next" class="next action-button" value="Next">
 		</fieldset>
 
 		<fieldset>
 			@include ('partials.history')
-			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<input type="button" name="next" class="next action-button" value="Next" />
+			<input type="button" name="previous" class="previous action-button" value="Previous">
+			<input type="button" name="next" class="next action-button" value="Next">
 		</fieldset>
 
 		<fieldset>
 			@include ('partials.symptoms')
-			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<input type="button" name="next" class="next action-button" value="Next" />
+			<input type="button" name="previous" class="previous action-button" value="Previous">
+			<input type="button" name="next" class="next action-button" value="Next">
 		</fieldset>
 
 		<fieldset>
 			@include ('partials.doctor_specific')
-			<input type="button" name="previous" class="previous action-button" value="Previous" />
+			<input type="button" name="previous" class="previous action-button" value="Previous">
 		</fieldset>
 	</form>
 </div>

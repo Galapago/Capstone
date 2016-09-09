@@ -23,9 +23,8 @@
 	        	<li class="dropdown">
 		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span></a>
 		        	<ul class="dropdown-menu">
-				        <li><a href="#schedule">Schedule</a></li>
 				        <li><a href="#statistics">Statistics</a></li>
-				        <li><a href="#messages">Messages</a></li>
+				        <li><a href="{{ action('FormsController@create') }}">Create a Form</a></li>
 		        	</ul>
 	        	</li>
 		        <li>
