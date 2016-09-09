@@ -260,8 +260,6 @@ class PhysiciansController extends Controller
                 }
             }
             }
-            for($j=10;$j<41;$j++){
-            $answer_questionOoptionID=$questionNumbers[$j][mt_rand(0,($count[$j]-1))];}
             $data=compact('questions','forms');
             return view('physicians.stats',$data);
 
