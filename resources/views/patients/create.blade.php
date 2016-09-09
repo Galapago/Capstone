@@ -4,10 +4,11 @@
 @section('content')
 <script src="js/bootstrap-formhelpers.min.js"></script>
 <div class"container">
-	<section class"container-fluid">
+	<section>
 		<h2 class="section-title">New Patient Information</h2>
 		<form method="POST" action="{{ action('PatientsController@store') }}">
 		{!! csrf_field() !!}
+		<fieldset>
 			<div class="form-group">
 				<label for="first-name">First Name</label>
 				<input
@@ -159,6 +160,7 @@
 			</div>
 			@include('partials.error', ['field' => 'health-insurance'])
 			<button type="submit" class="btn btn-primary">Save</button>
+		</fieldset>
 		</form>
 	</section>
 </div>
