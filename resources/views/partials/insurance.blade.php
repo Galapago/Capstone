@@ -10,5 +10,4 @@
 		@endif
 	@endif
 @endforeach	
-<input type="button" name="previous" class="previous action-button" value="Previous" />
-<input type="button" name="next" class="next action-button" value="Next" />
+

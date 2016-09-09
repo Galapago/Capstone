@@ -14,7 +14,7 @@ class QuestionTableSeeder extends Seeder
     {
     	$question1=New App\Question();
     	$question1->form_id='1';
-    	$question1->question='Referring physician';
+    	$question1->question='Referring Physician';
         $question1->section='personal';
     	$question1->quantifiable='0';
     	$question1->input_type='textarea';
@@ -22,7 +22,7 @@ class QuestionTableSeeder extends Seeder
 
     	$question2=New App\Question();
     	$question2->form_id='1';
-    	$question2->question='Phone Number';
+    	$question2->question='Referring Physician Phone Number';
         $question2->section='personal';
     	$question2->quantifiable='0';
     	$question2->input_type='textarea';
@@ -30,7 +30,7 @@ class QuestionTableSeeder extends Seeder
 
     	$question3=New App\Question();
     	$question3->form_id='1';
-    	$question3->question='Primary care physician';
+    	$question3->question='Primary Care Physician';
         $question3->section='personal';
     	$question3->quantifiable='0';
     	$question3->input_type='textarea';
@@ -39,7 +39,7 @@ class QuestionTableSeeder extends Seeder
 
     	$question4=New App\Question();
     	$question4->form_id='1';
-    	$question4->question='Phone Number';
+    	$question4->question='Primary Care Physician Phone Number';
         $question4->section='personal';
     	$question4->quantifiable='0';
     	$question4->input_type='textarea';
@@ -47,7 +47,7 @@ class QuestionTableSeeder extends Seeder
 
 		$question5=New App\Question();
     	$question5->form_id='1';
-    	$question5->question='Other physicians involved in your care';
+    	$question5->question='Other Physicians Involved in Your Care';
         $question5->section='personal';
     	$question5->quantifiable='0';
     	$question5->input_type='textarea';
@@ -55,7 +55,7 @@ class QuestionTableSeeder extends Seeder
 
     	$question6=New App\Question();
     	$question6->form_id='1';
-    	$question6->question='Pharmacy name';
+    	$question6->question='Pharmacy Name';
         $question6->section='personal';
     	$question6->quantifiable='0';
     	$question6->input_type='textarea';
@@ -63,7 +63,7 @@ class QuestionTableSeeder extends Seeder
 
     	$question7=New App\Question();
     	$question7->form_id='1';
-    	$question7->question='Phone number';
+    	$question7->question='Pharmacy Phone number';
         $question7->section='personal';
     	$question7->quantifiable='0';
     	$question7->input_type='textarea';
@@ -324,7 +324,7 @@ class QuestionTableSeeder extends Seeder
     	$question39->question='Do you routinely exercise?';
         $question39->section='history';
     	$question39->quantifiable='0';
-    	$question39->input_type='checkbox';
+    	$question39->input_type='radio';
     	$question39->save();
 
     	$question40=New App\Question();
@@ -332,7 +332,7 @@ class QuestionTableSeeder extends Seeder
     	$question40->question='Have you ever used illegal drugs?';
         $question40->section='history';
     	$question40->quantifiable='0';
-    	$question40->input_type='checkbox';
+    	$question40->input_type='radio';
     	$question40->save();
 
         $question41=New App\Question();

@@ -54,9 +54,12 @@ class PatientsController extends Controller
     public function store(Request $request)
     {
         $patient = new Patient;
+        $patient->user_id = Auth::user()->id;
+        $patient->physician_id = '1';
         $patient->first_name = $request->input('first-name');
         $patient->last_name = $request->input('last-name');
-        $patient->date_of_birth = $request->input('date-of-birth');
+        $patient->dob = $request->input('dob');
+        $patient->phone = $request->input('phone');
         $patient->ssn = $request->input('social-security');
         $patient->street_address = $request->input('street-address');
         $patient->apt_ste = $request->input('apt/ste');
@@ -72,7 +75,7 @@ class PatientsController extends Controller
         $patient->health_insurance = $request->input('health-insurance');
         $patient->save();
         $request->session()->flash('message', 'Your account has been created!');
-        return redirect( action('PatientsController@show'));
+        return redirect( action('PatientsController@show', $patient->id));
     }
 
     /**
@@ -88,7 +91,7 @@ class PatientsController extends Controller
         if(!Auth::check()){
             return redirect('/');
         }
-        var_dump(Auth::user());
+        //var_dump(Auth::user());
         if (!$patient) {
             Log::info("Patient with $id not found.");
             abort(404);

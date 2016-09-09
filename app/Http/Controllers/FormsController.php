@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
@@ -88,7 +89,7 @@ class FormsController extends Controller
     {   
 
         $form = Form::findOrFail($id);
-        $questions = $form->questions()->orderBy('section')->get();
+        $questions = $form->questions()->orderBy('section')->orderBy('id')->get();
 
 
         if (!$form) {
@@ -96,10 +97,10 @@ class FormsController extends Controller
             abort(404);
         }
 
-
+        $answers = new Collection();
         
         // $data = compact('form', 'questions', 'id');
-        $data = compact('form', 'questions', 'id');
+        $data = compact('form', 'questions', 'id', 'answers');
         return view('forms.show', $data);
     }
 

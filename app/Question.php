@@ -21,4 +21,12 @@ class Question extends Model
     public function answerFrom($patient) {
     	return $this->answer()->where('patient_id', $patient->id)->get();
     }
+
+    public function getPatientAnswers($answers) {
+        $answers = $answers->filter(function($answer) {
+            return $answer->question_id == $this->id;
+        });
+
+        return $answers;
+    }
 }
