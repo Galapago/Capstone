@@ -105,6 +105,7 @@
 				</div>
 			</div>
 		</div>
+		<p class="text-center"><a href="{{ action('HomeController@index')}}">Go back to Main Page</a></p>
 	</div>
 
 

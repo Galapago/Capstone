@@ -86,9 +86,10 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Galapago</h1>
+                <h1 id="homeHeading">Galapago  <img alt="Galapago" src="/css/img/turtle-logo.png"></h1>
+                <p>For life on the go.</p>
                 <hr>
-                <p>Fostering better communication between patients, doctors and clinics</p>
+                <p>Fostering better communication between patients, doctors and clinics.</p>
                 <a href="#whygalapago" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
             </div>
         </div>
@@ -109,21 +110,21 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-user-md text-primary sr-icons"></i>
                         <h3>Helping Doctors</h3>
-                        <p class="text-muted">Freeing doctors to do what they do best - help their patients achieve life-changing goals</p>
+                        <p class="text-muted">Freeing doctors to do what they do best - help their patients achieve life-changing goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-users text-primary sr-icons"></i>
                         <h3>Putting Patients First</h3>
-                        <p class="text-muted">More direct contact between doctors and patients means better outcomes</p>
+                        <p class="text-muted">More direct contact between doctors and patients means better outcomes.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-hospital-o text-primary sr-icons"></i>
                         <h3>Increased Efficiency</h3>
-                        <p class="text-muted">Our tech increases clinical efficiency, patient satisfaction and outcomes</p>
+                        <p class="text-muted">Our tech increases clinical efficiency, patient satisfaction and outcomes.</p>
                     </div>
                 </div>
             </div>
@@ -149,7 +150,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons" src="/css/img/newuser.png">
                         <h3>Easy Signup</h3>
-                        <p class="text-muted">Singup on Galapago is simple and painless</p>
+                        <p class="text-muted">Singup on Galapago is simple and painless.</p>
                     </div>    
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
@@ -157,7 +158,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons" src="/css/img/form.png">
                         <h3>Submit Doctor's Form</h3>
-                        <p class="text-muted">Complete and submit your doctor's personal form in matter of minutes</p>
+                        <p class="text-muted">Complete and submit your doctor's personal form in matter of minutes.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
@@ -165,7 +166,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons" src="/css/img/magnifyglass.png">
                         <h3>Physician Review</h3>
-                        <p class="text-muted">Once received, your physician is able to create a personalized care roadmap</p>
+                        <p class="text-muted">Once received, your physician is able to create a personalized care roadmap.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
@@ -173,7 +174,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons" src="/css/img/diagnostic.png">
                         <h3>Diagnostic Toolbox</h3>
-                        <p class="text-muted">Our portal allows doctors an overview of their patients based on quantifiable data</p>
+                        <p class="text-muted">Our portal allows doctors an overview of their patients based on quantifiable data.</p>
                     </div>
                 </div>
             </div>
@@ -196,21 +197,21 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
                         <h3>Brandon Dinesman</h3>
-                        <p class="text-muted">Freeing doctors to do what they do best - help their patients achieve life-changing goals</p>
+                        <p class="text-muted">Galapago is Brandon's brainchild. He takes on back-end customization, data manipulation, styling, planning, and general direction.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <img class="text-primary sr-icons .img-responsive" src="/css/img/johnhernandez1.jpg">
                         <h3>John Hernandez</h3>
-                        <p class="text-muted">More direct contact between doctors and patients means better outcomes</p>
+                        <p class="text-muted">John specializes in back-end frameworks, data management, and website layout and design.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
                         <h3>Tyler Warren</h3>
-                        <p class="text-muted">Our tech increases clinical efficiency, patient satisfaction and outcomes</p>
+                        <p class="text-muted">Tyler is responsible for dynamic responsiveness, styling, page customization, data creation, and user experience.</p>
                     </div>
                 </div>
             </div>
@@ -235,7 +236,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
+                    <p>123-456-7890</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
@@ -243,7 +244,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-twitter fa-3x sr-contact"></i>
-                    <p>@galapago</p>
+                    <p>@galapagomedical</p>
                 </div>
             </div>
         </div>

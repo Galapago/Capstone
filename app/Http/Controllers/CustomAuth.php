@@ -54,7 +54,7 @@ class CustomAuth extends Controller
         $email=$request->input('email');
         $password=$request->input('password');
         if(Auth::attempt(['email'=>$email,'password'=>$password,'clearance'=>'patient'])){
-            $id=Auth::user()->id;
+            $id=\App\Patient::where('user_id', Auth::user()->id)->first()->id;
             return redirect('/home/' . $id);
         }
 
