@@ -1,8 +1,6 @@
 @forelse ($patient->submissions as $submission)
 <div class"row">
-	<div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3"> Form No. {{ $submission->form_id }}</div>
-
-  	<div class="col-md-4 col-md-offset-2 col-xs-4"><a class="btn btn-primary" href="{{ action('SubmissionsController@show', $submission->id) }}">View Form No. {{ $submission->form_id }}</a></div>
+	<a class="col-md-12 col-md-offset-5 col-xs-3" href="/pdf/{{$submission->id}}" target="_blank">Form No. {{ $submission->form_id }}</a>
 </div>
 @empty
 <div class"row">
