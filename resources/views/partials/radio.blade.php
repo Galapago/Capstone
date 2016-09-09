@@ -6,7 +6,7 @@
 			type="radio" 
 			class="form-disabled"	
 			name="{{ $question->id }}" 
-			value="{{ $option->option_text }}"> {{ $option->option_text }}> 
+			value="{{ $option->option_text }}"> {{ $option->option_text }} 
 	</div>
 	@endforeach	
 </div>
