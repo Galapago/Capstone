@@ -39,7 +39,7 @@ class FormsController extends Controller
     }
     public function test(Request $request){
             $questionsCount=\App\Question::all()->count();
-            $questionId=\App\Question::where('id',$questionsCount)->first()->id;
+            $questionId=intval($questionsCount) + 1;
             $user=$request->user();
             $npi=\App\Physician::where('user_id',$user->id)->first()->npi;
             $form= new \App\Form();
@@ -53,6 +53,9 @@ class FormsController extends Controller
                 $newQuestion->form_id=$form->id;
                 $newQuestion->question=$questionInfo['question_text'][0];
                 $newQuestion->input_type=$questionInfo['question_type'][0];
+                if(empty($newQuestion->input_type)){
+                    $newQuestion->input_type="checkbox";
+                }
                 $newQuestion->quantifiable='0';
                 $newQuestion->section='doctor_specific';
                 $newQuestion->save();
