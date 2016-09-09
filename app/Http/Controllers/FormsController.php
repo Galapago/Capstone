@@ -53,6 +53,7 @@ class FormsController extends Controller
                 $newQuestion->question=$questionInfo['question_text'][0];
                 $newQuestion->input_type=$questionInfo['question_type'][0];
                 $newQuestion->quantifiable='0';
+                $newQuestion->section='doctor_specific';
                 $newQuestion->save();
                 if($questionInfo['question_type']!='textarea'){
                     foreach($questionInfo['question_options'] as $questionOption){
