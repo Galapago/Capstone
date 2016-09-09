@@ -26,6 +26,59 @@
 			</div>
 			@include('partials.error', ['field' => 'email'])
 			<div class="form-group">
+				<label for="phone">Patient Phone Number</label>
+				<input
+					type="text"
+					class="form-control"
+					name="phone"
+					value="{{ old('phone')?: $patient->phone }}">
+			</div>
+			@include('partials.error', ['field' => 'phone'])
+			<div class="form-group">
+				<label for="street-address">Street Address</label>
+				<input
+					type="text"
+					class="form-control"
+					name="street-address"
+					value="{{ old('street-address')?: $patient->street_address }}">
+			</div>
+			@include('partials.error', ['field' => 'street-address'])
+			<div class="form-group">
+				<label for="apt/ste">Apt/Ste</label>
+				<input
+					type="text"
+					class="form-control"
+					name="apt/ste"
+					value="{{ old('apt/ste')?: $patient->apt_ste }}">
+			</div>
+			<div class="form-group">
+				<label for="city">City</label>
+				<input
+					type="text"
+					class="form-control"
+					name="city"
+					value="{{ old('city')?: $patient->city }}">
+			</div>
+			@include('partials.error', ['field' => 'city'])
+			<div class="form-group">
+				<label for="state">State Abbreviation</label>
+				<input
+					type="text"
+					class="form-control"
+					name="state"
+					value="{{ old('state')?: $patient->state }}">
+			</div>
+			@include('partials.error', ['field' => 'state'])
+			<div class="form-group">
+				<label for="zip-code">Zip Code</label>
+				<input
+					type="text"
+					class="form-control"
+					name="zip-code"
+					value="{{ old('zip-code')?: $patient->zip_code }}">
+			</div>
+			@include('partials.error', ['field' => 'zip-code'])
+			<div class="form-group">
 				<label for="emergency_contact_name">Emergency Contact Name</label>
 				<input 
 					type="text" 

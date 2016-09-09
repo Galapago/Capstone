@@ -2,6 +2,7 @@
 
 
 @section('content')
+<script src="js/bootstrap-formhelpers.min.js"></script>
 <div class"container">
 	<section class"container-fluid">
 		<h2 class="section-title">New Patient Information</h2>
@@ -26,14 +27,23 @@
 			</div>
 			@include('partials.error', ['field' => 'last-name'])
 			<div class="form-group">
-				<label for="date-of-birth">Date of Birth (MM/DD/YYYY)</label>
+				<label for="dob">Date of Birth (MM/DD/YYYY)</label>
 				<input
 					type="text"
 					class="form-control"
-					name="date-of-birth"
+					name="dob"
 					value="{{ old('date-of-birth') }}">
 			</div>
-			@include('partials.error', ['field' => 'date-of-birth'])
+			@include('partials.error', ['field' => 'dob'])
+			<div class="form-group">
+				<label for="phone">Patient Phone Number</label>
+				<input
+					type="text"
+					class="form-control"
+					name="phone"
+					value="{{ old('phone') }}">
+			</div>
+			@include('partials.error', ['field' => 'phone'])
 			<div class="form-group">
 				<label for="social-security">Social Security</label>
 				<input
@@ -69,8 +79,11 @@
 			</div>
 			@include('partials.error', ['field' => 'city'])
 			<div class="form-group">
-				<label for="state">Pick a State</label>
-				<select name="state" class="form-control bfh-states" data-country="US" data-state="TX"></select>
+				<label for="state">State Abbreviation</label>
+				<input
+					type="text"
+					class="form-control"
+					name="state">
 			</div>
 			@include('partials.error', ['field' => 'state'])
 			<div class="form-group">
@@ -83,7 +96,7 @@
 			</div>
 			@include('partials.error', ['field' => 'zip-code'])
 			<div class="form-group">
-				<label for="height">Height</label>
+				<label for="height">Height In Inches</label>
 				<input
 					type="text"
 					class="form-control"
