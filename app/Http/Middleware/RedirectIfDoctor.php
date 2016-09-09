@@ -17,7 +17,7 @@ class RedirectIfDoctor
     public function handle($request, Closure $next)
     {   
         if(!Auth::check() || Auth::user()->clearance=='doctor'){
-            return view('/auth/login');
+            return redirect('/login');
         }
         //Check to see if user has the proper level of clearance
         if($request->session()->has('doctor_validated')){

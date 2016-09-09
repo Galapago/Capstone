@@ -10,8 +10,10 @@
 	<table class="table table-hover">
         <thead>
             <tr>
-                <th>Submitted Forms</th>
-                <th>Action</th>
+                <th>Name</th>
+                <th>Form</th>
+                <th>Date Submitted</th>
+                <th>HL7</th>
             </tr>
         </thead>
         <tbody>

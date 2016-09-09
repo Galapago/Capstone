@@ -33,6 +33,11 @@ $factory->define(App\Physician::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Patient::class, function (Faker\Generator $faker) {
+    $race=['American Indian or Alaska Native','Caucasian (non-Hispanic)','Latino/Hispanic','African American','Native Hawaiin','Middle Eastern','Asian American','Two or More Races'];
+    $sex=['M','F'];
+    $marital_status=['M','S','D','W'];
+    $health_insurance=['UnitedHealth','Kaiser Foundation','Wellpoint Inc.','Aetna','Humana','HCSC','Cigna Health','Highmark','BlueCross BlueShield','Centene Corp','Welfare','HIP','Medicare','Medicaid','Other'];
+    $medication=['Abilify','Nexium','Humira','Crestor','Advair Diskus','Enbrel','Remicade','Cymbalta','Copaxone'.'Neulasta','Lantus Solostar','Rituxan','Spiriva Handihaler','Januvia','Atripla','Lantus','Avastin','Lyrica','Oxycontin','Epogen'];
     return [
         'user_id' => App\User::all()->random()->id,
         'physician_id' => App\Physician::all()->random()->id,
@@ -44,15 +49,18 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
         'state' => $faker->stateAbbr,
         'zip_code' => $faker->postcode,
         'dob' => $faker->date('Y-m-d', $max = 'now'),
-        'height' => $faker->randomNumber(2),
-        'weight' => $faker->randomNumber(3),
+        'height' => mt_rand(58,80),
+        'weight' => mt_rand(90,300),
         'phone' => $faker->phoneNumber,
         'ssn' => $faker->randomNumber(9),
         'emergency_contact_name' => $faker->name,
         'emergency_contact_number' => $faker->phoneNumber,
         'emergency_contact_email' => $faker->safeEmail,
-        'medication' => $faker->word,
-        'health_insurance' => $faker->word,
+        'medication' => $medication[mt_rand(0,18)],
+        'health_insurance' => $health_insurance[mt_rand(0,14)],
+        'sex'=>$sex[mt_rand(0,1)],
+        'race'=>$race[mt_rand(0,7)],
+        'marital_status'=>$marital_status[mt_rand(0,3)],
     ];
 });
 
@@ -84,19 +92,37 @@ $factory->define(App\Submission::class, function (Faker\Generator $faker) {
     ];
 });
 $factory->define(App\Answer::class, function (Faker\Generator $faker) {
-    $question=App\Question::where('id',mt_rand(1,39))->first();
-    if($question->input_type=='textarea'){
+    $random=mt_rand(1,39);
+    $pharmacy=['CVS','Walgreens','Rate Aid','Walmart','HEB','CostCo'];
+    $question=App\Question::where('id',$random)->first();
+    $question_id=$question->id;
+    if($random==1 || $random==3 || $random==5){
         $answer=[
-        'question_id'=>$question->id,        
+        'question_id'=>$question_id,        
         'patient_id' => App\Patient::all()->random()->id,
         'submission_id' => App\Submission::all()->random()->id,
-        'answer' => $faker->firstName . $faker->lastName];
+        'answer' => App\Physician::all()->random()->first_name . App\Physician::all()->random()->last_name];
+    }elseif($random==2 || $random==4 || $random==7){
+        $answer=['question_id'=>$question_id,        
+        'patient_id' => App\Patient::all()->random()->id,
+        'submission_id' => App\Submission::all()->random()->id,
+        'answer' =>$faker->phoneNumber];
+    }elseif($random==6){
+        $answer=
+        ['question_id'=>$question_id,        
+        'patient_id' => App\Patient::all()->random()->id,
+        'submission_id' => App\Submission::all()->random()->id,
+        'answer' => $pharmacy[mt_rand(0,5)]];
     }else{
+        $answer=App\QuestionOption::all()->random(1);
+        while($answer->question_id!=$question_id){
+            $answer=App\QuestionOption::orderByRaw("RAND()")->get();
+        }
         $answer=[
-            'question_id' => $question->id,
+            'question_id' => $question_id,
             'patient_id' => App\Patient::all()->random()->id,
-            'answer' => App\QuestionOption::where('question_id',$question->id)->get()->random()->option_text,
-            'submission_id' => App\Submission::all()->random()->id,
+            'answer' => $answer,
+            'submission_id' => App\Submission::all()->random()->id
         ];
     }
     return $answer;

@@ -1,8 +1,10 @@
 @forelse($physician->patients as $patient)
 	@forelse($patient->submissions as $submission)
 	<tr>
-		<td> Form No. {{ $submission->form_id }} from {{ $patient->first_name . ' ' . $patient->last_name }}</td>
-	  	<td><a class="btn btn-primary" href="{{ action('SubmissionsController@show', $submission->id) }}">View Form No. {{ $submission->form_id }}</a></td>
+		<td>{{ $patient->first_name . ' ' . $patient->last_name}}</td>
+	  	<td><a href="{{action('SubmissionsController@show',['id',$submission->id])}}">{{ \App\Form::where('id',$submission->form_id)->first()->form_name }}</a></td>
+	  	<td>{{$submission->created_at}}</td>
+	  	<td><a class="btn btn-primary" href="{{action('PhysiciansController@HL7',['submission'=>$submission->id])}}">View</a></td>
 	</tr>
 	@empty
 	<tr>

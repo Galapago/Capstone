@@ -60,7 +60,19 @@ class AnswerTableSeeder extends Seeder
     	$answer1->answer='Shortness of Breath';
     	$answer1->save();
     	$patient_count=App\Patient::all()->count();
-    	/*
+    	$questionOptions=\App\QuestionOption::all();
+            $questionNumbers=[];
+            foreach ($questionOptions as $key => $value) {
+                if(!isset($questionNumbers[$value->question_id])){
+                    $questionNumbers[$value->question_id]=[$value->id];
+                }else{
+                  $questionNumbers[$value->question_id][]=$value->id; 
+                }
+            }
+            $count=[];
+            foreach ($questionNumbers as $key => $value) {
+                $count[$key]=count($value);
+            }
     	for($i=2;$i<=$patient_count;$i++){
     		for($j=1;$j<=App\Question::where('form_id',1)->count();$j++){
     			if($j==1 || $j==3 || $j==5){
@@ -79,18 +91,19 @@ class AnswerTableSeeder extends Seeder
     				$answer->save();
     			}elseif($j==6){
 
-    			}elseif($j>10){
+    			}elseif($j>10 && $j<41){
     			    $answer=new App\Answer();
     				$answer->patient_id=$i;
     				$answer->question_id=$j;
-    				$answer->answer=App\QuestionOption::where('question_id',$j)->get()->option_text;
+    				$optionsAvailable=$questionNumbers[$j];
+    				$answer_questionOoptionID=$questionNumbers[$j][mt_rand(0,($count[$j]-1))];
+    				$answer->answer=App\QuestionOption::all()->random()->option_text;
     				$answer->submission_id=App\Submission::where('patient_id',$i)->first()->id;
     				$answer->save();	
     			}
     		}
     	}
-    	*/
 
-        factory(App\Answer::class, 600)->create();
+        //factory(App\Answer::class, 600)->create();
     }
 }
