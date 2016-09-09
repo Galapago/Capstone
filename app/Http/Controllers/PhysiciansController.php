@@ -260,20 +260,8 @@ class PhysiciansController extends Controller
                 }
             }
             }
-            $questionOptions=\App\QuestionOption::all();
-            $questionNumbers=[];
-            foreach ($questionOptions as $key => $value) {
-                if(!isset($questionNumbers[$value->question_id])){
-                    $questionNumbers[$value->question_id]=[$value->id];
-                }else{
-                  $questionNumbers[$value->question_id][]=$value->id; 
-                }
-            }
-            $count=[];
-            foreach ($questionNumbers as $key => $value) {
-                $count[$key]=count($value);
-            }
-            var_dump($count);
+            for($j=10;$j<41;$j++){
+            $answer_questionOoptionID=$questionNumbers[$j][mt_rand(0,($count[$j]-1))];}
             $data=compact('questions','forms');
             return view('physicians.stats',$data);
 

@@ -91,13 +91,13 @@ class AnswerTableSeeder extends Seeder
     				$answer->save();
     			}elseif($j==6){
 
-    			}elseif($j>10){
+    			}elseif($j>10 && $j<41){
     			    $answer=new App\Answer();
     				$answer->patient_id=$i;
     				$answer->question_id=$j;
-    				//$optionsAvailable=$questionNumbers[$j];
-    				//$answer_questionOoptionID=$questionNumbers[$j][mt_rand(0,($count[$j]-1))];
-    				$answer->answer=App\QuestionOption::all()->random();
+    				$optionsAvailable=$questionNumbers[$j];
+    				$answer_questionOoptionID=$questionNumbers[$j][mt_rand(0,($count[$j]-1))];
+    				$answer->answer=App\QuestionOption::all()->random()->option_text;
     				$answer->submission_id=App\Submission::where('patient_id',$i)->first()->id;
     				$answer->save();	
     			}
