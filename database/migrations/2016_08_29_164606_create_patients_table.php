@@ -34,6 +34,9 @@ class CreatePatientsTable extends Migration
             $table->integer('emergency_contact_number')->unsigned();
             $table->string('emergency_contact_email', 30);
             $table->string('medication');
+            $table->enum('sex',['M','F']);
+            $table->enum('marital_status',['M','S','D','W']);
+            $table->enum('race',['American Indian or Alaska Native','Caucasian (non-Hispanic)','Latino/Hispanic','African American','Native Hawaiin','Asian American','Middle Eastern','Two or More Races']);
             $table->string('health_insurance');
             $table->timestamps();
         });

@@ -26,12 +26,17 @@ Route::get('/patient/login','CustomAuth@patientsLogin');
 Route::post('/patient/login','CustomAuth@authenticatePatients');
 Route::get('auth/logout', 'CustomAuth@logout');
 Route::post('auth/logout', 'CustomAuth@logout');
+Route::get('/physician/validate',function(){
+	return view('physician_validation');
+	})->middleware('provider');
+Route::post('/physician/validate','CustomAuth@physicianValidate');
+Route::get('/physicians/HL7/{submission}/','PhysiciansController@HL7');
 Route::get('/home/{id}','PatientsController@show');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-Route::post('/physician/stats/AJAX','PhysiciansController@statistics');
-Route::get('/physician/stats/AJAX','PhysiciansController@statistics');
+Route::post('/physicians/stats/AJAX','PhysiciansController@statistics');
+Route::get('/physicians/stats/AJAX','PhysiciansController@statistics');
 //Patients Controller - Basic CRUD
 Route::resource('patients', 'PatientsController');
 Route::get('/physicians/stats','PhysiciansController@displayStats');
