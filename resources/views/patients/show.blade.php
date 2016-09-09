@@ -1,6 +1,6 @@
 @extends('layouts.patients-master')
 @section('content')
-<form>
+
 	<div class="form-group container-fluid col-md-8 col-md-offset-2">
 		<h2 class="text-center">Personal Information</h2>
 		<div class="row">
@@ -51,10 +51,13 @@
 		</div>
 		<div class="col-md-4"></div>
 	</div>
-</form>
 
 <div class="form-group container-fluid col-md-8 col-md-offset-2">
 	<h2 class="text-center">My Forms</h2>
+	@include('partials.incomplete_patient_forms')
+</div>
+<div class="form-group container-fluid col-md-8 col-md-offset-2">
+	<h2 class="text-center">My Submissions</h2>
 	@include('partials.patient_account_forms')
 </div>
 @stop

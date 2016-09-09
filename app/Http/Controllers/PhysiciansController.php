@@ -122,8 +122,11 @@ class PhysiciansController extends Controller
             Log::info("Physician with $id not found.");
             abort(404);
         }
-
-        $data = compact('physician');
+        //forms
+        //patient
+        $forms=\App\Form::where('npi',$physician->npi)->get();
+        $patients=\App\Patient::where('physician_id',$physician->id)->get();
+        $data = compact('physician','forms','patients');
         //dd($data);
         return view('physicians.show', $data);
     }
