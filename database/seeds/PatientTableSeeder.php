@@ -13,9 +13,9 @@ class PatientTableSeeder extends Seeder
     public function run()
     {	
     	$patients = [
-            ['first_name' => 'brandon', 'last_name' => 'dinesman', 'street_address' => '100 Elm St', 'apt_ste' => '', 'city' => 'San Antonio', 'state' => 'TX', 'zip_code' => '78212', 'dob' => '1983-08-02', 'height' => '72', 'weight' => '180', 'phone' => '2102876927', 'ssn' => '123456789', 'emergency_contact_name' => 'mom', 'emergency_contact_number' => '1234567890', 'emergency_contact_email' => 'mom@mom.com', 'medication' => 'advil', 'health_insurance' => 'aetna','sex'=>'M','marital_status'=>'M','race'=>'Caucasian (non-Hispanic)'],
-            ['first_name' => 'john', 'last_name' => 'hernandez', 'street_address' => '100 Elm St', 'apt_ste' => '', 'city' => 'San Antonio', 'state' => 'TX', 'zip_code' => '78212', 'dob' => '1983-08-02', 'height' => '72', 'weight' => '180', 'phone' => '2108888888', 'ssn' => '999999999', 'emergency_contact_name' => 'dad', 'emergency_contact_number' => '1111111111', 'emergency_contact_email' => 'dad@dad.com', 'medication' => 'tylenol', 'health_insurance' => 'blue cross','sex'=>'M','marital_status'=>'M','race'=>'Hispanic/Latino'],
-            ['first_name' => 'tyler', 'last_name' => 'warren', 'street_address' => '100 Elm St', 'apt_ste' => '1100', 'city' => 'San Antonio', 'state' => 'TX', 'zip_code' => '78212', 'dob' => '1983-08-02', 'height' => '72', 'weight' => '180', 'phone' => '2109199191', 'ssn' => '555555555', 'emergency_contact_name' => 'sister', 'emergency_contact_number' => '3333333333', 'emergency_contact_email' => 'sister@sister.com', 'medication' => 'anabolic steriods', 'health_insurance' => 'aetna','sex'=>'M','marital_status'=>'M','race'=>'Caucasian (non-Hispanic)']
+            ['first_name' => 'Brandon', 'last_name' => 'Dinesman', 'street_address' => '100 Elm St', 'apt_ste' => '', 'city' => 'San Antonio', 'state' => 'TX', 'zip_code' => '78212', 'dob' => '1983-08-02', 'height' => '72', 'weight' => '180', 'phone' => '2102876927', 'ssn' => '123456789', 'emergency_contact_name' => 'mom', 'emergency_contact_number' => '1234567890', 'emergency_contact_email' => 'mom@mom.com', 'medication' => 'Vicodin', 'health_insurance' => 'Aetna','sex'=>'M','marital_status'=>'M','race'=>'Caucasian (non-Hispanic)'],
+            ['first_name' => 'John', 'last_name' => 'Hernandez', 'street_address' => '100 Elm St', 'apt_ste' => '', 'city' => 'San Antonio', 'state' => 'TX', 'zip_code' => '78212', 'dob' => '1983-08-02', 'height' => '72', 'weight' => '180', 'phone' => '2108888888', 'ssn' => '999999999', 'emergency_contact_name' => 'dad', 'emergency_contact_number' => '1111111111', 'emergency_contact_email' => 'dad@dad.com', 'medication' => 'Zocor', 'health_insurance' => 'BlueCross BlueShield','sex'=>'M','marital_status'=>'M','race'=>'Latino/Hispanic'],
+            ['first_name' => 'Tyler', 'last_name' => 'Warren', 'street_address' => '100 Elm St', 'apt_ste' => '1100', 'city' => 'San Antonio', 'state' => 'TX', 'zip_code' => '78212', 'dob' => '1983-08-02', 'height' => '72', 'weight' => '180', 'phone' => '2109199191', 'ssn' => '555555555', 'emergency_contact_name' => 'sister', 'emergency_contact_number' => '3333333333', 'emergency_contact_email' => 'sister@sister.com', 'medication' => 'Abilify', 'health_insurance' => 'Aetna','sex'=>'M','marital_status'=>'M','race'=>'Caucasian (non-Hispanic)']
 		];
 
         foreach($patients as $patient){
@@ -45,6 +45,6 @@ class PatientTableSeeder extends Seeder
             $patient1->save();
         }
         
-    	factory(App\Patient::class, 100)->create();
+    	factory(App\Patient::class, 1000)->create();
     }
 }

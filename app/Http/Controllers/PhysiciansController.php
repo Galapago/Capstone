@@ -164,30 +164,80 @@ class PhysiciansController extends Controller
     public function statistics(Request $request){
         //Grab the id from the Request
         $formIds=[];
+        $physician_id=\App\Physician::where('user_id',Auth::user()->id)->first()->id;
+        $patients=\App\Patient::where('physician_id',$physician_id)->get();
         $questionOptionsArray=[];
         $questionText=[];
         $questionsAJAX=[];
-        $forms=$this->getForms();
-        $questions=$this->getQuestions($forms);
-        foreach($questions as $question_object){
-            foreach($question_object as $question){
-            //Add number of responses to the QuestionOption object and formatting it so it can be added to the array
-            $questionOptionsArray=[];
-            if($question->input_type=='textarea'){
-                $orderedResults=\App\Answer::where('question_id',$question->id)->get()->groupBy('answer');
-                foreach ($orderedResults as $key=>$result) {
-                    $questionOptionsArray[]=['option_text'=>$key,'responses'=>(int)$result->count()];
-                    //var_dump($result->count());
+        $form_id=$request->get('id');
+        if($form_id=='general'){
+            $height=[];
+            $weight=[];
+            $age=[];
+            $medication=[];
+            $insurance=[];
+            $sex=[];
+            $race=[];
+            foreach ($patients as $patient) {
+                if(!isset($height[$patient->height])){
+                    $height[$patient->height]=1;
+                }else{
+                    $height[$patient->height]=$height[$patient->height]+1;
+;
+                }
+                if(!isset($weight[$patient->weight])){
+                    $weight[$patient->weight]=1;
+                }else{
+                    $weight[$patient->height]=$weight[$patient->weight][0]+1;
+;
+                }
+                if(!isset($medication[$patient->medication])){
+                    $medication[$patient->medication]=1;
+                }else{
+                    $medication[$patient->medication]=$medication[$patient->medication]+1;
+;
+                }
+                if(!isset($insurance[$patient->health_insurance])){
+                    $insurance[$patient->health_insurance]=1;
+                }else{
+                    $insurance[$patient->health_insurance]=$insurance[$patient->health_insurance]+1;
+;
+                }
+                if(!isset($sex[$patient->sex])){
+                    $sex[$patient->sex]=1;
+                }else{
+                    $sex[$patient->sex]=$sex[$patient->sex]+1;
+;
+                }
+                if(!isset($race[$patient->race])){
+                    $race[$patient->race]=1;
+                }else{
+                    $race[$patient->race]=$race[$patient->race]+1;
+;
                 }
             }
-            $questionOptions=\App\QuestionOption::where('question_id',$question->id)->get();
-            //var_dump($questionOptions->all());
-            foreach ($questionOptions as $key => $value) {
-                $value->responses=\App\Answer::where('question_id',$question->id)->where('answer',$value->option_text)->count();
-                $questionOptionsArray[]=$value;
-            }
-            $questionsAJAX[$question->id]=
-            ['question_id'=>$question->id,'form_id'=>$question->form_id,'text'=>$question->question,'input_type'=>$question->input_type,'quantifiable'=>(bool)$question->quantifiable,'question_options'=>$questionOptionsArray];
+            return response()->json(['data'=>['height'=>$height,'weight'=>$weight,'medication'=>$medication,'insurance'=>$insurance,'race'=>$race,'sex'=>$sex]]);
+        }else{
+            $questions=\App\Question::where('form_id',$form_id)->get();
+            foreach($questions as $question_object){
+                foreach($question_object as $question){
+                //Add number of responses to the QuestionOption object and formatting it so it can be added to the array
+                $questionOptionsArray=[];
+                if($question_object->input_type=='textarea'){
+                    $orderedResults=\App\Answer::where('question_id',$question_object->id)->get()->groupBy('answer');
+                    foreach ($orderedResults as $key=>$result) {
+                        $questionOptionsArray[]=['option_text'=>$key,'responses'=>(int)$result->count()];
+                        //var_dump($result->count());
+                    }
+                }
+                $questionOptions=\App\QuestionOption::where('question_id',$question_object->id)->get();
+                foreach ($questionOptions as $key => $value) {
+                    $value->responses=\App\Answer::where('question_id',$question_object->id)->where('answer',$value->option_text)->count();
+                    $questionOptionsArray[]=$value;
+                }
+                $questionsAJAX[$question_object->id]=
+                ['question_id'=>$question_object->id,'form_id'=>$question_object->form_id,'text'=>$question_object->question,'input_type'=>$question_object->input_type,'quantifiable'=>(bool)$question_object->quantifiable,'question_options'=>$questionOptionsArray];
+                }
             }
         }
         return response()->json(['data'=>$questionsAJAX]);
@@ -202,18 +252,30 @@ class PhysiciansController extends Controller
         foreach ($forms as $form) {
             $questions=\App\Question::where('form_id',$form->id)->get();
             foreach ($questions as $question) {
-                //echo '<p>' . $question->question . '</p>';
                 $questionText[]=$question->question;
                 $answerChoices=\App\QuestionOption::where('question_id',$question->id)->get();
-                //echo '<ul>';
                 foreach ($answerChoices as $answerChoice) {
                     $questionOptions[]=$answerChoice->option_text;
 
                 }
-                //echo '</ul>';
             }
             }
-            return view('physicians.stats')->with('questions',$questions);
+            $questionOptions=\App\QuestionOption::all();
+            $questionNumbers=[];
+            foreach ($questionOptions as $key => $value) {
+                if(!isset($questionNumbers[$value->question_id])){
+                    $questionNumbers[$value->question_id]=[$value->id];
+                }else{
+                  $questionNumbers[$value->question_id][]=$value->id; 
+                }
+            }
+            $count=[];
+            foreach ($questionNumbers as $key => $value) {
+                $count[$key]=count($value);
+            }
+            var_dump($count);
+            $data=compact('questions','forms');
+            return view('physicians.stats',$data);
 
     }
     public function getForms(){
