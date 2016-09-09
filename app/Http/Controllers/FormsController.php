@@ -98,10 +98,9 @@ class FormsController extends Controller
      */
     public function show($id)
     {   
-
         $form = Form::findOrFail($id);
-        $questions = $form->questions()->orderBy('section')->orderBy('id')->get();
 
+        $questions = $form->questions()->orderBy('section')->orderBy('id')->get();
 
         if (!$form) {
             Log::info("Form with $id not found.");
@@ -112,6 +111,7 @@ class FormsController extends Controller
         
         // $data = compact('form', 'questions', 'id');
         $data = compact('form', 'questions', 'id', 'answers');
+        
         return view('forms.show', $data);
     }
 

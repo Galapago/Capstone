@@ -26,9 +26,9 @@ class SubmissionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
-        $this->middleware('guest');
-    }
+    // public function __construct(){
+    //     $this->middleware('guest',['except' => ['makePdf', 'show']]);
+    // }
     public function index()
     {
         //
@@ -125,7 +125,7 @@ class SubmissionsController extends Controller
 
         //$data = compact('submission', 'patient', 'form', 'answers', 'questions');
 
-        return view('submissions.show', [
+        return view('submissions.makepdf', [
             'submission' => $submission,
             'patient' => $submission->patient,
             'form' => $submission->form,
