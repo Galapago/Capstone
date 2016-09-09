@@ -2,11 +2,17 @@
 
 
 @section('content')
-<script src="js/bootstrap-formhelpers.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link href="/css/form_and_submission.style.css" rel="stylesheet">
+
 <div class"container">
 	<section>
 		<h2 class="section-title">New Patient Information</h2>
-		<form method="POST" action="{{ action('PatientsController@store') }}">
+		<form id="msform" method="POST" action="{{ action('PatientsController@store') }}">
 		{!! csrf_field() !!}
 		<fieldset>
 			<div class="form-group">
@@ -159,12 +165,18 @@
 					value="{{ old('health-insurance') }}">
 			</div>
 			@include('partials.error', ['field' => 'health-insurance'])
-			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="action-button">Save</button>
 		</fieldset>
 		</form>
 	</section>
 </div>
+!-- jQuery -->
+<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<!-- jQuery easing plugin -->
+<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
 
+<!-- External js sheet -->
+<script src="/js/form_and_submission.js"></script>
 
 @stop
 
