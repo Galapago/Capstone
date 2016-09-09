@@ -54,13 +54,13 @@ class SubmissionsController extends Controller
     {
         
         $submission = new Submission;
-        dd(Auth::user()->id);
+        //dd(Auth::user()->id);
         $user_id = Auth::user()->id;
         $submission->form_id = $request->input('form_id');
         $submission->patient_id = \App\Patient::where('user_id',$user_id)->first()->id;
         //$submission->patient_id = Submission::find($submission->patient->id);
         $submission->save();
-
+        dd($submission);
         $answers = $request->all();
         unset($answers['_token']);
         unset($answers['form_id']);
