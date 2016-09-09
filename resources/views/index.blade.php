@@ -74,7 +74,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ action('UsersController@create')}}">New User?</a>
+                        <a class="page-scroll" href="{{ action('Auth\AuthController@getRegister')}}">New User?</a>
                     </li>
                 </ul>
             </div>
