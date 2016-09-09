@@ -9,7 +9,8 @@
 				class="form-disabled"
 				<?php $answers = $question->getPatientAnswers($answers) ?>
 				{{ $option->check($answers) ? 'checked' : '' }}
-				name="{{ $question->id }}">{{ $option->option_text }}</label>
+				name="{{ $question->id }}">{{ $option->option_text }}>
+			</label>
 		</div>
 		@endforeach
 	</div>
