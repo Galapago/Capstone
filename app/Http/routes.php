@@ -63,11 +63,20 @@ Route::resource('users', 'UsersController');
 Route::resource('submissions', 'SubmissionsController');
 Route::get('/submissions/{id}','SubmissionsController@show')->middleware('provider');
 
-Route::get('/pdf', function() {
+
+
+
+
+Route::get('/pdf/{id}', function($form_id) {
     $pdf = PDF::make();
-    $pdf->setOptions(['tmp' => __DIR__ . '/../../storage']);
-    $pdf->addPage('http://getbootstrap.com/');
-    $pdf->send('example.pdf');
+    $pdf->setOptions(['tmp' => __DIR__ . '/../../storage/temppdf']);
+    $pdf->addPage( action('SubmissionsController@show', $form_id) );
+    
+    if (!$pdf->send()) {
+	    throw new Exception('Could not create PDF: '.$pdf->getError());
+	}
+	$content = $pdf->toString();
+	if ($content === false) {
+	    throw new Exception('Could not create PDF: '.$pdf->getError());
+	}
 });
-
-
