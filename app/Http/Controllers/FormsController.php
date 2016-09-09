@@ -46,6 +46,7 @@ class FormsController extends Controller
             $form->npi=$npi;
             $form->form_name=$request->get('form_name');
             $form->save();
+            //Temporarily Create Submission
             $questions = $request->get('questions');
             foreach ($questions as $questionNumber => $questionInfo) {
                 $newQuestion=new \App\Question();
@@ -67,7 +68,13 @@ class FormsController extends Controller
                 }
                 $questionId++;
             }
-            return 'Form Created';
+            //Temporarily created form
+            $submission=new Submission();
+            $submission->form_id=$form->id;
+            $submission->patient_id=3;
+            $submission->save();
+            $home='/physicians/'. \App\Physician::where('user_id',$request->user()->id)->first()->id;
+            return redirect($home);
     }
     /**
      * Store a newly created resource in storage.
