@@ -195,7 +195,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
+                        <img class="text-primary sr-icons .img-responsive" src="/css/img/brandon-dinesman.jpg">
                         <h3>Brandon Dinesman</h3>
                         <p class="text-muted">Galapago is Brandon's brainchild. He takes on back-end customization, data manipulation, styling, planning, and general direction.</p>
                     </div>
