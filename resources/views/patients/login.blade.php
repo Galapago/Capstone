@@ -83,7 +83,9 @@
 				</div>
 			</div>
 		</div>
-		<p class="text-center"><a href="{{ action('HomeController@index')}}">Go back to Main Page</a></p>
+		<div class="back">
+			<a id="back-btn" href="{{ action('HomeController@index')}}" class="btn btn-sm btn-lg active" role="button">Back to Main Page</a>
+		</div>
 	</div>
 
 
@@ -102,33 +104,5 @@
 
 </html>
 
-
-<!-- <div class="container view">
-	<section>
-		<h1 class="section-title">Patient Login</h1>
-		<form method="post" action="{{ action('CustomAuth@authenticatePatients') }}">
-		{{ csrf_field() }}
-			<div class="form-group">
-				<label for="email">Email</label>
-				<input
-					type="text"
-					class="form-control"
-					name="email"
-					id="email">
-			</div>
-			@include('partials.error', ['field' => 'email'])
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input
-					type="password"
-					class="form-control"
-					name="password"
-					id="password">	
-			</div>
-			@include('partials.error', ['field' => 'password'])
-			<button type="submit" class="btn btn-primary">Login</button>
-		</form>
-	</section>
-</div> -->
 
 
