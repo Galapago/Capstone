@@ -2,8 +2,8 @@
 	<label class="question-label" for="{{ $question->id }}">{{ $question->question }}</label><br>
 	<div class="row">
 		@foreach($question->questionOptions as $option)
-		<div class="checkbox-inline col-md-4 col-xs-6">
-			<label>
+		<div class="checkbox-inline col-md-3">
+			<label class="checkbox-label">
 				<input 
 				type="checkbox" 
 				class="form-disabled"

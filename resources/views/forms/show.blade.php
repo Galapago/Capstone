@@ -31,9 +31,8 @@ method so that it correlates properly. -->
 			<li>Symptoms</li>
 			<li>Specific</li>
 		</ul>
-		<!-- fieldsets -->
 
-	
+		<!-- fieldsets -->
 		<fieldset>
 			@include ('partials.personal')
 			<input type="button" name="next" class="next action-button" value="Next" />
@@ -60,7 +59,7 @@ method so that it correlates properly. -->
 		<fieldset>
 			@include ('partials.doctor_specific')
 			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<button class="btn" type="submit" name="submit">Submit</button>
+			<button class="btn action-button" type="submit" name="submit">Submit</button>
 		</fieldset>
 	</form>
 </div>
