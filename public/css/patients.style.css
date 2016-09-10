@@ -6,7 +6,7 @@
 html {
 	height: 100%;
 	/*Image only BG fallback*/
-	background: url('http://thecodeplayer.com/uploads/media/gs.png');
+	background-color: #F7FEFA;
 	/*background = gradient + image pattern combo*/
 	/*background: 
 		linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
@@ -18,27 +18,48 @@ body {
 	height: 50px;
 }
 
+.navbar{
+	background-color: #F7FEFA;
+}
+
 a{
-	color: #427B4F;
+	color: #001B0B;
 }
 
 a:hover{
-	color: #63986F;
+	color: #001B0B;
 }
 
+.row {
+	padding-bottom: 10px;
+}
 .form-group{
 	border: 3px solid;
-	border-radius: 10px;
-	border-color: #427B4F;
+	border-radius: 5px;
+	border-color: #73CE98;
+	background-color: #73CE98;
+	margin-bottom: 30px;
 }
 
 .btn{
-	background-color: #427B4F;
+	background-color: #076D30;
 	color: white;
-	border-color: #427B4F;
+	border-color: #076D30;
+	text-align: center;
 }
 
 .btn:hover{
-	background-color: #63986F;
-	border-color: #427B4F;
+	background-color: #005020;
+	border-color: #005020;
+	color: white;
+}
+
+#form {
+	text-align: center;
+	color: white;
+}
+.form-group-header {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
 }

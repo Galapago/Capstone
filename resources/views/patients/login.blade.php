@@ -84,7 +84,7 @@
 			</div>
 		</div>
 		<div class="back">
-			<a id="back-btn" href="{{ action('HomeController@index')}}" class="btn btn-sm btn-lg active" role="button">Back to Main Page</a>
+			<a id="back-btn" href="{{ action('HomeController@index')}}" class="btn" role="button">Back to Main Page</a>
 		</div>
 	</div>
 
