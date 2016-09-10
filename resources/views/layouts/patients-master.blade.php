@@ -13,18 +13,18 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	    	<a class="navbar-brand" href="#about">
+	    	<a class="navbar-brand" href="{{ action('HomeController@index') }}">
 	        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="#about">About Galapago</a></li>
+	    		<li><a href="{{ action('HomeController@index') }}">GALAPAGO</a></li>
 	    	</ul>
 	    </div>
 	    <div class="navbar-header navbar-right">
 	    	<ul class="nav navbar-nav">
 	    		<li><a href="#help">Help</a></li>
 	    	</ul>
-	    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn btn-default navbar-btn">Sign Out</button></a>
+	    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn-pad btn btn-default navbar-btn">Sign Out</button></a>
 	    </div>
 	  </div>
 	</nav>
