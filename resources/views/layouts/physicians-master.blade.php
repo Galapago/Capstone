@@ -11,11 +11,11 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	    	<a class="navbar-brand" href="#about">
+	    	<a class="navbar-brand" href="">
 	        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="#about">About Galapago</a></li>
+	    		<li><a href="">Galapago</a></li>
 	    	</ul>
 	    </div>
 		<div class="navbar-header navbar-right">
@@ -23,7 +23,7 @@
 	        	<li class="dropdown">
 		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span></a>
 		        	<ul class="dropdown-menu">
-				        <li><a href="#statistics">Statistics</a></li>
+				        <li><a href="{{action('PhysiciansController@displayStats')}}">Statistics</a></li>
 				        <li><a href="{{ action('FormsController@create') }}">Create a Form</a></li>
 		        	</ul>
 	        	</li>

@@ -15,7 +15,6 @@
 		display:none;
 	}
 	.response{
-		border:1px solid green;
 		padding:10px;
 	}
 	.float-right{
@@ -25,6 +24,7 @@
 @extends('layouts.physicians-master')
 @section('content')
 <div class="container">
+<h1>Create New Patient Form</h1>
 <div class="section">
 <form method="POST" action="{{action('FormsController@test')}}">
 {!!csrf_field()!!}
@@ -38,9 +38,11 @@
 		id="form_name">
 	</div>
 </div>
-<div class="section">
-	<h3 class="title">Question 1</h3>
-	<div class=row>
+<div class="section panel panel-success">
+	<div class="panel-heading">
+    	<h3 class="panel-title">Question 1</h3>
+  	</div>
+	<div class="row panel-body">
 	<div class="col-lg-5">
 		<div class="input-group" id="question_text">
   		<span class="input-group-addon" id="sizing-addon1">Question  Text</span>
@@ -54,7 +56,7 @@
 		<button class="multiple-choice-btn btn btn-primary" type="button" id="multiple-choice-1">Mulitple choice</button>
 		</div>
 	</div>
-	<div class="response form-group col-lg-12" id="question-div-1">
+	<div class="response form-group col-lg-12 panel-body" id="question-div-1">
 		<input class="question-type" type="hidden" name="questions[1][question_type][]">
 		<textarea class="form-control text-response hidden " placeholder="Patient response will go here"></textarea>
 		<div class="col-lg-12 form-group radio-response hidden">
@@ -68,7 +70,7 @@
 	    		</div>
 			</div>
 			<div class="col-lg-6">
-				<button class="btn btn-primary btn-sm" type="button">+</button>
+				<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
 			</div>
 		</div>
 		<div class="col-lg-12 form-group radio-response hidden">
@@ -82,7 +84,7 @@
 	    		</div>
 			</div>
 			<div class="col-lg-6">
-				<button class="btn btn-primary btn-sm" type="button">+</button>
+				<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
 			</div>
 		</div>
 		<div class="col-lg-12 form-group radio-response hidden">
@@ -95,7 +97,8 @@
 	    		</div>
 			</div>
 			<div class="col-lg-6">
-				<button class="btn btn-primary btn-sm" type="button">+</button>
+				<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
+				<button class="btn btn-primary add-option" type="button"><span class="glyphicon glyphicon-plus"></span></button>
 			</div>
 		</div>
 		<div class="col-lg-12 form-group checkbox-response">
@@ -109,7 +112,7 @@
     		</div>
     	</div>
 		<div class="checkbox-response col-lg-6">
-			<button class="btn btn-primary btn-sm" type="button">+</button>
+			<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
 		</div>
 		</div>
 		<div class="col-lg-12 form-group checkbox-response">
@@ -123,7 +126,7 @@
     		</div>
     	</div>
 		<div class="checkbox-response col-lg-6">
-			<button class="btn btn-primary btn-sm" type="button">+</button>
+			<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
 		</div>
 		</div>
 		<div class="col-lg-12 form-group checkbox-response">
@@ -137,33 +140,28 @@
     		</div>
     	</div>
 		<div class="checkbox-response col-lg-6">
-			<button class="btn btn-primary btn-sm" type="button">+</button>
+			<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button>
+			<button class="btn btn-primary add-option" type="button"><span class="glyphicon glyphicon-plus"></span></button>
 		</div>
 		</div>
 	</div>
 	<div class="col-lg-12">
-		<button class="col-lg-8 col-lg-offset-2 btn btn-success add-question"> Add Question</button>
+		<button class="col-lg-6 col-lg-offset-3 btn btn-success add-question"> Add Question</button>
 	</div>
 </div>
+<div class="panel-footer"></div>
 </div>
-<button type="submit" class="btn btn-danger">Submit</button>
+<button type="submit" class="btn btn-danger col-lg-8 col-lg-offset-2">Submit</button>
 </form>
 <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 <script>
-$.ajax({
-  method: "GET",
-  crossDomain : true,
-  data:{city:'sanantonio'},
-  url: "https://npiregistry.cms.hhs.gov/api",
-})
-  .done(function( data ) {
-    console.log( data);
-  });
-/*
-$.get("https://npiregistry.cms.hhs.gov/api/",function(data){
-	console.log(data);
-})*/
 var questionNumber=1;
+$('.col-lg-6>button.btn-danger').click(function(){
+	deleteOption(this);
+});
+$('.add-option').click(function(){
+	addOption(this);
+});
 $('.add-question').click(function(){
 	addQuestion();
 	addClicktoButton();
@@ -193,7 +191,6 @@ $('.free-response-btn').click(function(){
 });
 $('.section:last').on('click','.checkbox-btn',
 	function(){
-		console.log(this);
 		var element=$(this);
 		changeToCheckbox(element);
 	}
@@ -206,10 +203,17 @@ $('.section:last').on('click','.multiple-choice-btn',function(){
 	var element = $(this);
 	changeToRadio(element);
 });
+$('.section:last').on('click','.btn-danger',function(){
+	var $option = this.parentNode.parentNode;
+	$option.remove();
+});
+$('.section:last').on('click','.add-option',function(){
+		addOption(this);
+});
 }
 function addQuestion(){
 	questionNumber++;
-	var questionSectionHTML='<div class="section"><h3 class="title">Question ' + questionNumber +'</h3><div class=row><div class="col-lg-5"><div class="input-group" id="question_text"><span class="input-group-addon" id="sizing-addon1">Question  Text</span><input type="text" class="form-control " name="questions[' + questionNumber + '][question_text][]"></div></div><div class="col-lg-12" role="group"><div class="btn-group"><button class="checkbox-btn btn btn-primary" type="button" id="checkbox-' + questionNumber +'">Checkbox</button><button class="btn btn-primary free-response-btn" type="button" id="free-response-' + questionNumber +'"">Free response</button><button class="multiple-choice-btn btn btn-primary" type="button" id="multiple-choice-' + questionNumber +'">Mulitple choice</button></div></div><div class="form-group col-lg-12 response" id="question-div-' + questionNumber +'"><input class="question-type" type="hidden" name="questions[' + questionNumber + '][question_type][]"><textarea class="form-control hidden" placeholder="Patient response will go here"></textarea><div class="col-lg-12 form-group checkbox-response"><div class="checkbox-response col-lg-6"><div class="input-group"><span class="input-group-addon"><input type="checkbox" aria-label="..."></span><input type="text" name="questions[' + questionNumber + '][question_options][]" class="form-control"></div></div><div class="checkbox-response col-lg-6"><button class="btn btn-primary btn-sm" type="button">+</button></div></div><div class="col-lg-12 form-group checkbox-response"><div class="checkbox-response col-lg-6"><div class="input-group"><span class="input-group-addon"><input type="checkbox" aria-label="..."></span><input type="text" class="form-control" name="questions[' + questionNumber + '][question_options][]"></div></div><div class="checkbox-response col-lg-6"><button class="btn btn-primary btn-sm" type="button">+</button></div></div><div class="col-lg-12 form-group checkbox-response"><div class="checkbox-response col-lg-6"><div class="input-group"><span class="input-group-addon"><input type="checkbox" aria-label="..."></span><input type="text" class="form-control" name="questions[' + questionNumber + '][question_options][]"></div></div><div class="checkbox-response col-lg-6"><button class="btn btn-primary btn-sm" type="button">+</button></div></div><div class="col-lg-12 form-group radio-response hidden"><div class="col-lg-6"><div class="input-group"><span class="input-group-addon"><input class="disabled" disabled type="radio" aria-label="..."></span><input type="text" name="questions[' + questionNumber + '][question_options][]" class="form-control"></div></div><div class="col-lg-6"><button class="btn btn-primary btn-sm" type="button">+</button></div></div><div class="col-lg-12 form-group radio-response hidden"><div class="col-lg-6"><div class="input-group"><span class="input-group-addon"><input class="disabled" disabled type="radio" aria-label="..."></span><input type="text" name="questions[' + questionNumber+ '][question_options][]" class="form-control"></div></div><div class="col-lg-6"><button class="btn btn-primary btn-sm" type="button">+</button></div></div><div class="col-lg-12 form-group radio-response hidden"><div class="col-lg-6"><div class="input-group"><span class="input-group-addon"><input class="disabled" disabled type="radio" aria-label="..."></span><input type="text" name="questions[' + questionNumber + '][question_options][]" class="form-control"></div></div><div class="col-lg-6"><button class="btn btn-primary btn-sm" type="button">+</button></div></div></div><div class="col-lg-12"><button class="col-lg-8 col-lg-offset-2 btn btn-success add-question"> Add Question</button></div></div></div></form>';
+	var questionSectionHTML='<div class="section panel panel-success"><div class="panel-heading"><h3 class="panel-title">Question ' + questionNumber +'</h3></div><div class="row panel-body"><div class="col-lg-5"><div class="input-group" id="question_text"><span class="input-group-addon" id="sizing-addon1">Question  Text</span><input type="text" class="form-control " name="questions[' + questionNumber + '][question_text][]"></div></div><div class="col-lg-12" role="group"><div class="btn-group"><button class="checkbox-btn btn btn-primary" type="button" id="checkbox-' + questionNumber +'">Checkbox</button><button class="btn btn-primary free-response-btn" type="button" id="free-response-' + questionNumber +'"">Free response</button><button class="multiple-choice-btn btn btn-primary" type="button" id="multiple-choice-' + questionNumber +'">Mulitple choice</button></div></div><div class="form-group col-lg-12 response" id="question-div-' + questionNumber +'"><input class="question-type" type="hidden" name="questions[' + questionNumber + '][question_type][]"><textarea class="form-control hidden" placeholder="Patient response will go here"></textarea><div class="col-lg-12 form-group checkbox-response"><div class="checkbox-response col-lg-6"><div class="input-group"><span class="input-group-addon"><input type="checkbox" aria-label="..."></span><input type="text" name="questions[' + questionNumber + '][question_options][]" class="form-control"></div></div><div class="checkbox-response col-lg-6"><button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button></div></div><div class="col-lg-12 form-group checkbox-response"><div class="checkbox-response col-lg-6"><div class="input-group"><span class="input-group-addon"><input type="checkbox" aria-label="..."></span><input type="text" class="form-control" name="questions[' + questionNumber + '][question_options][]"></div></div><div class="checkbox-response col-lg-6"><button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button></div></div><div class="col-lg-12 form-group checkbox-response"><div class="checkbox-response col-lg-6"><div class="input-group"><span class="input-group-addon"><input type="checkbox" aria-label="..."></span><input type="text" class="form-control" name="questions[' + questionNumber + '][question_options][]"></div></div><div class="checkbox-response col-lg-6"><button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button><button class="btn btn-primary add-option" type="button"><span class="glyphicon glyphicon-plus"></span></button></div></div><div class="col-lg-12 form-group radio-response hidden"><div class="col-lg-6"><div class="input-group"><span class="input-group-addon"><input class="disabled" disabled type="radio" aria-label="..."></span><input type="text" name="questions[' + questionNumber + '][question_options][]" class="form-control"></div></div><div class="col-lg-6"><button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button></div></div><div class="col-lg-12 form-group radio-response hidden"><div class="col-lg-6"><div class="input-group"><span class="input-group-addon"><input class="disabled" disabled type="radio" aria-label="..."></span><input type="text" name="questions[' + questionNumber+ '][question_options][]" class="form-control"></div></div><div class="col-lg-6"><button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button></div></div><div class="col-lg-12 form-group radio-response hidden"><div class="col-lg-6"><div class="input-group"><span class="input-group-addon"><input class="disabled" disabled type="radio" aria-label="..."></span><input type="text" name="questions[' + questionNumber + '][question_options][]" class="form-control"></div></div><div class="col-lg-6"><button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span></button><button class="btn btn-primary add-option" type="button"><span class="glyphicon glyphicon-plus"></span></button></div></div></div><div class="col-lg-12"><button class="col-lg-8 col-lg-offset-2 btn btn-success add-question"> Add Question</button></div></div><div class="panel-footer"></div></div></form>';
 	$('.section').last().after(questionSectionHTML);
 	$('.add-question').first().remove();
 }
@@ -220,9 +224,8 @@ function changeToCheckbox(element){
 	var questionDiv='#question-div-' + thisQuestionNumber;
 	if($(questionDiv).children('.checkbox-response').hasClass('hidden')){
 		$(questionDiv).children('.question-type').prop('value','checkbox');
-		$(questionDiv).children('.question-type').attr('value','checkbox');
-		$(questionDiv).children('textarea').addClass('hidden');
-		$(questionDiv).children('.radio-response').addClass('hidden');
+		clearValue(questionDiv,'.radio-response');
+		clearValue(questionDiv,'textarea');
 		$(questionDiv).children('.checkbox-response').removeClass('hidden');
 	}
 
@@ -234,11 +237,8 @@ function changeToTextarea(element){
 	var questionDiv='#question-div-' + thisQuestionNumber;
 	if($(questionDiv).children('textarea').hasClass('hidden')){
 		$(questionDiv).children('.question-type').prop('value','textarea');
-		$(questionDiv).children('.question-type').attr('value','textarea');
-		$(questionDiv).children('.radio-response').addClass('hidden');
-		$(questionDiv).children('.radio-response').removeAttr("name");
-		$(questionDiv).children('.checkbox-response').removeAttr("name");
-		$(questionDiv).children('.checkbox-response').addClass('hidden');
+		clearValue(questionDiv,'.radio-response');
+		clearValue(questionDiv,'.checkbox-response');
 		$(questionDiv).children('textarea').removeClass('hidden');
 	}
 }
@@ -249,11 +249,40 @@ function changeToRadio(element){
 	var questionDiv='#question-div-' + thisQuestionNumber;
 	if($(questionDiv).children('.radio-response').hasClass('hidden')){
 		$(questionDiv).children('.question-type').prop('value','radio');
-		$(questionDiv).children('.question-type').attr('value','radio');
-		$(questionDiv).children('textarea').addClass('hidden');
-		$(questionDiv).children('.checkbox-response').addClass('hidden');
+		clearValue(questionDiv,'.checkbox-response');
+		clearValue(questionDiv,'textarea');
 		$(questionDiv).children('.radio-response').removeClass('hidden');
 	}
+}
+function clearValue(element,targetClass){
+		$.each($(element).children(targetClass).children().children().children(),function(index,value){
+			value.value="";
+		});
+		$(element).children(targetClass).addClass('hidden');
+}
+function countOptions(button){
+	var $element = button.parentNode.parentNode.parentNode;
+	var relaventElements=[];
+	$.each($($element).children(),function(index,value){
+		if(!$(value).hasClass('hidden')){
+			relaventElements.push(value);
+		}
+	});
+	return relaventElements.length;
+}
+function addOption(button){
+	var text=$(button.parentNode.parentNode).html();
+	$(button.parentNode.parentNode).after('<div class="col-lg-12 form-group checkbox-response">' + text + '</div>');
+	$(button).remove();
+	$('.add-option').click(function(){
+		addOption(this);	
+	});
+}
+function deleteOption(button){
+	var $option = button.parentNode.parentNode;
+	if(countOptions(button)>2){
+		$option.remove();
+	}	
 }
 </script>
 @stop

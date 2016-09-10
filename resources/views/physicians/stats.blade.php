@@ -26,6 +26,7 @@
 <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
+$('.dropdown-toggle').dropdown()
 var chartCol=[];
 var chartRow=[];
 var string;
