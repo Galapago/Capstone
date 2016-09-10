@@ -79,21 +79,21 @@ body {
 }
 
 #login-submit{
-	background-color: #1C5A6C;
+	background-color: #0A4454;
 	color: white;
 }
 
 #login-submit:hover{
-	background-color: #0A4454;
+	background-color: #022F3C;
 }
 
 #register-submit{
-	background-color: #1C5A6C;
+	background-color: #0A4454;
 	color: white;
 }
 
 #register-submit:hover{
-	background-color: #0A4454;
+	background-color: #022F3C;
 }
 
 #back-btn{
