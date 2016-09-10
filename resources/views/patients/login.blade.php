@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- Theme CSS -->
-    <link href="/css/login.style.css" rel="stylesheet">
+    <link href="/css/patient-login.style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,16 +48,16 @@
 								<form id="login-form" action="{{ action('CustomAuth@authenticatePatients') }}" method="post" role="form" style="display: block;">
 								{{ csrf_field() }}
 									<div class="form-group">
-										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="email" value="">
 									</div>
 									@include('partials.error', ['field' => 'email'])
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="password">
 									</div>
 									@include('partials.error', ['field' => 'password'])
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-										<label for="remember"> Remember Me</label>
+										<label id="remember-me" for="remember"> Remember Me</label>
 									</div>
 									<div class="form-group">
 										<div class="row">
