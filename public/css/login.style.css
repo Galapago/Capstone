@@ -69,6 +69,38 @@ body {
 	text-transform: uppercase;
 	border-color: #29ab5f;
 }
+
+#login-submit{
+	background-color: #46BB75;
+	color: white;
+}
+
+#login-submit:hover{
+	background-color: #29ab5f;
+}
+
+#register-submit{
+	background-color: #46BB75;
+	color: white;
+}
+
+#register-submit:hover{
+	background-color: #29ab5f;
+}
+
+#back-btn{
+	background-color: #46BB75;
+	color: white;
+}
+
+#back-btn:hover{
+	background-color: #29ab5f;
+}
+
+.back{
+	text-align: center;
+}
+
 .btn-login:hover,
 .btn-login:focus {
 	color: #fff;
@@ -102,3 +134,4 @@ body {
 	background-color: #0E9645;
 	border-color: #0E9645;
 }
+

@@ -40,7 +40,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     <img alt="Galapago" src="/css/img/turtle-logo.png">
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -211,7 +211,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
                         <h3>Tyler Warren</h3>
-                        <p class="text-muted">Tyler is responsible for dynamic responsiveness, styling, page customization, data creation, and user experience.</p>
+                        <p class="text-muted">Tyler is responsible for dynamic responsiveness, styling, page customization, database design and creation, and user experience.</p>
                     </div>
                 </div>
             </div>
