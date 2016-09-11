@@ -72,7 +72,7 @@ class SubmissionsController extends Controller
         }
 
         $request->session()->flash('message', 'Your form has been submitted!');
-        return redirect( action('PatientsController@show'));
+        return redirect( action('PatientsController@show', $patient->id));
     }
 
     /**

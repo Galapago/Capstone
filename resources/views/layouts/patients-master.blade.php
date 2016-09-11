@@ -13,16 +13,16 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	    	<a class="navbar-brand" href="{{ action('HomeController@index') }}">
+	    	<a class="navbar-brand" href="{{ action('PatientsController@show', $patient->id) }}">
 	        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="{{ action('HomeController@index') }}">GALAPAGO</a></li>
+	    		<li><a href="{{ action('PatientsController@show', $patient->id) }}">GalapaGo</a></li>
 	    	</ul>
 	    </div>
 	    <div class="navbar-header navbar-right">
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="#">My Account</a></li>
+	    		<li><a href="{{ action('PatientsController@show', $patient->id) }}">My Account</a></li>
 	    	</ul>
 	    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn-pad btn btn-default navbar-btn">Sign Out</button></a>
 	    </div>
