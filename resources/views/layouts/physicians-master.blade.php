@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/physicians.style.css" type="text/css">
 </head>
 <body>
-	
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">

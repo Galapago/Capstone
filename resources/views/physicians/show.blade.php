@@ -1,25 +1,22 @@
 @extends('layouts.physicians-master')
-
+<style>
+    .container{
+        background-:white;
+    }
+</style>
 @section('content')
-
-
 <div class="header">
-    <h1 class="section-title">Welcome to GalapaGo!</h1>
-    <h2>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h2><br>
 </div>
-@include('partials.send_form')
 <div class="container">
 	<section>
-<<<<<<< HEAD
 	<h1 class="section-title">Welcome to GalapaGo!</h1>
 	<h2>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h2><br>
-
-    <div class="form-group">
+    <div class="form-group bg-success">
         <label for="search">Search Entries</label>
         <input class="form-control" id="search">
     </div>
-	<table class="table table-hover">
-        <thead>
+	<table class="table table-hover table-striped">
+        <thead class="bg-primary">
             <tr>
                 <th id="sortByName">Name<span class="caret"></span></th>
                 <th id="sortByForm">Form<span class="caret"></span></th>
@@ -113,8 +110,4 @@ $(document).ready(function(){
     });
 });
 </script>
-=======
-
-
->>>>>>> c3209c64fffb783d978e8aa00a91601ccbe81c4b
 @stop

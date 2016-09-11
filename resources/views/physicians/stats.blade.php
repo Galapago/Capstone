@@ -1,9 +1,6 @@
 @extends('layouts.physicians-master')
 @section('content')
 <style>
-	body{
-		background:url('http://thecodeplayer.com/uploads/media/gs.png');
-	}
 	.graph{
 		border-bottom: 1px solid grey;
 		border-top:1px solid grey;

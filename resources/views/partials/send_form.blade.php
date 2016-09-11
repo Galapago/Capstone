@@ -1,7 +1,7 @@
 
 <form method="POST" action="{{ action('PatientFormsController@store') }}">
-	<label>Choose a Form:</label><br>
-	@foreach ($forms as $form)
+<label>Choose a Form:</label><br>
+@foreach ($forms as $form)
 <div class="container">
 	<div class="form-group">
 		<h3>Send Patient Form</h3>
@@ -29,6 +29,7 @@
 				</select>
 			</div>
 			<a class="btn btn-primary">Send Form</a>
+		@endforeach
 		</form>
 	</div>
 </div>
