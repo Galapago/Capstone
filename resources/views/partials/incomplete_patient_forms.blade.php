@@ -1,4 +1,4 @@
-@forelse($patient->patient_forms as $form)
+@forelse($patient->patientForms as $form)
 	<div class"row">
 	<div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3"> Form No. {{ $form->form_id }}</div>
 
