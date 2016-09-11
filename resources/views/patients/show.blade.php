@@ -51,10 +51,7 @@
 	</div>
 
 
-<div class="form-group container-fluid col-md-8 col-md-offset-2">
-	<h2 class="text-center">My Forms</h2>
-	@include('partials.incomplete_patient_forms')
-</div>
+
 
 <div class="form-group container-fluid col-md-8 col-md-offset-2">
 	<h2 class="form-group-header text-center">MY SUBMISSIONS</h2>

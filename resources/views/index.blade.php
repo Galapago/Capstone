@@ -46,17 +46,17 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Galapago</a>
+                <a class="navbar-brand page-scroll" href="#page-top">GalapaGo</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#whygalapago">Why Galapago?</a>
+                        <a class="page-scroll" href="#whygalapago">Why GalapaGo?</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">How Galapago Works</a>
+                        <a class="page-scroll" href="#services">How GalapaGo Works</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#ourteam">Our Team</a>
@@ -86,7 +86,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Galapago  <img alt="Galapago" src="/css/img/turtle-logo.png"></h1>
+                <h1 id="homeHeading">GalapaGo  <img alt="Galapago" src="/css/img/turtle-logo.png"></h1>
                 <p>For life on the go.</p>
                 <hr>
                 <p>Fostering better communication between patients, doctors and clinics.</p>
@@ -99,7 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Why Galapago?</h2>
+                    <h2 class="section-heading">Why GalapaGo?</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -135,7 +135,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">How Galapago Works</h2>
+                    <h2 class="section-heading">How GalapaGo Works</h2>
                     <hr class="primary">
                     <h2><small>Simple, Easy & Effective</small></h2>
                 </div>
@@ -150,7 +150,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons" src="/css/img/newuser.png">
                         <h3>Easy Signup</h3>
-                        <p class="text-muted">Singup on Galapago is simple and painless.</p>
+                        <p class="text-muted">Singup on GalapaGo is simple and painless.</p>
                     </div>    
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
@@ -186,7 +186,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Meet Team Galapago</h2>
+                    <h2 class="section-heading">Meet Team GalapaGo</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -197,7 +197,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons .img-responsive" src="/css/img/brandon-dinesman.jpg">
                         <h3>Brandon Dinesman</h3>
-                        <p class="text-muted">Galapago is Brandon's brainchild. He takes on back-end customization, data manipulation, styling, planning, and general direction.</p>
+                        <p class="text-muted">GalapaGo is Brandon's brainchild. He takes on back-end customization, data manipulation, styling, planning, and general direction.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
