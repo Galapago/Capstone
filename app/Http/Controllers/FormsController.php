@@ -15,6 +15,7 @@ use App\QuestionOption;
 use App\Patient;
 use App\Answer;
 use App\Physician;
+use Illuminate\Support\Facades\Auth;
 
 class FormsController extends Controller
 {
@@ -35,7 +36,10 @@ class FormsController extends Controller
      */
     public function create(Request $request)
     {
-        return view('physicians.create-form');
+        $user_id = Auth::user()->id;
+        $physician = \App\Physician::where('user_id',$user_id)->first()->id;
+        $data = compact($physician);
+        return view('physicians.create-form', $data);
     }
     public function test(Request $request){
             $questionsCount=\App\Question::all()->count();

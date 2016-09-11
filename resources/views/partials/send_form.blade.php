@@ -4,7 +4,7 @@
 	<div>
 		<input
 			type="radio"
-			name="{{ $form->id }}" 
+			name="form-id" 
 			value="{{ $form->id }}"> {{ $form->form_name }}
 		
 	</div>
@@ -15,7 +15,7 @@
 	<div>
 		<input
 			type="radio"
-			name="{{ $patient->name }}" 
+			name="patient-name" 
 			value="{{ $patient->id }}"> {{ $patient->first_name . " " . $patient->last_name }}
 	</div>
 	@endforeach
