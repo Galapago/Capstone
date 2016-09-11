@@ -1,3 +1,7 @@
+
+<form method="POST" action="{{ action('PatientFormsController@store') }}">
+	<label>Choose a Form:</label><br>
+	@foreach ($forms as $form)
 <div class="container">
 	<div class="form-group">
 		<h3>Send Patient Form</h3>
@@ -18,7 +22,7 @@
 				<select>
 					@foreach ($patients as $patient)
 					<option 
-						name="patient-name"
+						name="patient-id"
 						value="{{ $patient->id }}"> {{ $patient->first_name . " " . $patient->last_name }}
 					</option>
 					@endforeach
