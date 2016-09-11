@@ -116,18 +116,19 @@ class PhysiciansController extends Controller
      */
     public function show($id)
     {
+        $currentPhysiciansId=Physician::where('user_id',Auth::user()->id)->first()->npi;
+        if($id!=$currentPhysiciansId){
+            $correctPath="/physicians/$currentPhysiciansId";
+            return redirect($correctPath);
+        }
         $physician = Physician::find($id);
-        //$user = User::find($physician->user_id);
         if (!$physician) {
             Log::info("Physician with $id not found.");
             abort(404);
         }
-        //forms
-        //patient
         $forms=\App\Form::where('npi',$physician->npi)->get();
         $patients=\App\Patient::where('physician_id',$physician->id)->get();
         $data = compact('physician','forms','patients');
-        //dd($data);
         return view('physicians.show', $data);
     }
 
