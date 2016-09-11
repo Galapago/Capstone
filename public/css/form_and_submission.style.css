@@ -6,7 +6,7 @@
 html {
 	height: 100%;
 	/*Image only BG fallback*/
-	background: url('http://thecodeplayer.com/uploads/media/gs.png');
+	background-color: #A6E6C0;
 	/*background = gradient + image pattern combo*/
 	/*background: 
 		linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
@@ -16,14 +16,16 @@ html {
 body {
 	font-family: montserrat, arial, verdana;
 	height: 50px;
+	background-color: #A6E6C0;
 }
 
 .header{
-	color: white;
+	color: #168744;
+	text-transform: uppercase;
 }
 .question{
 	margin:15px;
-	border: 2px solid #777;
+	border: 2px solid #168744;
 	border-radius: 10px;
 }
 
@@ -52,7 +54,7 @@ body {
 	border: 0 none;
 	border-radius: 3px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	padding: 20px 30px;
+	padding: 5px 30px;
 	
 	box-sizing: border-box;
 	width: 80%;
@@ -80,7 +82,7 @@ body {
 /*buttons*/
 #msform .action-button {
 	width: 100px;
-	background: #27AE60;
+	background: #168744;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -90,13 +92,29 @@ body {
 	margin: 10px 5px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+	box-shadow: 0 0 0 2px #076F31, 0 0 0 3px #076F31;
+	background-color: #076F31;
 }
+
+#checkboxes{
+	width: 100%;
+}
+.checkbox-label{
+	padding-left: 15px;
+
+}
+
+.row{
+	padding-right: 10px;
+}
+
+
 /*headings*/
 .fs-title {
 	font-size: 15px;
 	text-transform: uppercase;
-	color: #2C3E50;
+	color: #168744;
+	font-size: 22px;
 	margin-bottom: 20px;
 }
 .fs-subtitle {
@@ -104,6 +122,14 @@ body {
 	font-size: 13px;
 	color: #666;
 	margin-bottom: 20px;
+}
+
+.question-label {
+	font-weight: normal;
+	font-size: 14px;
+	color: #168744;
+	margin-top: 5px;
+	text-transform: uppercase;
 }
 /*progressbar*/
 #progressbar {
@@ -114,9 +140,9 @@ body {
 }
 #progressbar li {
 	list-style-type: none;
-	color: white;
+	color: #168744;
 	text-transform: uppercase;
-	font-size: 9px;
+	font-size: 12px;
 	width: 20%;
 	float: left;
 	position: relative;
