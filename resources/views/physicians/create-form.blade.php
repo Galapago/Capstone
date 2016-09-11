@@ -25,6 +25,8 @@
 @section('content')
 <div class="container">
 <h1>Create New Patient Form</h1>
+<br>
+<a href="{{ action('PhysiciansController@show', $physician->id) }}" id="back-account" class="btn text-center">Back to Physician Account</a>
 <div class="section">
 <form method="POST" action="{{action('FormsController@test')}}">
 {!!csrf_field()!!}
