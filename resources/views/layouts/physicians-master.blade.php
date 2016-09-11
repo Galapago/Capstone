@@ -11,11 +11,11 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	    	<a class="navbar-brand" href="">
+	    	<a class="navbar-brand" href="{{ action('PhysiciansController@show', $physician->id) }}">
 	        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="">Galapago</a></li>
+	    		<li><a href="{{ action('PhysiciansController@show', $physician->id) }}">My Account</a></li>
 	    	</ul>
 	    </div>
 		<div class="navbar-header navbar-right">
@@ -27,9 +27,6 @@
 				        <li><a href="{{ action('FormsController@create') }}">Create a Form</a></li>
 		        	</ul>
 	        	</li>
-		        <li>
-		        	<li><a href="#">Help</a></li>
-		        </li>
 		    </ul>
 	    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn btn-default navbar-btn">Sign Out</button></a>
 	    </div>
