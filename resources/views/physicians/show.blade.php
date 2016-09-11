@@ -3,9 +3,10 @@
 @section('content')
 <div class="container">
 	<section>
-	<h1 class="section-title">Welcome to GalapaGo!</h1>
-	<h2>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h2><br>
-
+    <div class="header">
+    	<h1 class="section-title">Welcome to GalapaGo!</h1>
+    	<h2>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h2><br>
+    </div>
 	<table class="table table-hover">
         <thead>
             <tr>
