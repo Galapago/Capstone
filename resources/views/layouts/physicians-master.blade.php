@@ -11,11 +11,11 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	    	<a class="navbar-brand" href="{{ action('PhysiciansController@show', $physician->id) }}">
+	    	<a class="navbar-brand" href="">
 	        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="{{ action('PhysiciansController@show', $physician->id) }}">My Account</a></li>
+	    		<li><a href="">My Account</a></li>
 	    	</ul>
 	    </div>
 		<div class="navbar-header navbar-right">

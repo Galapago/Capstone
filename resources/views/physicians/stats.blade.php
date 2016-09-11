@@ -20,8 +20,6 @@
 	<button class="btn btn-primary form-btn" id="{{$form->id}}">{{$form->form_name}}</button>
 	@endforeach
 </div>
-<br>
-			<a href="{{ action('PhysiciansController@show', $physician->id) }}" id="back-account" class="btn text-center">Back to Physician Account</a>
 <div id="chart_div">
 </div>
 </div>
