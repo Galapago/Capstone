@@ -10,15 +10,17 @@
 
 <div class="container view">
 	<section>
-		<h1 class="section-title">Edit Patient Information</h1>
-		<br>
-		<a href="{{ action('PatientsController@show', $patient->id) }}" class="text-center">Go Back to Patient Account</a>
+		<div class="edit-header">
+			<h1 class="section-title">Edit Your Information</h1>
+			<br>
+			<a href="{{ action('PatientsController@show', $patient->id) }}" id="back-account" class="btn text-center">Back to Patient Account</a>
+		</div>
 		<form id="msform" method="POST" action="{{ action('PatientsController@update', $patient->id) }}">
 		{!! csrf_field() !!}
 		{{ method_field('PUT') }}
 			<fieldset>
-				<div class="form-group">
-					<label for="username">Username</label>
+				<div class="form-group first-group">
+					<label class="question-label" for="username">Username</label>
 					<input 
 						type="text" 
 						class="form-control"
@@ -27,7 +29,7 @@
 				</div>
 				@include('partials.error', ['field' => 'username'])
 				<div class="form-group">
-					<label for="email">Email</label>
+					<label class="question-label" for="email">Email</label>
 					<input 
 						type="text" 
 						class="form-control"
@@ -36,7 +38,7 @@
 				</div>
 				@include('partials.error', ['field' => 'email'])
 				<div class="form-group">
-					<label for="phone">Patient Phone Number</label>
+					<label class="question-label" for="phone">Patient Phone Number</label>
 					<input
 						type="text"
 						class="form-control"
@@ -45,7 +47,7 @@
 				</div>
 				@include('partials.error', ['field' => 'phone'])
 				<div class="form-group">
-					<label for="street-address">Street Address</label>
+					<label class="question-label" for="street-address">Street Address</label>
 					<input
 						type="text"
 						class="form-control"
@@ -54,7 +56,7 @@
 				</div>
 				@include('partials.error', ['field' => 'street-address'])
 				<div class="form-group">
-					<label for="apt/ste">Apt/Ste</label>
+					<label class="question-label" for="apt/ste">Apt/Ste</label>
 					<input
 						type="text"
 						class="form-control"
@@ -62,7 +64,7 @@
 						value="{{ old('apt/ste')?: $patient->apt_ste }}">
 				</div>
 				<div class="form-group">
-					<label for="city">City</label>
+					<label class="question-label" for="city">City</label>
 					<input
 						type="text"
 						class="form-control"
@@ -71,7 +73,7 @@
 				</div>
 				@include('partials.error', ['field' => 'city'])
 				<div class="form-group">
-					<label for="state">State Abbreviation</label>
+					<label class="question-label" for="state">State Abbreviation</label>
 					<input
 						type="text"
 						class="form-control"
@@ -80,7 +82,7 @@
 				</div>
 				@include('partials.error', ['field' => 'state'])
 				<div class="form-group">
-					<label for="zip-code">Zip Code</label>
+					<label class="question-label" for="zip-code">Zip Code</label>
 					<input
 						type="text"
 						class="form-control"
@@ -89,7 +91,7 @@
 				</div>
 				@include('partials.error', ['field' => 'zip-code'])
 				<div class="form-group">
-					<label for="emergency_contact_name">Emergency Contact Name</label>
+					<label class="question-label" for="emergency_contact_name">Emergency Contact Name</label>
 					<input 
 						type="text" 
 						class="form-control"
@@ -98,7 +100,7 @@
 				</div>
 				@include('partials.error', ['field' => 'emergency_contact_name'])
 				<div class="form-group">
-					<label for="emergency_contact_number">Emergency Contact Number</label>
+					<label class="question-label" for="emergency_contact_number">Emergency Contact Number</label>
 					<input 
 						type="text" 
 						class="form-control"
@@ -107,7 +109,7 @@
 				</div>
 				@include('partials.error', ['field' => 'emergency_contact_number'])
 				<div class="form-group">
-					<label for="emergency_contact_email">Emergency Contact Email</label>
+					<label class="question-label" for="emergency_contact_email">Emergency Contact Email</label>
 					<input 
 						type="text" 
 						class="form-control"
@@ -116,7 +118,7 @@
 				</div>
 				@include('partials.error', ['field' => 'emergency_contact_email'])
 				<div class="form-group">
-					<label for="medication">Medication</label>
+					<label class="question-label" for="medication">Medication</label>
 					<input 
 						type="text" 
 						class="form-control"
@@ -125,7 +127,7 @@
 				</div>
 				@include('partials.error', ['field' => 'medication'])
 				<div class="form-group">
-					<label for="health_insurance">Insurance</label>
+					<label class="question-label" for="health_insurance">Insurance</label>
 					<input 
 						type="text" 
 						class="form-control"
@@ -138,7 +140,7 @@
 				</div>
 				@include('partials.error', ['field' => 'health_insurance'])
 
-				<button type="submit" class="action-button">Save</button>
+				<button type="submit" class="action-button">SAVE</button>
 			</fieldset>
 		</form>
 	</section>

@@ -22,7 +22,7 @@
 	    </div>
 	    <div class="navbar-header navbar-right">
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="#help">Help</a></li>
+	    		<li><a href="#">My Account</a></li>
 	    	</ul>
 	    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn-pad btn btn-default navbar-btn">Sign Out</button></a>
 	    </div>

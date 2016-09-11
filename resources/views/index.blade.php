@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-7890</p>
+                    <p>800-866-8256</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
