@@ -10,23 +10,27 @@
 
 <div class="container view">
 	<section>
-		<h1 class="section-title">Edit Password</h1>
-		<br>
-		<a href="{{ action('PatientsController@show', $patient->id)}}">Go Back to Patient Account</a>
+		<div class="edit-header">
+			<h1 class="section-title">Edit Password</h1>
+			<br>
+			<a class="btn text-center" id="back-account" href="{{ action('PatientsController@show', $patient->id)}}">Go Back to Patient Account</a>
+		</div>
 		<form id="msform" method="POST" action="{{ action('PatientsController@updatePassword', $patient->id) }}">
 		{!! csrf_field() !!}
 		{{ method_field('PUT') }}
 			<fieldset>
-				<div class="form-group">
+				<div>
 					<label for="password">New Password</label>
 					<input 
 						type="password" 
 						class="form-control"
+						id="password"
 						name="password" 
+						placeholder="new password"
 						value="{{ old('password') }}">				
 				</div>
 				@include('partials.error', ['field' => 'password'])
-				<button type="submit" class="action-button">Submit</button>
+				<button type="submit" class="action-button">SUBMIT</button>
 			</fieldset>
 		</form>	
 	</section>
