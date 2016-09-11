@@ -167,16 +167,20 @@ class PhysiciansController extends Controller
     public function statistics(Request $request){
         //Grab the id from the Request
         $formIds=[];
+        $question_id=$request->get('id');
+        $returnedAnswers=[];
         $physician_id=\App\Physician::where('user_id',Auth::user()->id)->first()->id;
         $patients=\App\Patient::where('physician_id',$physician_id)->get();
         $questionOptionsArray=[];
         $questionText=[];
         $questionsAJAX=[];
-        $form_id=$request->get('id');
-        if(empty($form_id)){
-            $form_id=1;
+        $form_id=$request->get('form_id');
+        $type=$request->get('type');
+        $answers=\App\Answer::where('question_id',$question_id)->get();
+        if(!$request->ajax()){
+            return abort('404');
         }
-        if($form_id=='general'){
+        if($type=='general'){
             $height=[];
             $weight=[];
             $age=[];
@@ -189,13 +193,11 @@ class PhysiciansController extends Controller
                     $height[$patient->height]=1;
                 }else{
                     $height[$patient->height]=$height[$patient->height]+1;
-;
                 }
                 if(!isset($weight[$patient->weight])){
                     $weight[$patient->weight]=1;
                 }else{
                     $weight[$patient->height]=$weight[$patient->weight][0]+1;
-;
                 }
                 if(!isset($medication[$patient->medication])){
                     $medication[$patient->medication]=1;
@@ -222,29 +224,17 @@ class PhysiciansController extends Controller
 ;
                 }
             }
-            return response()->json(['data'=>['height'=>$height,'weight'=>$weight,'medication'=>$medication,'insurance'=>$insurance,'race'=>$race,'sex'=>$sex]]);
-        }else{
-            $questions=\App\Question::where('form_id',$form_id)->orderBy('id')->get();
-            $questionsReturn=[];
-            foreach($questions as $question_object){
-                foreach($question_object as $question){
-                //Add number of responses to the QuestionOption object and formatting it so it can be added to the array
-                $questionsReturn[$question_object->question]=[$question_object->id];
-                }
+            return response()->json(['data'=>['Height'=>$height,'Weight'=>$weight,'Medication'=>$medication,'Insurance'=>$insurance,'Race'=>$race,'Sex'=>$sex]]);
+        };
+        //Retrieves data for scpecific questions
+        foreach($answers as $answer){
+            if(!isset($returnedAnswers[$answer->answer])){
+                $returnedAnswers[$answer->answer]=1;
+            }else{
+               $returnedAnswers[$answer->answer]+=1; 
             }
-            foreach ($questionsReturn as $key => $id) {
-                $answers=\App\Answer::where('question_id',$id)->get();
-                foreach ($answers as $answer) {
-                    if(!isset($questionsReturn[$key][$answer->answer])){
-                        $questionsReturn[$key][$answer->answer]=1;
-                    }else{
-                       $questionsReturn[$key][$answer->answer]=$questionsReturn[$key][$answer->answer] + 1; 
-                    }
-                }
-                array_shift($questionsReturn[$key]);
-            }
-            return response()->json([$questionsReturn]);
         }
+        return response()->json($returnedAnswers);
     }
     public function displayStats(Request $reqeust){
         //Grab the id from the Request
