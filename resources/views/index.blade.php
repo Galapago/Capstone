@@ -40,7 +40,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     <img alt="Galapago" src="/css/img/turtle-logo.png">
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -195,7 +195,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
+                        <img class="text-primary sr-icons .img-responsive" src="/css/img/brandon-dinesman.jpg">
                         <h3>Brandon Dinesman</h3>
                         <p class="text-muted">Galapago is Brandon's brainchild. He takes on back-end customization, data manipulation, styling, planning, and general direction.</p>
                     </div>
@@ -211,7 +211,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
                         <h3>Tyler Warren</h3>
-                        <p class="text-muted">Tyler is responsible for dynamic responsiveness, styling, page customization, data creation, and user experience.</p>
+                        <p class="text-muted">Tyler is responsible for dynamic responsiveness, styling, page customization, database design and creation, and user experience.</p>
                     </div>
                 </div>
             </div>
@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-7890</p>
+                    <p>800-866-8256</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>

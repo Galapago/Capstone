@@ -6,11 +6,11 @@
 html {
 	height: 100%;
 	/*Image only BG fallback*/
-	background: url('http://thecodeplayer.com/uploads/media/gs.png');
+	background-color: #F7FEFA;
 	/*background = gradient + image pattern combo*/
-	background: 
+	/*background: 
 		linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
-		url('http://thecodeplayer.com/uploads/media/gs.png');
+		url('http://thecodeplayer.com/uploads/media/gs.png');*/
 }
 
 body {
@@ -18,27 +18,56 @@ body {
 	height: 50px;
 }
 
+.navbar{
+	background-color: #F7FEFA;
+}
+
 a{
-	color: #427B4F;
+	color: #001B0B;
 }
 
 a:hover{
-	color: #63986F;
+	color: #001B0B;
 }
 
+.row {
+	padding-bottom: 10px;
+}
 .form-group{
-	border: 3px solid;
-	border-radius: 10px;
-	border-color: #427B4F;
+
+	background: white;
+	border: 0 none;
+	border-radius: 5px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.8);
+	padding: 5px 30px;
+	
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+
+	margin-bottom: 30px;
 }
 
 .btn{
-	background-color: #427B4F;
+	background-color: #076D30;
 	color: white;
-	border-color: #427B4F;
+	border-color: #076D30;
+	text-align: center;
 }
 
 .btn:hover{
-	background-color: #63986F;
-	border-color: #427B4F;
+	background-color: #005020;
+	border-color: #005020;
+	color: white;
 }
+
+#form {
+	text-align: center;
+	color: white;
+}
+.form-group-header {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+

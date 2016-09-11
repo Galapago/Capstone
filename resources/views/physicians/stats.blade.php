@@ -26,6 +26,7 @@
 <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
+$('.dropdown-toggle').dropdown()
 var chartCol=[];
 var chartRow=[];
 var string;
@@ -78,40 +79,36 @@ function displayGeneral(){
 	});
 }
 function displayChart(form_id){
-$.get('/physicians/stats/AJAX/',{id:form_id}).done(
-	function(data){
-		console.log(data);
-	$.each(data['data'],function(index,value){
-		$('.content').append('<div  class="col-md-12 graph" id=chart' + index +'></div>');
-		width=$('col-md-12').width();
-		height=$(window).height();
-		title=value['text'];
-		string='';
-		$.each(data['data'][index]['question_options'],function(index,value){
-			chartRow.push([value['option_text'],parseInt(value['responses'])]);
-		});
-		google.charts.setOnLoadCallback(drawChartForm(chartRow,index,title,width,height));
+$.get('/physicians/stats/AJAX/',{id:form_id}).then(	function(data){
+	console.log(data);
+	$.each(data[0],function(index,value){
+		$('.content').append('<div  class="col-md-12 graph" id="chart-' + index +'">' + index + '</div>');
+		$('.content').append('<div  class="col-md-12 graph" id="' + index +'"></div>');
 	});
-});
+	width=$('col-md-12').width();
+	height=$(window).height();
+	$.each(data[0],function(index,value){
+		google.charts.setOnLoadCallback(drawChartForm(value,index,index,width,height));
+		});
+	})
+}
 function drawChartForm(rows,index,title,width,height) {
         // Create the data table.
 			var data = new google.visualization.DataTable();
 			data.addColumn('string','Repsonse')
 			data.addColumn('number','Number of Options');
+			console.log(rows);
 			$.each(rows,function(index,value){
-				var convertToArray=[""+ value[0],parseInt(value[1])];
-				data.addRows([convertToArray]);
+				data.addRows([[index,value]]);
 			});
-			//data.addRows(rows);
 			var options = {'title':title,
                        'width':width,
                        'height':height,
                    		'titleTextStyle':{
                    			'fontSize':25
                    		}};
-			var chart = new google.visualization.PieChart(document.getElementById('chart' + index));
+			var chart = new google.visualization.PieChart(document.getElementById('chart-' + index));
         chart.draw(data, options);
       }
-  }
 </script>
 @stop

@@ -173,6 +173,9 @@ class PhysiciansController extends Controller
         $questionText=[];
         $questionsAJAX=[];
         $form_id=$request->get('id');
+        if(empty($form_id)){
+            $form_id=1;
+        }
         if($form_id=='general'){
             $height=[];
             $weight=[];
@@ -221,29 +224,27 @@ class PhysiciansController extends Controller
             }
             return response()->json(['data'=>['height'=>$height,'weight'=>$weight,'medication'=>$medication,'insurance'=>$insurance,'race'=>$race,'sex'=>$sex]]);
         }else{
-            $questions=\App\Question::where('form_id',$form_id)->get();
+            $questions=\App\Question::where('form_id',$form_id)->orderBy('id')->get();
+            $questionsReturn=[];
             foreach($questions as $question_object){
                 foreach($question_object as $question){
                 //Add number of responses to the QuestionOption object and formatting it so it can be added to the array
-                $questionOptionsArray=[];
-                if($question_object->input_type=='textarea'){
-                    $orderedResults=\App\Answer::where('question_id',$question_object->id)->get()->groupBy('answer');
-                    foreach ($orderedResults as $key=>$result) {
-                        $questionOptionsArray[]=['option_text'=>$key,'responses'=>(int)$result->count()];
-                        //var_dump($result->count());
-                    }
-                }
-                $questionOptions=\App\QuestionOption::where('question_id',$question_object->id)->get();
-                foreach ($questionOptions as $key => $value) {
-                    $value->responses=\App\Answer::where('question_id',$question_object->id)->where('answer',$value->option_text)->count();
-                    $questionOptionsArray[]=$value;
-                }
-                $questionsAJAX[$question_object->id]=
-                ['question_id'=>$question_object->id,'form_id'=>$question_object->form_id,'text'=>$question_object->question,'input_type'=>$question_object->input_type,'quantifiable'=>(bool)$question_object->quantifiable,'question_options'=>$questionOptionsArray];
+                $questionsReturn[$question_object->question]=[$question_object->id];
                 }
             }
+            foreach ($questionsReturn as $key => $id) {
+                $answers=\App\Answer::where('question_id',$id)->get();
+                foreach ($answers as $answer) {
+                    if(!isset($questionsReturn[$key][$answer->answer])){
+                        $questionsReturn[$key][$answer->answer]=1;
+                    }else{
+                       $questionsReturn[$key][$answer->answer]=$questionsReturn[$key][$answer->answer] + 1; 
+                    }
+                }
+                array_shift($questionsReturn[$key]);
+            }
+            return response()->json([$questionsReturn]);
         }
-        return response()->json(['data'=>$questionsAJAX]);
     }
     public function displayStats(Request $reqeust){
         //Grab the id from the Request
@@ -251,20 +252,8 @@ class PhysiciansController extends Controller
         $questionText=[];
         $questionOptions=[];
         $forms=$this->getForms();
-        $questions=$this->getQuestions($forms);
-        foreach ($forms as $form) {
-            $questions=\App\Question::where('form_id',$form->id)->get();
-            foreach ($questions as $question) {
-                $questionText[]=$question->question;
-                $answerChoices=\App\QuestionOption::where('question_id',$question->id)->get();
-                foreach ($answerChoices as $answerChoice) {
-                    $questionOptions[]=$answerChoice->option_text;
-
-                }
-            }
-            }
-            $data=compact('questions','forms');
-            return view('physicians.stats',$data);
+        $data=compact('questions','forms');
+        return view('physicians.stats',$data);
 
     }
     public function getForms(){
