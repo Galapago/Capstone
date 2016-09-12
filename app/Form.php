@@ -18,7 +18,11 @@ class Form extends Model
     	return $this->hasMany(Submission::class);
     }
 
+    public function hasSubmissionFor($patient){
+        return $this->submission()->where('patient_id', $patient->id)->get()->count() > 0;
+    }
+
     public function patientForms(){
-    	return $this->belongsToMany(PatientForms::class);
+    	return $this->belongsToMany(Patient::class, 'patient_forms');  
     }
 }
