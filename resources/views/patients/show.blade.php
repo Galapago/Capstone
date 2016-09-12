@@ -20,6 +20,26 @@
 		  <div class="col-md-4 col-md-offset-2 col-xs-4"><a class="btn btn-xs" href="{{ action('PatientsController@editPassword', $patient->id) }}">Change Password</a></div>
 		</div>
 		<div class="row">
+		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Date of Birth</div>
+		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->dob }}</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Address</div>
+		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->street_address }} {{ $patient->apt_ste }}, {{ $patient->city }}, {{ $patient->state }} {{ $patient->zip_code}}</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Phone Number</div>
+		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->phone }}</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Height</div>
+		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->height }}</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Weight</div>
+		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->weight }}</div>
+		</div>
+		<div class="row">
 		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Social Security Number</div>
 		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->ssn }}</div>
 		</div>
@@ -49,6 +69,10 @@
 			<div class="col-md-5 col-xs-6 col-sm-4"></div>
 		</div>
 	</div>
+<div class="form-group container-fluid col-md-8 col-md-offset-2">
+	<h2 class="form-group-header text-center">MY Forms</h2>
+	@include('partials.incomplete_patient_forms')
+</div>
 <div class="form-group container-fluid col-md-8 col-md-offset-2">
 	<h2 class="form-group-header text-center">MY SUBMISSIONS</h2>
 	@include('partials.patient_account_forms')

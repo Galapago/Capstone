@@ -15,7 +15,7 @@ use App\Question;
 use App\QuestionOption;
 use App\Answer;
 use App\Physician;
-use App\PatientForms;
+use App\PatientForm;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;

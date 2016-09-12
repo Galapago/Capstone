@@ -15,7 +15,7 @@ use App\Question;
 use App\QuestionOption;
 use App\Answer;
 use App\Physician;
-use App\PatientForms;
+use App\PatientForm;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -53,27 +53,30 @@ class SubmissionsController extends Controller
      */
     public function store(Request $request)
     {
-        
+      
         $submission = new Submission;
 
         $user_id = Auth::user()->id;
         $submission->form_id = $request->input('form_id');
-        $submission->patient_id = \App\Patient::where('user_id',$user_id)->first()->id;
+        $submission->patient_id = Auth::user()->patients->id;//\App\Patient::where('user_id',$user_id)->first()->id;
         $submission->save();
-        //dd($submission);
+        
         $answers = $request->all();
+        // These aren't answers
         unset($answers['_token']);
         unset($answers['form_id']);
+        unset($answers['submit']);
         foreach ($answers as $questionId => $answerText) {
             $answer = new Answer;
             $answer->question_id = $questionId;
             $answer->answer = $answerText;
             $answer->patient_id = $submission->patient_id;
+            $answer->submission_id = $submission->id;
             $answer->save();
         }
 
         $request->session()->flash('message', 'Your form has been submitted!');
-        return redirect( action('PatientsController@show', $patient->id));
+        return redirect( action('PatientsController@show', $submission->patient->id));
     }
 
     /**
