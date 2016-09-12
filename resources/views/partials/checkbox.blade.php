@@ -1,8 +1,9 @@
 <div class="question">
 	<label class="question-label" for="{{ $question->id }}">{{ $question->question }}</label><br>
+	@foreach($question->questionOptions->chunk(3) as $threeOptions)
 	<div class="row">
-		@foreach($question->questionOptions as $option)
-		<div class="checkbox-inline col-md-3">
+		@foreach($threeOptions as $option)
+		<div class="checkbox-inline col-sm-3 col-xs-3 col-md-3">
 			<label class="checkbox-label">
 				<input 
 				type="checkbox" 
@@ -14,5 +15,6 @@
 		</div>
 		@endforeach
 	</div>
+	@endforeach
 </div>
 @include('partials.error', ['field' => 'newsletter'])

@@ -25,6 +25,9 @@ class FormsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('guest');
+    }
     public function index()
     {
         //
@@ -38,8 +41,8 @@ class FormsController extends Controller
     public function create(Request $request)
     {
         $user_id = Auth::user()->id;
-        $physician = \App\Physician::where('user_id',$user_id)->first()->id;
-        $data = compact($physician);
+        $physician = \App\Physician::where('user_id',$user_id)->first();
+        $data = compact('physician');
         return view('physicians.create-form', $data);
     }
     public function test(Request $request){
@@ -76,11 +79,6 @@ class FormsController extends Controller
                 }
                 $questionId++;
             }
-            //Temporarily created form
-            $submission=new Submission();
-            $submission->form_id=$form->id;
-            $submission->patient_id=3;
-            $submission->save();
             $home='/physicians/'. \App\Physician::where('user_id',$request->user()->id)->first()->id;
             return redirect($home);
     }
@@ -106,7 +104,7 @@ class FormsController extends Controller
         $form = Form::findOrFail($id);
 
         $questions = $form->questions()->orderBy('section')->orderBy('id')->get();
-
+        $patient=\App\Patient::where('user_id',Auth::user()->id)->first();
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
@@ -115,7 +113,7 @@ class FormsController extends Controller
         $answers = new Collection();
         
         // $data = compact('form', 'questions', 'id');
-        $data = compact('form', 'questions', 'id', 'answers');
+        $data = compact('form', 'questions', 'id', 'answers','patient');
         
         return view('forms.show', $data);
     }
