@@ -1,6 +1,6 @@
 <form class="form-inline send-form" method="POST" >
 	<div class="form-group">
-		<label>Which Form: </label>
+		<label>Form: </label>
         <select class="form-control">
         	@foreach ($forms as $form)
             <option
@@ -11,7 +11,7 @@
         </select>
     </div>
 	<div class="form-group">
-		<label>Which Patient: </label>
+		<label>Patient: </label>
 		<select class="form-control">
 			@foreach ($patients as $patient)
 			<option 

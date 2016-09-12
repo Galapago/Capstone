@@ -24,10 +24,14 @@
         <h3 class="header">Completed Patient Forms</h3>
     </div>
 	<section>
-    <div class="form-group bg-success">
-        <label for="search">Search Entries</label>
-        <input class="form-control" id="search">
+   
+     <div class="form-group col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
+        <div class="right-inner-addon">
+        <i class="glyphicon glyphicon-search"></i> <input id="search" type="search" class="form-control"
+            placeholder="Search Entries">
     </div>
+  </div>
+
 	<table class="table table-hover table-striped">
         <thead class="bg-primary">
             <tr>
