@@ -1,10 +1,10 @@
-<form class="form-inline send-form" method="POST" >
+<form class="form-inline send-form" method="POST" action="{{ action('PatientFormsController@store') }}">
+	{{ csrf_field() }}
 	<div class="form-group">
 		<label>Form: </label>
-        <select class="form-control">
+        <select class="form-control" name="form-id">
         	@foreach ($forms as $form)
-            <option
-				name="form-id" 
+            <option	 
 				value="{{ $form->id }}"> {{ $form->form_name }}
 			</option>
 			@endforeach
@@ -12,16 +12,15 @@
     </div>
 	<div class="form-group">
 		<label>Patient: </label>
-		<select class="form-control">
+		<select class="form-control" name="patient-id">
 			@foreach ($patients as $patient)
 			<option 
-				name="patient-id"
 				value="{{ $patient->id }}"> {{ $patient->first_name . " " . $patient->last_name }}
 			</option>
 			@endforeach
 		</select>
 	</div>
-	<a class="btn btn-primary">Send Form</a>
+	<button type="submit" class="btn btn-primary">Send Form</button>
 </form>
 
 
