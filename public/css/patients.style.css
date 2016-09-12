@@ -49,15 +49,15 @@ a:hover{
 }
 
 .btn{
-	background-color: #076D30;
+	background-color: #29ab5f;
 	color: white;
-	border-color: #076D30;
+	border-color: #29ab5f;
 	text-align: center;
 }
 
 .btn:hover{
-	background-color: #005020;
-	border-color: #005020;
+	background-color: #047632;
+	border-color: #047632;
 	color: white;
 }
 

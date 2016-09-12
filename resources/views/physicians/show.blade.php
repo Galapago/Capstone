@@ -5,9 +5,16 @@
     }
 </style>
 @section('content')
-<div class="header">
+
+
+<div class="form-group header">
+    <h1 class="section-title">Welcome to GalapaGo!</h1>
+    <h3>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h3>
 </div>
 <div class="container">
+    <div class="form-group">
+        <h3 class="header">Completed Patient Forms</h3>
+    </div>
 	<section>
 	<h1 class="section-title">Welcome to GalapaGo!</h1>
 	<h2>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h2><br>
