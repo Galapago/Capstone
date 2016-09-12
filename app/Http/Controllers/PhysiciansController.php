@@ -243,7 +243,8 @@ class PhysiciansController extends Controller
         $questionText=[];
         $questionOptions=[];
         $forms=$this->getForms();
-        $data=compact('questions','forms');
+        $physician=\App\Physician::where('user_id',Auth::user()->id)->first();
+        $data=compact('questions','forms','physician');
         return view('physicians.stats',$data);
 
     }
