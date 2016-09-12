@@ -5,16 +5,33 @@
     }
 </style>
 @section('content')
-<div class="header">
+
+
+<div class="form-group header">
+    <h1 class="section-title">Welcome to GalapaGo!</h1>
+    <h3>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h3>
 </div>
 <div class="container">
-	<section>
-	<h1 class="section-title">Welcome to GalapaGo!</h1>
-	<h2>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h2><br>
-    <div class="form-group bg-success">
-        <label for="search">Search Entries</label>
-        <input class="form-control" id="search">
+    <div class="form-group">
+        <h3 class="header">Send Patient Form</h3>
+        @include ('partials.send_form')
     </div>
+
+</div>
+
+<div class="container">
+    <div class="form-group">
+        <h3 class="header">Completed Patient Forms</h3>
+    </div>
+	<section>
+   
+     <div class="form-group col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
+        <div class="right-inner-addon">
+        <i class="glyphicon glyphicon-search"></i> <input id="search" type="search" class="form-control"
+            placeholder="Search Entries">
+    </div>
+  </div>
+
 	<table class="table table-hover table-striped">
         <thead class="bg-primary">
             <tr>

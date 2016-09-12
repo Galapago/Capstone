@@ -62,7 +62,8 @@ Route::resource('patientFormsController','PatientFormsController');
 //Submissions Controller - Basic CRUD
 Route::resource('submissions', 'SubmissionsController');
 Route::get('/submissions/{id}','SubmissionsController@show')->middleware('provider');
-
+//PatientForms Controller - Basic CRUD
+Route::resource('patientforms', 'PatientFormsController');
 
 
 

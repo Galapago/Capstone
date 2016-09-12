@@ -15,6 +15,7 @@ use App\QuestionOption;
 use App\Patient;
 use App\Answer;
 use App\Physician;
+use App\PatientForms;
 use Illuminate\Support\Facades\Auth;
 
 class FormsController extends Controller
@@ -24,6 +25,9 @@ class FormsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('guest');
+    }
     public function index()
     {
         //
@@ -101,7 +105,6 @@ class FormsController extends Controller
 
         $questions = $form->questions()->orderBy('section')->orderBy('id')->get();
         $patient=\App\Patient::where('user_id',Auth::user()->id)->first();
-
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);

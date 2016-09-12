@@ -211,7 +211,7 @@
                     <div class="service-box">
                         <img class="text-primary sr-icons .img-responsive" src="/css/img/TylerWarren1.jpg">
                         <h3>Tyler Warren</h3>
-                        <p class="text-muted">Tyler is responsible for dynamic responsiveness, styling, page customization, database design and creation, and user experience.</p>
+                        <p class="text-muted">Tyler is responsible for dynamic responsiveness, page customization, database design and creation, and javascript animation.</p>
                     </div>
                 </div>
             </div>

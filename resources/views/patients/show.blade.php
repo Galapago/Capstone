@@ -2,7 +2,7 @@
 @section('content')
 
 	<div class="form-group container-fluid col-md-8 col-md-offset-2">
-		<h2 class="text-center">PERSONAL INFORMATON</h2>
+		<h2 class="text-center">PERSONAL INFORMATION</h2>
 		<div class="row">
 		  <div class="col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-3">Name</div>
 		  <div class="col-md-4 col-md-offset-2 col-xs-4">{{ $patient->first_name }} {{$patient->last_name}}</div>
@@ -49,10 +49,6 @@
 			<div class="col-md-5 col-xs-6 col-sm-4"></div>
 		</div>
 	</div>
-
-
-
-
 <div class="form-group container-fluid col-md-8 col-md-offset-2">
 	<h2 class="form-group-header text-center">MY SUBMISSIONS</h2>
 	@include('partials.patient_account_forms')

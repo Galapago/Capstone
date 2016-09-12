@@ -2,8 +2,8 @@
 @section('content')
 <style>
 	.graph{
-		border-bottom: 1px solid grey;
-		border-top:1px solid grey;
+		border-bottom: 1px solid gray;
+		border-top:1px solid gray;
 	}
 	.content{
 		background-color:white;
