@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PatientForm extends Model
+class PatientForms extends Model
 {
     public function patients() {
     	return $this->belongsToMany(Patient::class);
