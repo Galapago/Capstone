@@ -65,9 +65,33 @@ a:hover{
 	text-align: center;
 	color: white;
 }
+
 .form-group-header {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
+.footer {
+	background-color: #29ab5f;
+	color: white;
+}
 
+.column-center{ 
+	float: left; width: 33%; 
+	text-align: center;
+	display: inline-block;
+}
+
+.column-left{ 
+	float: left; width: 33%; 
+	text-align: center;
+}
+
+.column-right{ 
+	float: right; width: 33%;
+	text-align: center; 
+}
+
+.footer-symbol {
+	color: white;
+}
