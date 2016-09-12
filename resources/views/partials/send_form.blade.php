@@ -25,6 +25,7 @@
 				</select>
 			</div>
 			<a class="btn btn-primary">Send Form</a>
+		@endforeach
 		</form>
 	</div>
 </div>
