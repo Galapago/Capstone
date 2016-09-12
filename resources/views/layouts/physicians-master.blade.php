@@ -15,7 +15,7 @@
 	        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 	    	</a>
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="">My Account</a></li>
+	    		<li><a href="{{action('PhysiciansController@show',$physician->id)}}">My Account</a></li>
 	    	</ul>
 	    </div>
 		<div class="navbar-header navbar-right">

@@ -15,7 +15,7 @@ use App\Question;
 use App\QuestionOption;
 use App\Answer;
 use App\Physician;
-use App\PatientForms;
+use App\PatientForm;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +50,7 @@ class PatientFormsController extends Controller
      */
     public function store(Request $request)
     {
-        $patient_form = new PatientForms;
+        $patient_form = new PatientForm;
 
         $user_id = Auth::user()->id;
         $physician_id = \App\Physician::where('user_id',$user_id)->first()->id;

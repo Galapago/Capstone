@@ -11,22 +11,22 @@
 </head>
 <body>
 	<nav class="navbar navbar-default">
-		<div class="container-fluid">
+	  	<div class="container-fluid">
 		    <div class="navbar-header">
-		    	<a class="navbar-brand" href="{{ action('PatientsController@show', $patient->id) }}">
+		    	<a class="navbar-brand" href="{{ action('PatientsController@show', Auth::user()->patients->id) }}">
 		        	<img alt="Galapago" src="/css/img/turtle-logo.png">
 		    	</a>
 		    	<ul class="nav navbar-nav">
-		    		<li><a href="{{ action('PatientsController@show', $patient->id) }}">GalapaGo</a></li>
+		    		<li><a href="{{ action('PatientsController@show', Auth::user()->patients->id) }}">GalapaGo</a></li>
 		    	</ul>
 		    </div>
 		    <div class="navbar-header navbar-right">
 		    	<ul class="nav navbar-nav">
-		    		<li><a href="{{ action('PatientsController@show', $patient->id) }}">My Account</a></li>
+		    		<li><a href="{{ action('PatientsController@show', Auth::user()->patients->id) }}">My Account</a></li>
 		    	</ul>
 		    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn-pad btn btn-default navbar-btn">Sign Out</button></a>
 		    </div>
-		</div>
+	  	</div>
 	</nav>
 	@if (session()->has('message'))
     	<div class="alert alert-success">{{ session('message') }}</div>

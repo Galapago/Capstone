@@ -16,7 +16,7 @@ use App\QuestionOption;
 use App\Answer;
 use App\Physician;
 use App\Patient;
-use App\PatientForms;
+use App\PatientForm;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -244,7 +244,8 @@ class PhysiciansController extends Controller
         $questionText=[];
         $questionOptions=[];
         $forms=$this->getForms();
-        $data=compact('questions','forms');
+        $physician=\App\Physician::where('user_id',Auth::user()->id)->first();
+        $data=compact('questions','forms','physician');
         return view('physicians.stats',$data);
 
     }
