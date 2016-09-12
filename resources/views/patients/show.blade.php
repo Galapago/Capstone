@@ -49,10 +49,6 @@
 			<div class="col-md-5 col-xs-6 col-sm-4"></div>
 		</div>
 	</div>
-
-
-
-
 <div class="form-group container-fluid col-md-8 col-md-offset-2">
 	<h2 class="form-group-header text-center">MY SUBMISSIONS</h2>
 	@include('partials.patient_account_forms')

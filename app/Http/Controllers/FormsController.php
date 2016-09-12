@@ -15,6 +15,7 @@ use App\QuestionOption;
 use App\Patient;
 use App\Answer;
 use App\Physician;
+use App\PatientForms;
 use Illuminate\Support\Facades\Auth;
 
 class FormsController extends Controller
