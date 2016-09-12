@@ -25,6 +25,9 @@ class FormsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('guest');
+    }
     public function index()
     {
         //
@@ -106,7 +109,7 @@ class FormsController extends Controller
         $form = Form::findOrFail($id);
 
         $questions = $form->questions()->orderBy('section')->orderBy('id')->get();
-
+        $patient=\App\Patient::where('user_id',Auth::user()->id)->first();
         if (!$form) {
             Log::info("Form with $id not found.");
             abort(404);
@@ -115,7 +118,7 @@ class FormsController extends Controller
         $answers = new Collection();
         
         // $data = compact('form', 'questions', 'id');
-        $data = compact('form', 'questions', 'id', 'answers');
+        $data = compact('form', 'questions', 'id', 'answers','patient');
         
         return view('forms.show', $data);
     }
