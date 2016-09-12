@@ -13,11 +13,17 @@
 </div>
 <div class="container">
     <div class="form-group">
+        <h3 class="header">Send Patient Form</h3>
+        @include ('partials.send_form')
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="form-group">
         <h3 class="header">Completed Patient Forms</h3>
     </div>
 	<section>
-	<h1 class="section-title">Welcome to GalapaGo!</h1>
-	<h2>Account For Dr. {{ $physician->first_name }} {{ $physician->last_name }}</h2><br>
     <div class="form-group bg-success">
         <label for="search">Search Entries</label>
         <input class="form-control" id="search">
