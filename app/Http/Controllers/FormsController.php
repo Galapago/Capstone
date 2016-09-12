@@ -41,8 +41,8 @@ class FormsController extends Controller
     public function create(Request $request)
     {
         $user_id = Auth::user()->id;
-        $physician = \App\Physician::where('user_id',$user_id)->first()->id;
-        $data = compact($physician);
+        $physician = \App\Physician::where('user_id',$user_id)->first();
+        $data = compact('physician');
         return view('physicians.create-form', $data);
     }
     public function test(Request $request){
@@ -79,11 +79,6 @@ class FormsController extends Controller
                 }
                 $questionId++;
             }
-            //Temporarily created form
-            $submission=new Submission();
-            $submission->form_id=$form->id;
-            $submission->patient_id=3;
-            $submission->save();
             $home='/physicians/'. \App\Physician::where('user_id',$request->user()->id)->first()->id;
             return redirect($home);
     }
