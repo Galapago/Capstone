@@ -11,8 +11,31 @@ select {
 .form-group{
 	text-align: center;
 }
+.form-control{
+	border: 2px solid #337ab7;
+}
 
 .header {
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+#search{
+	border: 2px solid #337ab7;
+	background-color: white;
+
+}
+
+.right-inner-addon {
+  position: relative;
+}
+
+.right-inner-addon input {
+  padding-right: 30px;
+}
+
+.right-inner-addon i {
+  position: absolute;
+  right: 0px;
+  padding: 10px 12px;
 }
