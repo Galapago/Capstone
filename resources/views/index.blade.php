@@ -73,9 +73,6 @@
                             <li><a href="/physicians/login">Physician</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="{{ action('Auth\AuthController@getRegister')}}">New User?</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -195,7 +192,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="text-primary sr-icons .img-responsive" src="/css/img/brandon-dinesman.jpg">
+                        <img class="text-primary sr-icons .img-responsive" src="/css/img/brandondinesman.jpg">
                         <h3>Brandon Dinesman</h3>
                         <p class="text-muted">GalapaGo is Brandon's brainchild. He takes on back-end customization, data manipulation, styling, planning, and general direction.</p>
                     </div>

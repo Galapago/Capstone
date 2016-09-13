@@ -1,5 +1,4 @@
 @extends('layouts.patients-master')
-
 @section('content')
 
 	<div class="form-group col-md-8 col-md-offset-2">
@@ -70,13 +69,14 @@
 			<div class="col-md-5 col-xs-6 col-sm-4"></div>
 		</div>
 	</div>
-	<div class="form-group container-fluid col-md-8 col-md-offset-2">
-		<h2 class="form-group-header text-center">MY FORMS</h2>
-		@include('partials.incomplete_patient_forms')
-	</div>
-	<div class="form-group container-fluid col-md-8 col-md-offset-2">
-		<h2 class="form-group-header text-center" id="submissions-header">MY SUBMISSIONS</h2>
-		@include('partials.patient_account_forms')
-	</div>
+<div class="form-group container-fluid col-md-8 col-md-offset-2">
+	<h2 class="form-group-header text-center">MY FORMS</h2>
+	@include('partials.incomplete_patient_forms')
+</div>
+<div class="form-group container-fluid col-md-8 col-md-offset-2" id="last-form">
+	<h2 class="form-group-header text-center" id="submissions-header">MY SUBMISSIONS</h2>
+	@include('partials.patient_account_forms')
+</div>
+@include('partials.patient_footer')
 
 @stop

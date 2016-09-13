@@ -32,7 +32,7 @@ a:hover{
 }
 
 .row {
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 .form-group{
 
@@ -49,8 +49,8 @@ a:hover{
 	margin-bottom: 30px;
 }
 
-.form-group:last-child {
-	margin-bottom: 80px !important;
+#last-form{
+	margin-bottom: 80px;
 }
 
 .btn{
@@ -72,8 +72,8 @@ a:hover{
 }
 
 .form-group-header {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .footer {
