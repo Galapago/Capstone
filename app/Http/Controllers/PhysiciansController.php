@@ -76,7 +76,7 @@ class PhysiciansController extends Controller
             $NTE.="$NTEContent";
         }
 
-        $data=compact('MSH','EVN','PID','NKI','NTE,physician');
+        $data=compact('MSH','EVN','PID','NKI','NTE','physician');
         $HL7="$MSH$EVN$PID$NKI$NTE";
         return view('physicians.HL7')->with($data);
     }
