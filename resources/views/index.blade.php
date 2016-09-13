@@ -73,9 +73,6 @@
                             <li><a href="/physicians/login">Physician</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="{{ action('Auth\AuthController@getRegister')}}">New User?</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
