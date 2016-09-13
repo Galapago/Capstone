@@ -19,6 +19,10 @@ body {
 	background-color: white;
 }
 
+fieldset {
+	margin-bottom: 100px !important;
+}
+
 .edit-header {
 	margin: auto;
     width: 75%;
@@ -89,7 +93,7 @@ body {
 /*buttons*/
 #msform .action-button {
 	width: 100px;
-	background: #168744;
+	background: #29ab5f;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -198,7 +202,7 @@ body {
 }
 
 #back-account{
-	background: #168744;
+	background: #29ab5f;
 	font-weight: bold;
 	color: white;
 	border: 0 none;

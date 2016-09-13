@@ -13,7 +13,7 @@
 		<div class="edit-header">
 			<h1 class="section-title">Edit Your Information</h1>
 			<br>
-			<a href="{{ action('PatientsController@show', $patient->id) }}" id="back-account" class="btn text-center">Back to Patient Account</a>
+			<a href="{{ action('PatientsController@show', $patient->id) }}" id="back-account" class="btn action-button">Back to Patient Account</a>
 		</div>
 		<form id="msform" method="POST" action="{{ action('PatientsController@update', $patient->id) }}">
 		{!! csrf_field() !!}
@@ -140,7 +140,7 @@
 				</div>
 				@include('partials.error', ['field' => 'health_insurance'])
 
-				<button type="submit" class="action-button">SAVE</button>
+				<button type="submit" class="btn action-button">SAVE</button>
 			</fieldset>
 		</form>
 	</section>

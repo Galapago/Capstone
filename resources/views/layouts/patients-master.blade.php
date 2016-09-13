@@ -24,7 +24,7 @@
 		    	<ul class="nav navbar-nav">
 		    		<li><a href="{{ action('PatientsController@show', Auth::user()->patients->id) }}">My Account</a></li>
 		    	</ul>
-		    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn-pad btn btn-default navbar-btn">Sign Out</button></a>
+		    	<a href="{{action('CustomAuth@logout')}}"><button type="button" class="btn-pad btn navbar-btn">Sign Out</button></a>
 		    </div>
 	  	</div>
 	</nav>

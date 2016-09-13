@@ -66,7 +66,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-5 col-xs-6 col-sm-4"></div>
-			<a class="btn btn-primary col-md-2 col-xs-6 col-sm-4" href="{{ action('PatientsController@edit', $patient->id) }}">Edit Personal</a>
+			<a class="action-btn btn btn-primary col-md-2 col-xs-6 col-sm-4" href="{{ action('PatientsController@edit', $patient->id) }}">Edit Personal</a>
 			<div class="col-md-5 col-xs-6 col-sm-4"></div>
 		</div>
 	</div>

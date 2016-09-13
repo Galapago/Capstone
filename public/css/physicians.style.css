@@ -39,3 +39,28 @@ select {
   right: 0px;
   padding: 10px 12px;
 }
+
+.footer {
+	background-color: #337ab7;
+	color: white;
+}	
+
+.column-center{ 
+	float: left; width: 33%; 
+	text-align: center;
+	display: inline-block;
+}
+
+.column-left{ 
+	float: left; width: 33%; 
+	text-align: center;
+}
+
+.column-right{ 
+	float: right; width: 33%;
+	text-align: center; 
+}
+
+.footer-symbol {
+	color: white;
+}
