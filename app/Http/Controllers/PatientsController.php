@@ -144,6 +144,13 @@ class PatientsController extends Controller
         $patient->user->username = $request->input('username');
         $patient->user->email = $request->input('email');
         $patient->user->save();
+        $patient->last_name = $request->input('last-name');
+        $patient->phone = $request->input('phone');
+        $patient->street_address = $request->input('street-address');
+        $patient->apt_ste = $request->input('apt/ste');
+        $patient->city = $request->input('city');
+        $patient->state = $request->input('state');
+        $patient->zip_code = $request->input('zip-code');
         $patient->emergency_contact_name = $request->input('emergency_contact_name');
         $patient->emergency_contact_number = $request->input('emergency_contact_number');
         $patient->emergency_contact_email = $request->input('emergency_contact_email');
