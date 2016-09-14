@@ -39,7 +39,7 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
     $health_insurance=['UnitedHealth','Kaiser Foundation','Wellpoint Inc.','Aetna','Humana','HCSC','Cigna Health','Highmark','BlueCross BlueShield','Centene Corp','Welfare','HIP','Medicare','Medicaid','Other'];
     $medication=['Abilify','Nexium','Humira','Crestor','Advair Diskus','Enbrel','Remicade','Cymbalta','Copaxone'.'Neulasta','Lantus Solostar','Rituxan','Spiriva Handihaler','Januvia','Atripla','Lantus','Avastin','Lyrica','Oxycontin','Epogen'];
     return [
-        'user_id' => App\User::all()->random()->id,
+        'user_id' => mt_rand(4,1000),
         'physician_id' => App\Physician::all()->random()->id,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
