@@ -21,7 +21,7 @@
 	    		<li><a href="#" class="generalItem" data-id="5">Weight</a></li>
 	    		<li><a href="#" class="generalItem" data-id="4">Sex</a></li>
 	    		<li><a href="#" class="generalItem" data-id="3">Race</a></li>
-	    		<li><a href="#" class="generalItem" data-id="2">Medicaion</a></li>
+	    		<li><a href="#" class="generalItem" data-id="2">Medication</a></li>
 	    		<li><a href="#" class="generalItem" data-id="1">Health Insurance</a></li>
 			</ul>
 		</div>
