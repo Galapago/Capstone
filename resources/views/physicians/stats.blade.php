@@ -15,7 +15,7 @@
 	<div class="panel-body">
 		<div clas="btn-group">
 		<div class="dropdown btn-group">
-			<button class="btn btn-primary dropdown-toggle" type="button" id="general" data-toggle="dropdown" aria-toggle="dropdown" aria-haspopup="true">Gneral Demographics<span class="caret"></span></button>
+			<button class="btn btn-primary dropdown-toggle" type="button" id="general" data-toggle="dropdown" aria-toggle="dropdown" aria-haspopup="true">General Demographics<span class="caret"></span></button>
 			<ul class="dropdown-menu general" aria-labelledby="general">
 				<li><a href="#" class="generalItem"data-id="0">Height</a></li>
 	    		<li><a href="#" class="generalItem" data-id="5">Weight</a></li>
